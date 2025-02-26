@@ -22,12 +22,15 @@ def navigate_to_md():
     while(not common.match_image("pictures/general/MD.png")): #This is due to a bug with PM's menu where sometimes the click doesnt register if its too fast
         common.click_matching("pictures/general/window.png")
         common.click_matching("pictures/general/drive.png")
-        common.sleep(1)
+        common.sleep(0.5)
     common.click_matching("pictures/general/MD.png")
 
 def md_setup():
-    refill_enkephalin()
-    navigate_to_md()
+    if common.match_image("pictures/mirror/general/md.png"):
+        return
+    else:
+        refill_enkephalin()
+        navigate_to_md()
 
 def squad_order(status):
     """Returns a list of the image locations depending on the sinner order specified in the json file"""
@@ -56,20 +59,24 @@ def squad_order(status):
         sinner_order.append(common.uniform_scale_coordinates(x,y))
     return sinner_order
 
-def check_loading():
-    """Checks for Loading Screens"""
-    common.sleep(2) #Handles fade to black
-    logger.info("Loading")
-    while(common.match_image("pictures/general/loading.png")): #checks for loading screen bar
-        common.sleep(0.5) #handles the remaining loading
+#Loading Functions
+def loading(): #use this if you expect the loading screeen without any delay
+    while common.match_image("pictures/general/loading.png"): #Checks for loading screen to end the while loop
+        common.sleep(0.5)
 
-def transition_loading():
-    """Theres a load that occurs while transitioning to the next floor"""
+def delay_load(seconds):
+    """Handles the loading screen transitions"""
+    common.sleep(seconds) #Handles fade to black
+    logger.info("Loading")
+    loading()
+
+def floor_transition_loading():
+    """Handles the load that happens when moving to the next floors"""
     logger.info("Moving to Next Floor")
     common.sleep(5)
 
 def post_run_load():
-    """There is some oddity in the loading time for this that makes it annoying to measure so this is a blanket wait for main menu stall"""
+    """After finishing a run, wait for the main menu to load"""
     while(not common.match_image("pictures/general/module.png")):
         common.sleep(1)
     logger.info("Loaded back to Main Menu")
@@ -84,23 +91,22 @@ def reconnect():
         logger.info("COULD NOT RECONNECT TO THE SERVER. SHUTTING DOWN!")
         os._exit(0)
 
+# Battle and Event Functions
 def battle():
     """Handles battles by mashing winrate, also handles skill checks and end of battle loading"""
     logger.info("Starting Battle")
     battle_finished = 0
     while(battle_finished != 1):
-        while(common.match_image("pictures/battle/in_progress.png")):
-            common.sleep(1)
-        if common.match_image("pictures/general/loading.png"): #Checks for loading screen to end the while loop
+        if common.match_image("pictures/general/loading.png"):
             common.mouse_up()
-            check_loading()
+            loading()
             battle_finished = 1
         elif common.match_image("pictures/events/skip.png"): #Checks for special battle skill checks prompt then calls skill check functions
             common.mouse_up()
             while(True):
-                common.click_skip(1)
+                common.click_skip(8)
                 if common.match_image("pictures/mirror/general/event.png"):
-                    battle_check()
+                    battle_event_check()
                     break
                 if common.match_image("pictures/events/skill_check.png"):
                     skill_check()
@@ -113,6 +119,8 @@ def battle():
             ego_check()
             common.key_press("enter") #Battle Start key
             common.mouse_down()
+            while(common.match_image("pictures/battle/in_progress.png")): # sleep until finished
+                common.sleep(2)
 
 
 def ego_check():
@@ -158,36 +166,28 @@ def ego_check():
         common.key_press("p") #Back to winrate
     return
     
-def battle_check(): #pink shoes, woppily, doomsday clock
+def battle_event_check():
     logger.info("Battle Event Check")
     common.sleep(1)
     if match := common.match_image("pictures/battle/investigate.png"): #Woppily
-        logger.debug("WOPPILY")
+        logger.info("Woppily Part 1")
         common.click_matching_coords(match)
         common.wait_skip("pictures/events/continue.png")
-        return 0
         
     elif match := common.match_image("pictures/battle/NO.png"): #Woppily
-        logger.info("WOPPILY PT2")
+        logger.info("Woppily Part 2")
+        common.click_matching_coords(match)
         for i in range(3):
-            common.click_matching_coords(match)
-            common.mouse_move_click(common.scale_x(1193),common.scale_y(623))
-            while(not common.match_image("pictures/events/proceed.png")):
-                if found := common.match_image("pictures/events/continue.png"):
-                    common.click_matching_coords(found)
-                    return 0
-                common.mouse_click()
-            common.click_matching("pictures/events/proceed.png")
-            common.mouse_move_click(common.scale_x(1193),common.scale_y(623))
-            while(not common.match_image("pictures/battle/NO.png")):
-                common.mouse_click()
+            if i == 2: # Finished the Prompt thrice
+                common.wait_skip("pictures/events/continue.png")
+            common.wait_skip("pictures/events/proceed.png")
+            common.wait_skip("pictures/battle/NO.png")
 
     elif match := common.match_image("pictures/battle/refuse.png"): # Pink Shoes
         logger.info("PINK SHOES")
         common.click_matching_coords(match)
         common.wait_skip("pictures/events/proceed.png")
         skill_check()
-        return 0
     
     elif common.match_image("pictures/battle/shield_passive.png"): #Hohenheim
         logger.info("Hohenheim")
@@ -204,37 +204,29 @@ def battle_check(): #pink shoes, woppily, doomsday clock
             else:
                 break
         common.wait_skip("pictures/events/continue.png")
-        return 0
     
     elif common.match_image("pictures/battle/offer_sinner.png"): #Doomsday Clock
-        logger.info("DOOMSDAY CLOCK")
-        found = common.match_image("pictures/battle/offer_clay.png")
-        if found:
+        logger.info("Doomsday Clock")
+        if found := common.match_image("pictures/battle/offer_clay.png"):
             x,y = common.random_choice(found)
             logger.info("Found Clay Option")
             logger.debug(common.luminence(x,y-common.uniform_scale_single(72)))
             if common.luminence(x,y-common.uniform_scale_single(72)) < 195:
                 logger.info("Offer Clay")
-                common.click_matching("pictures/battle/offer_clay.png")
+                common.click_matching_coords(found)
                 common.wait_skip("pictures/events/continue.png")
-                return 0
-
+                return
+            
         logger.info("Using Sinner")
         common.click_matching("pictures/battle/offer_sinner.png")
         common.wait_skip("pictures/events/proceed.png")
         skill_check()
-        return 0
 
     elif match := common.match_image("pictures/battle/hug_bear.png"):
-        logger.info("TEDDY BEAR")
+        logger.info("Teddy Bear")
         common.click_matching_coords(match)
-        while(not common.match_image("pictures/events/proceed.png")):
-            common.sleep(0.5)
-        common.click_matching("pictures/events/proceed.png")
+        common.wait_skip("pictures/events/proceed.png")
         skill_check()
-        return 0
-
-    return 1
 
 def skill_check():
     """Handles Skill checks in the game"""
@@ -249,14 +241,15 @@ def skill_check():
     
     common.wait_skip("pictures/events/skill_check.png")
     common.sleep(1) #for the full list to render
-    for i in check_images: #Choose the highest to pass check
-        if common.match_image(i,0.9):
-            common.click_matching(i)
+    for image in check_images: #Choose the highest to pass check
+        if common.match_image(image,0.9):
+            common.click_matching(image,0.9)
             logger.info("Selected Sinner for skill check")
             break
 
     common.click_matching("pictures/events/commence.png")
-    common.sleep(3) #Waits for coin tosses
+    while not common.match_image("pictures/events/check_passed.png") and not common.match_image("pictures/events/check_failed.png"):
+        common.sleep(0.5)
     logger.info("Coin tosses finished")
     common.mouse_move_click(common.scale_x(1193),common.scale_y(623))
     while(True):
@@ -282,4 +275,4 @@ def skill_check():
         common.sleep(1) #in the event of ego gifts
         if common.match_image("pictures/mirror/general/ego_gift_get.png"):
             common.click_matching("pictures/general/confirm_b.png")
-            logger.info("DEBUG: EGO Gift prompt")
+            logger.info("Gained E.G.O Gift")

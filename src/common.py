@@ -252,7 +252,8 @@ def click_matching(image_path, threshold=0.8):
     if found:= match_image(image_path,threshold):
         click_matching_coords(found)
     else:
-        raise RuntimeError (f"Could not find {image_path} on screen")
+        mouse_move(100,100)
+        click_matching(image_path,threshold)
     
 def click_matching_coords(found):
     """This is used for the := image checks rather than running match_image again like click matching"""

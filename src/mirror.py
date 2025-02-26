@@ -40,13 +40,13 @@ class Mirror:
         self.logger.info("Mirror Dungeon Squad Select")
         status = mirror_utils.squad_choice(self.status)
         if status is None:
-            self.logger.debug("Invalid Status - defaulting to poise")
+            self.logger.info("Invalid Status - defaulting to poise")
             common.key_press("enter")
             self.status = "poise"
             while(not common.match_image("pictures/mirror/grace/grace_menu.png")): #added check for default state
                 common.sleep(0.5) #Transitional to Grace of Dreams
             return
-        
+        common.sleep(1)
         if match := common.match_image(status): #checks if current team is in view and click if so
             common.click_matching_coords(match)
         else:
@@ -114,7 +114,7 @@ class Mirror:
         while (not common.match_image("pictures/mirror/general/ego_gift_get.png")): #handles the ego gift get
             common.sleep(0.1)
         common.key_press("enter")
-        core.check_loading()
+        core.delay_load(1.5)
         
     def setup(self):
         while(not common.match_image("pictures/mirror/general/md_enter.png")):
@@ -130,7 +130,7 @@ class Mirror:
         elif match := common.match_image("pictures/general/resume.png"): #check if md is in progress
             common.click_matching_coords(match)
             self.logger.info("Resuming Run")
-            core.check_loading()
+            core.delay_load(1.5)
             
         elif common.match_image("pictures/mirror/general/explore_reward.png"):
             self.logger.info("Completed Run Detected")
@@ -166,7 +166,7 @@ class Mirror:
     #Pack Related Functions
     def exclusion_detection(self,floor):
         """Detects an excluded pack"""
-        detected = 0
+        detected = False
         if floor == "f1" or floor == "f2" or floor == "f3":
             return detected
         if floor == "f4":
@@ -180,7 +180,7 @@ class Mirror:
                          "pictures/mirror/packs/f5/lust.png"]
             
         detected = any(common.match_image(i) for i in exclusion) #use 0.75 if current has issues
-        return int(detected)
+        return detected
 
     def pack_list(self,floor, threshold=0.8):
         with open("config/" + floor + ".txt", "r") as f:
@@ -197,12 +197,12 @@ class Mirror:
                 self.logger.debug(found)
                 if pack_image == "pictures/mirror/packs/status/pierce_pack.png":
                     found = [x for x in found if x[1] > common.scale_y(1092)] #Removes pierce misdetection on hard toggle
-                if common.match_image("pictures/mirror/packs/status/owned.png"):
-                    owned_found = common.match_image("pictures/mirror/packs/status/owned.png")
-                    owned_check = common.proximity_check(found,owned_found,50)
+                if match := common.match_image("pictures/mirror/packs/status/owned.png"):
+                    #owned_found = common.match_image("pictures/mirror/packs/status/owned.png")
+                    owned_check = common.proximity_check(found,match,50)
                     if owned_check:
-                        self.logger.info("Found Owned Gifts in Pack rewards - filtering")
                         if len(found) > len(owned_check):
+                            self.logger.info("Found Owned Gifts in Pack rewards - filtering")
                             for i in owned_check:
                                 found.remove(i)
             x,y = common.random_choice(found)
@@ -258,7 +258,7 @@ class Mirror:
     def squad_select(self):
         """Selects sinners in squad order"""
         self.logger.info("Selecting Squad for Battle")
-        if not self.squad_set or not common.match_image("pictures/squads/full_squad.png"):
+        if not self.squad_set or not common.match_image("pictures/squads/full_squad.png"): #This is so that we dont need to reset every time
             common.click_matching("pictures/battle/clear.png")
             if match := common.match_image("pictures/general/confirm_w.png"):
                 common.click_matching_coords(match)
@@ -285,7 +285,7 @@ class Mirror:
 
         common.key_press("enter")
         while (not common.match_image("pictures/mirror/general/ego_gift_get.png")): #handles the ego gift get
-            common.sleep(0.1)
+            common.sleep(0.5)
         common.key_press("enter")
 
     def encounter_reward_select(self):
@@ -420,7 +420,6 @@ class Mirror:
         status_picture = mirror_utils.fusion_choice(self.status)
         while not common.match_image("pictures/mirror/restshop/fusion/keyword_menu.png"):
             common.sleep(0.5)
-        common.sleep(0.5)
         common.click_matching(status_picture)
         common.click_matching("pictures/general/confirm_b.png")
         self.logger.info("FUSION: Sorting Gifts")
@@ -503,8 +502,7 @@ class Mirror:
             common.click_matching("pictures/mirror/restshop/heal.png")
             common.click_matching("pictures/mirror/restshop/heal_all.png")
             self.logger.info("Restshop: Healed all sinners")
-            while not common.match_image("pictures/mirror/restshop/return.png"):
-                common.sleep(0.5)
+            common.sleep(1)
             common.click_matching("pictures/mirror/restshop/return.png")
 
             #ENHANCING
@@ -518,9 +516,6 @@ class Mirror:
                 for i in range(5):
                     common.mouse_scroll(1000)
             self.enhance_gifts(status)
-            if match:= common.match_image("pictures/mirror/restshop/close.png"):
-                self.logger.info("Restshop: Finished Enhancing Gifts")
-                common.click_matching_coords(match)
 
             #BUYING
             self.logger.info("Restshop: Purchasing Gifts")
@@ -588,6 +583,7 @@ class Mirror:
                 elif match := common.match_image("pictures/mirror/restshop/enhance/confirm.png"):
                     self.logger.debug("Restshop: E.G.O status gift upgraded")
                     common.click_matching_coords(match)
+                    common.sleep(1)
 
     def enhance_gifts(self,status):
         """Enhancement gift process"""
@@ -613,9 +609,15 @@ class Mirror:
                 common.click_matching_coords(match)
                 for k in range(5):
                     common.mouse_scroll(-1000)
+                common.sleep(1)
 
             if not gifts:
                 break
+        
+        if match:= common.match_image("pictures/mirror/restshop/close.png"):
+            self.logger.info("Restshop: Finished Enhancing Gifts")
+            common.click_matching_coords(match)
+        
 
     def event_choice(self):
         self.logger.info("Event")
@@ -703,9 +705,6 @@ class Mirror:
 
         elif match := common.match_image("pictures/events/continue.png"):
             common.click_matching_coords(match)
-
-        elif not core.battle_check():
-            core.battle()
 
     def victory(self):
         self.logger.info("Run Won")

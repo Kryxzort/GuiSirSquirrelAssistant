@@ -12,7 +12,7 @@ connection_event = threading.Event()
     
 def update():
     r = requests.get("https://api.github.com/repos/Samsterr/SirSquirrelAssistant/releases/latest")
-    tag = "1.0.5.0"
+    tag = "1.0.5.0.2"
     r_tag = r.json()["tag_name"]
     if r_tag != tag:
         print("A New Version is Available! Downloading it to your current folder")

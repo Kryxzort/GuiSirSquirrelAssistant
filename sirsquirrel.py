@@ -5,14 +5,14 @@ import threading
 import requests
 import keyboard  # Import the keyboard module
 from src import mirror
-from src.core import reconnect,md_setup
+from src.core import md_setup
 from src.common import error_screenshot, match_image
 
 connection_event = threading.Event()
     
 def update():
     r = requests.get("https://api.github.com/repos/Samsterr/SirSquirrelAssistant/releases/latest")
-    tag = "1.0.5.0.2"
+    tag = "1.0.5.0.3"
     r_tag = r.json()["tag_name"]
     if r_tag != tag:
         print("A New Version is Available! Downloading it to your current folder")
@@ -55,13 +55,7 @@ def mirror_dungeon(run_count, logger):
             MD.setup()
             while(not run_complete):
                 if connection_event.is_set():
-                    run_complete = MD.mirror_loop()
-                if match_image("pictures/general/server_error.png"):
-                    connection_event.clear()
-                    logger.debug("Disconnected, Pausing")
-                    reconnect()
-                    logger.debug("Reconnected, Resuming")
-                    connection_event.set()    
+                    run_complete = MD.mirror_loop()    
             num_runs += 1   
     except Exception as e:
         error_screenshot()

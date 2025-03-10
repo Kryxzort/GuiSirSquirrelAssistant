@@ -130,7 +130,7 @@ class Mirror:
         elif match := common.match_image("pictures/general/resume.png"): #check if md is in progress
             common.click_matching_coords(match)
             self.logger.info("Resuming Run")
-            core.delay_load(1.5)
+            core.delay_load(2)
             
         elif common.match_image("pictures/mirror/general/explore_reward.png"):
             self.logger.info("Completed Run Detected")
@@ -208,7 +208,7 @@ class Mirror:
             x,y = common.random_choice(found)
             common.mouse_move(x,y-common.uniform_scale_single(350))
             common.mouse_drag(x,y)
-            core.transition_loading()
+            core.floor_transition_loading()
             return
 
     def pack_selection(self):
@@ -502,8 +502,10 @@ class Mirror:
             common.click_matching("pictures/mirror/restshop/heal.png")
             common.click_matching("pictures/mirror/restshop/heal_all.png")
             self.logger.info("Restshop: Healed all sinners")
-            common.sleep(1)
-            common.click_matching("pictures/mirror/restshop/return.png")
+            while(common.match_image("pictures/mirror/restshop/return.png")): #This is apparently an issue with the return button in MD being not responsive
+                common.click_matching("pictures/mirror/restshop/return.png")
+                common.mouse_move(200,200)
+                common.sleep(0.5)
 
             #ENHANCING
             status = mirror_utils.enhance_gift_choice(self.status)
@@ -806,5 +808,8 @@ class Mirror:
             found = common.match_image("pictures/mirror/general/event_select.png")
             common.click_matching_coords(found)
             common.click_matching("pictures/general/confirm_b.png")
+        
+        elif common.match_image("pictures/general/server_error.png"):
+            core.reconnect()
 
         return self.check_run()

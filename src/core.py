@@ -111,6 +111,9 @@ def battle():
                 if common.match_image("pictures/events/skill_check.png"):
                     skill_check()
                     break
+        elif common.match_image("pictures/battle/detail_view.png"):
+            common.key_press("escape")
+            
         elif common.match_image("pictures/battle/winrate.png"):
             common.mouse_up()
             x,y = common.uniform_scale_coordinates(2165,1343)
@@ -180,6 +183,7 @@ def battle_event_check():
         for i in range(3):
             if i == 2: # Finished the Prompt thrice
                 common.wait_skip("pictures/events/continue.png")
+                return
             common.wait_skip("pictures/events/proceed.png")
             common.wait_skip("pictures/battle/NO.png")
 
@@ -211,7 +215,7 @@ def battle_event_check():
             x,y = common.random_choice(found)
             logger.info("Found Clay Option")
             logger.debug(common.luminence(x,y-common.uniform_scale_single(72)))
-            if common.luminence(x,y-common.uniform_scale_single(72)) < 195:
+            if common.luminence(x,y-common.uniform_scale_single(72)) < 209:
                 logger.info("Offer Clay")
                 common.click_matching_coords(found)
                 common.wait_skip("pictures/events/continue.png")

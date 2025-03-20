@@ -79,7 +79,7 @@ class Mirror:
     def grace_of_stars(self):
         """Selects grace of stars blessings for the runs"""
         self.logger.info("Grace of Stars")
-        graces = [(925,890),(1300,890),(1300,445),(1675,445),(550,445)] #Levels, Stats Up, Theme Packs, Cost+Gift, Generalist Gift
+        graces = [(1300,445),(925,890),(1300,890),(1675,445),(550,445)] #Levels, Stats Up, Theme Packs, Cost+Gift, Generalist Gift
         for x,y in graces:
             common.mouse_move_click(common.scale_x(x),common.scale_y(y))
         common.click_matching("pictures/mirror/general/enter_b.png")

@@ -150,6 +150,57 @@ def greyscale_match_image(template_path, threshold=0.8):
 
     locations = np.where(result >= threshold)
     boxes = []
+    
+    # Loop through all the matching locations and create bounding boxes
+    for pt in zip(*locations[::-1]):  # Switch columns and rows
+        top_left = pt
+        bottom_right = (top_left[0] + template_width, top_left[1] + template_height)
+        boxes.append([top_left[0], top_left[1], bottom_right[0], bottom_right[1]])
+        
+
+    boxes = np.array(boxes)
+
+    # Apply non-maximum suppression to remove overlapping boxes
+    filtered_boxes = non_max_suppression_fast(boxes)
+
+    # List to hold the center coordinates of all filtered elements
+    found_elements = []
+    
+    #Get Matches
+    for (x1, y1, x2, y2) in filtered_boxes:
+        center_x = (x1 + x2) // 2
+        center_y = (y1 + y2) // 2
+        found_elements.append((center_x, center_y))
+    
+    return sorted(found_elements) if found_elements else []
+
+def debug_grey_match_image(template_path, threshold=0.8):
+    """Same as match image but draws rectangles around the found image"""
+    template = cv2.imread(template_path, cv2.IMREAD_GRAYSCALE)
+    if template is None:
+        raise FileNotFoundError(f"Template image '{template_path}' not found.")
+
+    # Capture current screen and get dimensions
+    screenshot = capture_screen()
+    screenshot_height, screenshot_width = screenshot.shape[:2]
+    screenshot = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
+    
+    # Scale only if width & height doesnt match
+    if screenshot_width != 2560 and screenshot_height != 1440:
+        # Calculate scale factor  
+        scale_factor_x = screenshot_width / 2560
+        scale_factor_y = screenshot_height / 1440
+        scale_factor = min(scale_factor_x,scale_factor_y)
+        # Load and resize the template image according to the scale factor
+        template = cv2.resize(template, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_LINEAR)
+        if scale_factor < 0.75:
+            threshold = threshold-0.05
+    
+    template_height, template_width = template.shape[:2]
+    result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
+
+    locations = np.where(result >= threshold)
+    boxes = []
 
     # Loop through all the matching locations and create bounding boxes
     for pt in zip(*locations[::-1]):  # Switch columns and rows
@@ -170,8 +221,16 @@ def greyscale_match_image(template_path, threshold=0.8):
         center_x = (x1 + x2) // 2
         center_y = (y1 + y2) // 2
         found_elements.append((center_x, center_y))
-    
-    return sorted(found_elements) if found_elements else []
+        
+        # Draw rectangle around the match
+        cv2.rectangle(screenshot, (x1, y1), (x2, y2), color=(0, 255, 0), thickness=2)
+
+    # Show the screenshot with rectangles for immediate feedback
+    cv2.imshow("Matches", screenshot)
+    cv2.waitKey(0)  # Wait for a key press to close the window
+    cv2.destroyAllWindows()
+
+    return found_elements if found_elements else None
 
 def debug_match_image(template_path, threshold=0.8):
     """Same as match image but draws rectangles around the found image"""

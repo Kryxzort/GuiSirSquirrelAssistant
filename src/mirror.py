@@ -321,7 +321,7 @@ class Mirror:
             non_exist[0] = 0
         if not middle:
             non_exist[1] = 0
-        if not bottom and bottom_alt:
+        if not bottom and not bottom_alt:
             non_exist[2] = 0
 
         nodes = [y for y, exists in zip(nodes, non_exist) if exists != 0]

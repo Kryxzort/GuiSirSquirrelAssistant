@@ -234,10 +234,12 @@ class Mirror:
         common.sleep(2)
         if found := common.match_image("pictures/mirror/general/refresh.png"):
             x,y = common.random_choice(found)
+            refresh_flag = common.luminence(x,y) < 70 
         
-        refresh_flag = common.luminence(x,y) < 70 
+        if floor=="f5" and common.match_image("pictures/mirror/packs/f5/nocturnal.png"):
+            self.choose_pack("pictures/mirror/packs/f5/nocturnal.png")
 
-        if self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
+        elif self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
             self.logger.info("Pack exclusion detected, refreshing")
             common.click_matching("pictures/mirror/general/refresh.png")
             common.mouse_move(200,200)
@@ -502,7 +504,7 @@ class Mirror:
             common.click_matching("pictures/mirror/restshop/heal.png")
             common.click_matching("pictures/mirror/restshop/heal_all.png")
             self.logger.info("Restshop: Healed all sinners")
-            while(common.match_image("pictures/mirror/restshop/return.png")): #This is apparently an issue with the return button in MD being not responsive
+            while(not common.match_image("pictures/mirror/restshop/shop.png")): #This is apparently an issue with the return button in MD being not responsive
                 common.click_matching("pictures/mirror/restshop/return.png")
                 common.mouse_move(200,200)
                 common.sleep(0.5)

@@ -12,7 +12,7 @@ connection_event = threading.Event()
     
 def update():
     r = requests.get("https://api.github.com/repos/Samsterr/SirSquirrelAssistant/releases/latest")
-    tag = "1.0.5.0.3"
+    tag = "1.0.5.1"
     r_tag = r.json()["tag_name"]
     if r_tag != tag:
         print("A New Version is Available! Downloading it to your current folder")
@@ -20,7 +20,6 @@ def update():
         with open("sirsquirrel.7z", "wb") as f:
             f.write(r.content)
         print("Download Completed. Please look for the 7z and update as per usual before continuing")
-        os._exit(0)
 
 def exit_program():
     print("\nHotkey pressed. Exiting the program...")
@@ -71,10 +70,9 @@ def main():
     )
     logger = logging.getLogger(__name__)
     parser = argparse.ArgumentParser()
-    update()
     parser.add_argument("RunCount", help="How many times you want to run Mirror Dungeons", type=int)
     args = parser.parse_args()
-
+    update()
     connection_event.set()
     exit_listener_thread = threading.Thread(target=exit_listener, daemon=True)
     exit_listener_thread.start()

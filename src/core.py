@@ -264,6 +264,10 @@ def skill_check():
         if match := common.match_image("pictures/events/continue.png"):
             common.click_matching_coords(match)
             break
+        if match := common.match_image("pictures/events/commence_battle.png"):
+            common.click_matching(match)
+            logger.info("Check Failed, Commencing Battle")
+            return
     logger.info("Finished Skill check")
 
     if common.match_image("pictures/events/skip.png"):

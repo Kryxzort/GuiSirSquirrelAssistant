@@ -314,12 +314,14 @@ class Mirror:
     def check_nodes(self,nodes):
         non_exist = [1,1,1]
         top = common.greyscale_match_image("pictures/mirror/general/node_1.png")
+        top_alt = common.greyscale_match_image("pictures/mirror/general/node_1_o.png")
         middle = common.greyscale_match_image("pictures/mirror/general/node_2.png")
+        middle_alt = common.greyscale_match_image("pictures/mirror/general/node_2_o.png")
         bottom = common.greyscale_match_image("pictures/mirror/general/node_3_o.png")
         bottom_alt = common.greyscale_match_image("pictures/mirror/general/node_3.png")
-        if not top:
+        if not top and not top_alt:
             non_exist[0] = 0
-        if not middle:
+        if not middle and not middle_alt:
             non_exist[1] = 0
         if not bottom and not bottom_alt:
             non_exist[2] = 0

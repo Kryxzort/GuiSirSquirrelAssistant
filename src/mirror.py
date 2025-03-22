@@ -236,10 +236,10 @@ class Mirror:
             x,y = common.random_choice(found)
             refresh_flag = common.luminence(x,y) < 70 
         
-        #if floor=="f5" and common.match_image("pictures/mirror/packs/f5/nocturnal.png"):
-        #    self.choose_pack("pictures/mirror/packs/f5/nocturnal.png")
+        if floor=="f5" and common.match_image("pictures/mirror/packs/f5/nocturnal.png"):
+            self.choose_pack("pictures/mirror/packs/f5/nocturnal.png")
 
-        if self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
+        elif self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
             self.logger.info("Pack exclusion detected, refreshing")
             common.click_matching("pictures/mirror/general/refresh.png")
             common.mouse_move(200,200)
@@ -313,12 +313,12 @@ class Mirror:
 
     def check_nodes(self,nodes):
         non_exist = [1,1,1]
-        top = common.greyscale_match_image("pictures/mirror/general/node_1.png")
-        top_alt = common.greyscale_match_image("pictures/mirror/general/node_1_o.png")
-        middle = common.greyscale_match_image("pictures/mirror/general/node_2.png")
-        middle_alt = common.greyscale_match_image("pictures/mirror/general/node_2_o.png")
-        bottom = common.greyscale_match_image("pictures/mirror/general/node_3_o.png")
-        bottom_alt = common.greyscale_match_image("pictures/mirror/general/node_3.png")
+        top = common.greyscale_match_image("pictures/mirror/general/node_1.png",0.75)
+        top_alt = common.greyscale_match_image("pictures/mirror/general/node_1_o.png",0.75)
+        middle = common.greyscale_match_image("pictures/mirror/general/node_2.png",0.75)
+        middle_alt = common.greyscale_match_image("pictures/mirror/general/node_2_o.png",0.75)
+        bottom = common.greyscale_match_image("pictures/mirror/general/node_3_o.png",0.75)
+        bottom_alt = common.greyscale_match_image("pictures/mirror/general/node_3.png",0.75)
         if not top and not top_alt:
             non_exist[0] = 0
         if not middle and not middle_alt:

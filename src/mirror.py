@@ -236,10 +236,10 @@ class Mirror:
             x,y = common.random_choice(found)
             refresh_flag = common.luminence(x,y) < 70 
         
-        if floor=="f5" and common.match_image("pictures/mirror/packs/f5/nocturnal.png"):
-            self.choose_pack("pictures/mirror/packs/f5/nocturnal.png")
+        #if floor=="f5" and common.match_image("pictures/mirror/packs/f5/nocturnal.png"):
+        #    self.choose_pack("pictures/mirror/packs/f5/nocturnal.png")
 
-        elif self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
+        if self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
             self.logger.info("Pack exclusion detected, refreshing")
             common.click_matching("pictures/mirror/general/refresh.png")
             common.mouse_move(200,200)

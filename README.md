@@ -1,3 +1,5 @@
+this is a fork of sirquirrel's macro with gui, this will probably be updated time to time
+orignal README by sirsquirrel -
 ## This repo is no longer being maintained and won't be receiving any more updates
 # Sir Squirrel Assistant
 Sir Squirrel Assistant is a helpful tool for the game Limbus Company by Project Moon. No longer will you need to hit the mines as Sir Squirrel will do it for you.

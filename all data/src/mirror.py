@@ -408,7 +408,7 @@ class Mirror:
                 common.click_matching("pictures/general/confirm_b.png")
                 common.sleep(1)
                 if common.element_exist("pictures/mirror/encounter_reward/prompt.png"):
-                    common.key_press("enter")
+                    common.click_matching("pictures/CustomAdded1080p/mirror/general/BorderedConfirm.png")
                     break
                 if common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
                     common.click_matching("pictures/general/confirm_b.png")
@@ -691,6 +691,8 @@ class Mirror:
                     break
 
                 if _ != 2:
+                    common.mouse_move_click(50, 50)
+                    common.sleep(1)
                     common.click_matching("pictures/mirror/restshop/market/refresh.png")
                     self.logger.debug(f"Restshop: Refreshing Shop")
 
@@ -700,6 +702,8 @@ class Mirror:
             common.mouse_move_click(50,50)
             common.click_matching("pictures/mirror/restshop/leave.png")
         common.click_matching("pictures/general/confirm_w.png")
+        if common.element_exist("pictures/general/confirm_b.png"):
+            common.click_matching("pictures/general/confirm_b.png")
         return
 
     def upgrade(self,gifts,status,shift_x,shift_y):

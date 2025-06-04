@@ -320,34 +320,34 @@ def navigate_to_exp(Stage):
     else:
         logger.debug(f"Already on Luxcavation screen, clicking exp")
         common.click_matching("pictures/CustomAdded1080p/luxcavation/exp/exp.png", 0.8)
-
-    # Stage-specific thresholds
-    thresholds = {
-        1: 0.95, 2: 0.95, 3: 0.95, 4: 0.97, 
-        5: 0.95, 6: 0.95, 7: 0.99
-    }
     
-    # Validate stage number
-    if Stage not in thresholds:
-        logger.error(f"Invalid stage number: {Stage}")
-        return
+    # latest stage check
+    if Stage == "latest":
+        logger.info(f"clicking latest using coordinates")
+        common.mouse_move_click(screenWidth * 0.8401, screenHeight * 0.6616)
+        success = True
+    else:
+        # Stage-specific thresholds
+        thresholds = {
+            1: 0.95, 2: 0.95, 3: 0.95, 4: 0.97, 
+            5: 0.95, 6: 0.95, 7: 0.99
+        }
+        # Get threshold and construct image path
+        threshold = thresholds[Stage]
+        stage_image = f"pictures/CustomAdded1080p/luxcavation/exp/stage{Stage}.png"
         
-    # Get threshold and construct image path
-    threshold = thresholds[Stage]
-    stage_image = f"pictures/CustomAdded1080p/luxcavation/exp/stage{Stage}.png"
-    
-    # Attempt to click the stage
-    logger.info(f"Attempting to click Stage {Stage} with threshold {threshold}")
-    success = click_matching_EXP(
-        stage_image, 
-        threshold, 
-        "bottom",
-        screenWidth * 0.2068, screenHeight * 0.0444,
-        screenWidth * 1.0, screenHeight * 0.0444,
-        screenWidth * 1.0, screenHeight * 0.0444,
-        screenWidth * 0.6, screenHeight * 0.0444,
-        0.3
-    )
+        # Attempt to click the stage
+        logger.info(f"Attempting to click Stage {Stage} with threshold {threshold}")
+        success = click_matching_EXP(
+            stage_image, 
+            threshold, 
+            "bottom",
+            screenWidth * 0.2068, screenHeight * 0.0444,
+            screenWidth * 1.0, screenHeight * 0.0444,
+            screenWidth * 1.0, screenHeight * 0.0444,
+            screenWidth * 0.6, screenHeight * 0.0444,
+            0.3
+        )
     
     # Handle failure by going back and retrying
     if not success:

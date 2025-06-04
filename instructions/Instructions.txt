@@ -1,4 +1,5 @@
 go to https://www.python.org/downloads/ and download python, you can also install through Microsoft store if you want.
+when installing make sure to select "add python.exe to path"
 after that if this is your first time using this macro or you are having issues, run "Run me if 1st time installed.bat"
 that will install the items the macro needs to operate.
 after that click "Run macro.bat"

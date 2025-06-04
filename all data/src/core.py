@@ -108,7 +108,6 @@ def battle():
             common.sleep(3)
             logger.debug(f"finished battle")
             return
-            
         if common.element_exist("pictures/events/skip.png"): #Checks for special battle skill checks prompt then calls skill check functions
             common.mouse_up()
             while(True):
@@ -133,7 +132,12 @@ def battle():
                 common.click_matching("pictures/battle/winrate.png")
                 common.key_press("enter")
                 winrate_visible_start = None
-        else: # Check if winrate hasn't been visible for too long and might be covered
+        else: # Check if winrate hasn't been visible for too long and battle might have ended or winrate might be covered
+            if common.element_exist("pictures/CustomAdded1080p/mirror/general/InMirrorSelectCheck.png"): #checks for a special button in the mirror select menu to stop the battle.
+                battle_finished = 1
+                logger.debug(f"finished battle")
+                return
+        
             winrate_visible_start = None
             current_time = time.time()
             if winrate_invisible_start is None:

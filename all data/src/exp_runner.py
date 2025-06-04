@@ -53,9 +53,16 @@ def main():
    
     try:
         runs = int(sys.argv[1])
-        stage = int(sys.argv[2])
-       
-        logger.info(f"Starting Exp automation for {runs} runs on Stage {stage}")
+        stage_arg = sys.argv[2]  # Get the stage argument as string
+        
+        # Handle "latest" as a special case
+        if stage_arg == "latest":
+            stage = "latest"  # Keep it as string
+            logger.info(f"Starting Exp automation for {runs} runs on Stage {stage}")
+        else:
+            # Convert to integer for numeric stages
+            stage = int(stage_arg)
+            logger.info(f"Starting Exp automation for {runs} runs on Stage {stage}")
        
         for i in range(runs):
             logger.info(f"Starting Exp run {i+1}/{runs} for Stage {stage}")

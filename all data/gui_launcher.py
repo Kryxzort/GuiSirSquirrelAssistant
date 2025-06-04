@@ -961,21 +961,32 @@ def start_exp_run():
     """Start Exp automation"""
     try:
         runs = int(exp_entry.get())
-        stage = int(exp_stage_var.get())
-        if runs < 1 or stage < 1 or stage > 7:
-            messagebox.showerror("Invalid Input", "Enter a valid number of runs and stage (1-7).")
-            warning(f"Invalid input: runs={runs}, stage={stage}")
+        stage_value = exp_stage_var.get()
+        
+        # Handle numeric stages with validation
+        if stage_value != "latest":
+            stage = int(stage_value)
+            if runs < 1 or stage < 1 or stage > 7:
+                messagebox.showerror("Invalid Input", "Enter a valid number of runs and stage (1-7 or 'latest').")
+                warning(f"Invalid input: runs={runs}, stage={stage_value}")
+                return
+        
+        # Just validate runs for any stage value
+        if runs < 1:
+            messagebox.showerror("Invalid Input", "Enter a valid number of runs.")
+            warning(f"Invalid input: runs={runs}")
             return
+            
     except ValueError:
         messagebox.showerror("Invalid Input", "Enter valid numbers.")
         warning("Invalid numeric input for Exp automation")
         return
-    
+
     # Determine command based on execution mode
     if getattr(sys, 'frozen', False):
-        command_args = [PYTHON_CMD, "-m", "src.exp_runner", str(runs), str(stage)]
+        command_args = [PYTHON_CMD, "-m", "src.exp_runner", str(runs), stage_value]  # Pass stage_value directly
     else:
-        command_args = [sys.executable, EXP_SCRIPT_PATH, str(runs), str(stage)]
+        command_args = [sys.executable, EXP_SCRIPT_PATH, str(runs), stage_value]  # Pass stage_value directly
     
     start_automation_process("Exp", command_args, exp_start_button, "exp_process")
 
@@ -1422,7 +1433,7 @@ entry = ctk.CTkEntry(scroll)
 entry.pack(pady=(0, 5))
 entry.insert(0, config['Settings'].get('mirror_runs', '1'))  # Set from config
 
-start_button = ctk.CTkButton(scroll, text="Start", command=start_run)
+start_button = ctk.CTkButton(scroll, text="Start", command=toggle_button)
 start_button.pack(pady=(0, 15))
 
 # Setting up the Exp tab
@@ -1439,13 +1450,13 @@ exp_stage_var = ctk.StringVar(value=config['Settings'].get('exp_stage', '1'))  #
 exp_stage_dropdown = ctk.CTkOptionMenu(
     master=exp_scroll,
     variable=exp_stage_var,
-    values=["1", "2", "3", "4", "5", "6", "7"],
+    values=["1", "2", "3", "4", "5", "6", "7", "latest"],
     width=200,
     font=ctk.CTkFont(size=16)
 )
 exp_stage_dropdown.pack(pady=(0, 15))
 
-exp_start_button = ctk.CTkButton(exp_scroll, text="Start", command=start_exp_run)
+exp_start_button = ctk.CTkButton(exp_scroll, text="Start", command=toggle_exp_button)
 exp_start_button.pack(pady=(0, 15))
 
 # Setting up the Threads tab
@@ -1468,7 +1479,7 @@ threads_difficulty_dropdown = ctk.CTkOptionMenu(
 )
 threads_difficulty_dropdown.pack(pady=(0, 15))
 
-threads_start_button = ctk.CTkButton(threads_scroll, text="Start", command=start_threads_run)
+threads_start_button = ctk.CTkButton(threads_scroll, text="Start", command=toggle_threads_button)
 threads_start_button.pack(pady=(0, 15))
 
 # =====================================================================

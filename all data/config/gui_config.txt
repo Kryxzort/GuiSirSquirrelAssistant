@@ -17,6 +17,10 @@ kill_processes_on_exit = True
 chain_threads_runs = 3
 chain_exp_runs = 2
 chain_mirror_runs = 1
+x_offset = 0
+skip_restshop = False
+skip_ego_check = False
+y_offset = 0
 
 [LogFilters]
 debug = False

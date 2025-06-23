@@ -165,8 +165,7 @@ def main():
     global running
     
     if len(sys.argv) < 2:
-        logger.error("No function specified")
-        print("Usage: python function_runner.py <module.function>")
+        logger.error("No function specified - Usage: python function_runner.py <module.function>")
         return
     
     function_string = sys.argv[1]

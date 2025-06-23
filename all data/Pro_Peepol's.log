@@ -1,0 +1,1821 @@
+Application closing
+2025-06-23 20:47:37,564 - GUI - INFO - Application closing
+Killed all processes
+2025-06-23 20:47:37,564 - GUI - INFO - Killed all processes
+2025-06-23 21:03:17,894 - GUI - INFO - GUI initialized
+2025-06-23 21:03:18,068 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:03:18,081 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn']
+2025-06-23 21:03:19,084 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:03:19,084 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:03:19,084 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:03:19,084 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:03:19,084 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:03:19,825 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:03:19,825 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:03:19,825 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:03:19,825 - updater - INFO - Versions equal: True
+2025-06-23 21:03:19,825 - updater - INFO - Already up to date: v18
+2025-06-23 21:03:19,862 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:03:19,863 - GUI - ERROR - Error in save_slow_json: [Errno 13] Permission denied: 'C:\\Users\\viraj\\Desktop\\GuiSirSquirrelAssistant multi monitor\\all data\\config\\delayed_squad_order.json'
+2025-06-23 21:03:41,676 - GUI - INFO - GUI initialized
+2025-06-23 21:03:41,851 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:03:41,864 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn']
+2025-06-23 21:03:42,573 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:03:42,573 - GUI - ERROR - Error in save_slow_json: [Errno 13] Permission denied: 'C:\\Users\\viraj\\Desktop\\GuiSirSquirrelAssistant multi monitor\\all data\\config\\delayed_squad_order.json'
+2025-06-23 21:03:43,391 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:03:43,391 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:03:43,391 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:03:43,391 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:03:43,391 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:03:43,820 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:03:43,820 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:03:43,820 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:03:43,820 - updater - INFO - Versions equal: True
+2025-06-23 21:03:43,820 - updater - INFO - Already up to date: v18
+2025-06-23 21:03:45,712 - GUI - DEBUG - Saved squad data to file
+2025-06-23 21:03:45,713 - GUI - DEBUG - Updated squad data for status: sinking
+2025-06-23 21:03:45,713 - GUI - DEBUG - Saved squad data to file
+2025-06-23 21:03:45,713 - GUI - DEBUG - Updated squad data for status: sinking
+2025-06-23 21:03:46,213 - GUI - ERROR - Error in save_slow_json: [Errno 13] Permission denied: 'C:\\Users\\viraj\\Desktop\\GuiSirSquirrelAssistant multi monitor\\all data\\config\\delayed_squad_order.json'
+2025-06-23 21:03:46,213 - GUI - DEBUG - Updated slow squad data after delay
+2025-06-23 21:03:46,214 - GUI - ERROR - Error in save_slow_json: [Errno 13] Permission denied: 'C:\\Users\\viraj\\Desktop\\GuiSirSquirrelAssistant multi monitor\\all data\\config\\delayed_squad_order.json'
+2025-06-23 21:03:46,214 - GUI - DEBUG - Updated slow squad data after delay
+2025-06-23 21:03:49,953 - GUI - DEBUG - Saved squad data to file
+2025-06-23 21:03:49,953 - GUI - DEBUG - Updated squad data for status: sinking
+2025-06-23 21:03:49,954 - GUI - DEBUG - Saved squad data to file
+2025-06-23 21:03:49,954 - GUI - DEBUG - Updated squad data for status: sinking
+2025-06-23 21:03:50,454 - GUI - ERROR - Error in save_slow_json: [Errno 13] Permission denied: 'C:\\Users\\viraj\\Desktop\\GuiSirSquirrelAssistant multi monitor\\all data\\config\\delayed_squad_order.json'
+2025-06-23 21:03:50,454 - GUI - DEBUG - Updated slow squad data after delay
+2025-06-23 21:03:50,455 - GUI - ERROR - Error in save_slow_json: [Errno 13] Permission denied: 'C:\\Users\\viraj\\Desktop\\GuiSirSquirrelAssistant multi monitor\\all data\\config\\delayed_squad_order.json'
+2025-06-23 21:03:50,455 - GUI - DEBUG - Updated slow squad data after delay
+2025-06-23 21:03:51,348 - GUI - INFO - Application closing
+2025-06-23 21:03:51,348 - GUI - INFO - Killed all processes
+2025-06-23 21:03:53,272 - GUI - INFO - GUI initialized
+2025-06-23 21:03:53,438 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:03:53,453 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn']
+2025-06-23 21:03:54,401 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:03:54,401 - GUI - ERROR - Error in save_slow_json: [Errno 13] Permission denied: 'C:\\Users\\viraj\\Desktop\\GuiSirSquirrelAssistant multi monitor\\all data\\config\\delayed_squad_order.json'
+2025-06-23 21:03:55,210 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:03:55,211 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:03:55,211 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:03:55,211 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:03:55,211 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:03:55,390 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:03:55,390 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:03:55,390 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:03:55,390 - updater - INFO - Versions equal: True
+2025-06-23 21:03:55,390 - updater - INFO - Already up to date: v18
+2025-06-23 21:04:29,393 - GUI - INFO - GUI initialized
+2025-06-23 21:04:29,561 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:04:29,575 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn']
+2025-06-23 21:04:30,502 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:04:30,503 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:04:31,626 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:04:31,626 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:04:31,626 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:04:31,626 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:04:31,626 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:04:32,035 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:04:32,035 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:04:32,035 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:04:32,035 - updater - INFO - Versions equal: True
+2025-06-23 21:04:32,035 - updater - INFO - Already up to date: v18
+2025-06-23 21:06:17,733 - GUI - INFO - Application closing
+2025-06-23 21:06:17,734 - GUI - INFO - Killed all processes
+2025-06-23 21:07:17,532 - GUI - INFO - GUI initialized
+2025-06-23 21:07:17,702 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:07:17,715 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn']
+2025-06-23 21:07:18,647 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:07:18,648 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:07:19,792 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:07:19,792 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:07:19,792 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:07:19,792 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:07:19,792 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:07:20,210 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:07:20,210 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:07:20,210 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:07:20,210 - updater - INFO - Versions equal: True
+2025-06-23 21:07:20,210 - updater - INFO - Already up to date: v18
+2025-06-23 21:09:50,244 - GUI - INFO - Application closing
+2025-06-23 21:09:50,244 - GUI - INFO - Killed all processes
+2025-06-23 21:09:55,036 - GUI - INFO - GUI initialized
+2025-06-23 21:09:55,213 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:09:55,227 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn']
+2025-06-23 21:09:56,203 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:09:56,204 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:09:57,353 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:09:57,353 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:09:57,353 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:09:57,353 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:09:57,353 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:09:58,149 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:09:58,149 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:09:58,149 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:09:58,149 - updater - INFO - Versions equal: True
+2025-06-23 21:09:58,149 - updater - INFO - Already up to date: v18
+2025-06-23 21:17:37,647 - GUI - INFO - Saved selected statuses: ['burn', 'poise']
+2025-06-23 21:17:37,647 - GUI - INFO - Status toggled: poise
+2025-06-23 21:17:38,838 - GUI - INFO - Application closing
+2025-06-23 21:17:38,838 - GUI - INFO - Killed all processes
+2025-06-23 21:17:43,211 - GUI - INFO - GUI initialized
+2025-06-23 21:17:43,375 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:17:43,391 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 21:17:44,400 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:17:44,400 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:17:44,400 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:17:44,400 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:17:44,400 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:17:45,073 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:17:45,073 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:17:45,073 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:17:45,073 - updater - INFO - Versions equal: True
+2025-06-23 21:17:45,073 - updater - INFO - Already up to date: v18
+2025-06-23 21:17:45,109 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:17:45,109 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:18:08,201 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:18:10,825 - GUI - INFO - Started Threads automation (PID: 31120)
+2025-06-23 21:18:11,044 - GUI - INFO - GUI initialized
+2025-06-23 21:18:11,215 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:18:11,216 - src.threads_runner - INFO - Starting Threads automation with 1 runs on difficulty 20
+2025-06-23 21:18:11,315 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-23 21:18:11,318 - luxcavation_functions - INFO - Initialized Mirror with status: burn
+poise
+2025-06-23 21:18:11,318 - luxcavation_functions - DEBUG - Screen dimensions: 1920x1080
+2025-06-23 21:18:11,318 - src.threads_runner - INFO - Starting run 1/1
+2025-06-23 21:18:11,318 - luxcavation_functions - INFO - Setting up for Luxcavation Stage 20
+2025-06-23 21:18:11,318 - core - INFO - Converting Enkephalin to Modules
+2025-06-23 21:18:11,725 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:11,831 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:11,831 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:11,935 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:12,041 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:12,837 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:13,634 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:14,430 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:15,223 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:16,021 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:16,126 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:16,127 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:16,331 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:16,331 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:16,439 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:16,439 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:16,542 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:16,648 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:17,480 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:18,287 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:19,089 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:19,898 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:20,702 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:20,808 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:20,808 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:21,008 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:21,009 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:21,117 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:21,117 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:21,224 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:21,331 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:22,132 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:22,932 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:23,738 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:24,540 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:25,344 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:25,447 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:25,447 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:25,640 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:25,640 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:25,751 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:25,752 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:25,856 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:25,960 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:26,763 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:27,570 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:28,372 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:29,175 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:30,004 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:30,113 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:30,113 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:30,306 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:30,306 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:30,413 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:30,413 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:30,519 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:30,624 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:31,426 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:32,229 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:33,032 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:33,833 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:34,637 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:34,739 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:34,739 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:34,931 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:34,931 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:35,038 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:35,038 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:35,143 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:35,249 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:36,082 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:36,886 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:37,693 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:38,494 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:39,302 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:39,408 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:39,408 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:39,608 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:39,609 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:39,720 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:39,720 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:39,827 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:39,933 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:40,738 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:41,543 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:42,349 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:43,152 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:43,954 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:44,058 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:44,058 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:44,251 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:44,251 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:44,362 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:44,362 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:44,466 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:44,571 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:45,373 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:46,182 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:46,982 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:47,785 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:48,592 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:48,698 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:48,698 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:48,892 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:48,892 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:49,000 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:49,000 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:49,107 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:49,213 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:50,015 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:50,817 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:51,620 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:52,417 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:53,211 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:53,317 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:53,317 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:53,507 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:53,507 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:53,614 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:53,614 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:53,721 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:53,824 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:54,623 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:18:55,423 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:18:56,224 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:18:57,027 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:18:57,836 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:18:57,944 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:18:57,944 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:18:58,147 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:18:58,147 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:18:58,255 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:18:58,255 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:18:58,358 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:18:58,464 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:18:59,280 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:00,101 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:00,901 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:01,702 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:02,505 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:02,610 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:02,610 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:02,801 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:02,801 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:02,907 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:02,907 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:03,014 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:03,122 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:03,922 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:04,723 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:05,524 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:06,330 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:07,136 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:07,253 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:07,253 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:07,464 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:07,464 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:07,570 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:07,570 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:07,675 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:07,780 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:08,581 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:09,385 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:10,185 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:10,981 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:11,785 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:11,887 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:11,887 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:12,079 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:12,079 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:12,187 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:12,187 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:12,294 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:12,399 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:13,202 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:14,005 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:14,809 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:15,609 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:16,408 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:16,511 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:16,511 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:16,706 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:16,706 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:16,812 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:16,812 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:16,917 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:17,020 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:17,828 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:18,627 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:19,422 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:20,215 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:21,013 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:21,118 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:21,118 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:21,308 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:21,308 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:21,412 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:21,412 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:21,516 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:21,622 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:22,417 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:23,215 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:24,011 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:24,812 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:25,624 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:25,731 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:25,731 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:25,922 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:25,922 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:26,028 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:26,028 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:26,130 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:26,237 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:27,033 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:27,829 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:28,628 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:29,420 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:30,220 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:30,323 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:30,323 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:30,513 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:30,513 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:30,621 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:30,621 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:30,724 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:30,825 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:31,623 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:32,420 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:33,219 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:34,014 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:34,805 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:34,912 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:34,912 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:35,102 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:35,102 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:35,209 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:35,209 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:35,312 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:35,415 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:36,216 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:37,006 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:37,799 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:38,597 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:39,401 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:39,505 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:39,505 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:39,697 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:39,697 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:39,804 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:39,804 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:39,906 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:40,010 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:40,810 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:41,599 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:42,396 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:43,192 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:43,985 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:44,088 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:44,088 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:44,281 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:44,281 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:44,388 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:44,389 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:44,488 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:44,591 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:45,385 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:46,179 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:46,975 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:47,768 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:48,563 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:48,663 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:48,663 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:48,857 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:48,858 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:48,964 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:48,964 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:49,067 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:49,172 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:49,970 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:50,765 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:51,559 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:52,355 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:53,143 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:53,248 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:53,248 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:53,440 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:53,440 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:53,547 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:53,547 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:53,651 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:53,752 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:54,553 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:55,355 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:19:56,152 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:19:56,947 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:19:57,747 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:19:57,861 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:19:57,861 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:19:58,062 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:19:58,062 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:19:58,173 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:19:58,173 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:19:58,280 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:19:58,384 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:19:59,185 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:19:59,981 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:00,781 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:01,597 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:02,397 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:02,502 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:02,502 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:02,693 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:02,693 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:02,799 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:02,799 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:02,904 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:03,010 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:03,806 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:04,605 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:05,402 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:06,197 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:07,103 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:07,254 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:07,254 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:07,561 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:07,562 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:07,743 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:07,743 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:07,934 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:08,083 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:09,054 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:10,064 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:11,010 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:11,714 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:20:12,010 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:12,966 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:13,139 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:13,139 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:13,455 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:13,455 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:13,633 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:13,633 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:13,804 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:13,975 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:14,930 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:15,928 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:16,936 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:17,917 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:18,926 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:19,081 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:19,081 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:19,387 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:19,387 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:19,574 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:19,574 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:19,740 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:19,912 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:20,904 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:21,756 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:22,552 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:23,350 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:24,148 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:24,252 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:24,252 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:24,443 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:24,443 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:24,549 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:24,549 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:24,649 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:24,754 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:25,555 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:26,357 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:27,152 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:27,950 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:28,755 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:28,859 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:28,860 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:29,053 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:29,053 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:29,158 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:29,158 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:29,261 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:29,362 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:30,158 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:30,956 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:31,752 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:32,550 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:33,345 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:33,453 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:33,453 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:33,653 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:33,653 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:33,759 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:33,759 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:33,864 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:33,967 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:34,761 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:35,558 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:36,350 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:37,145 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:37,942 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:38,045 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:38,046 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:38,245 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:38,245 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:38,348 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:38,348 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:38,452 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:38,559 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:39,359 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:40,159 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:40,954 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:41,752 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:42,554 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:42,669 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:42,669 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:42,867 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:42,867 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:43,004 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:43,004 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:43,119 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:43,228 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:44,029 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:44,828 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:45,632 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:46,426 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:47,259 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:47,383 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:47,383 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:47,585 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:47,585 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:47,696 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:47,696 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:47,800 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:47,906 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:48,700 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:49,495 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:50,286 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:51,079 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:51,868 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:51,972 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:51,972 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:52,163 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:52,164 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:52,265 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:52,266 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:52,369 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:52,472 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:53,264 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:54,054 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:54,845 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:20:55,639 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:20:56,431 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:20:56,535 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:20:56,535 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:20:56,718 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:20:56,718 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:20:56,820 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:20:56,820 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:20:56,922 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:20:57,023 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:20:57,820 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:20:58,610 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:20:59,397 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:00,187 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:00,975 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:01,075 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:01,075 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:01,260 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:01,260 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:01,361 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:01,361 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:01,462 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:01,564 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:02,365 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:03,165 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:03,954 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:04,751 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:05,543 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:05,643 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:05,643 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:05,831 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:05,831 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:05,934 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:05,934 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:06,034 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:06,134 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:06,923 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:07,713 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:08,505 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:09,301 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:10,096 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:10,196 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:10,196 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:10,385 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:10,385 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:10,488 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:10,488 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:10,588 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:10,700 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:11,489 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:12,283 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:13,073 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:13,865 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:14,657 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:14,760 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:14,760 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:14,943 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:14,943 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:15,047 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:15,047 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:15,148 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:15,249 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:16,045 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:16,833 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:17,623 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:18,422 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:19,213 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:19,315 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:19,315 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:19,503 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:19,503 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:19,611 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:19,611 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:19,712 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:19,815 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:20,604 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:21,397 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:22,187 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:22,976 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:23,764 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:23,864 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:23,864 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:24,082 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:24,083 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:24,191 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:24,191 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:24,299 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:24,409 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:25,226 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:26,021 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:26,809 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:27,602 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:28,389 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:28,490 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:28,491 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:28,680 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:28,680 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:28,786 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:28,786 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:28,890 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:28,990 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:29,779 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:30,568 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:31,360 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:32,149 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:32,945 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:33,050 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:33,050 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:33,243 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:33,243 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:33,348 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:33,348 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:33,451 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:33,555 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:34,354 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:35,152 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:35,950 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:36,742 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:37,532 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:37,632 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:37,632 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:37,819 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:37,819 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:37,924 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:37,924 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:38,025 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:38,125 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:38,921 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:39,719 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:40,520 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:41,317 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:42,114 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:42,216 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:42,216 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:42,405 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:42,405 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:42,511 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:42,511 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:42,615 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:42,719 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:43,509 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:44,307 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:45,110 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:45,906 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:46,709 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:46,810 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:46,810 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:47,001 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:47,001 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:47,110 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:47,111 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:47,213 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:47,318 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:48,115 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:48,912 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:49,714 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:50,510 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:51,313 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:51,421 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:51,422 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:51,614 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:51,614 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:51,723 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:51,723 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:51,829 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:51,932 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:52,733 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:53,533 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:54,334 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:55,142 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:55,946 - luxcavation_functions - WARNING - Failed to find Luxcavation after 5 attempts
+2025-06-23 21:21:56,051 - luxcavation_functions - INFO - Navigation to Luxcavation complete
+2025-06-23 21:21:56,051 - luxcavation_functions - INFO - Clicking Thread option
+2025-06-23 21:21:56,244 - luxcavation_functions - WARNING - Enter button not found, retrying
+2025-06-23 21:21:56,244 - luxcavation_functions - INFO - Navigating to Thread difficulty 20
+2025-06-23 21:21:56,354 - luxcavation_functions - DEBUG - Not on Luxcavation screen, navigating there first
+2025-06-23 21:21:56,354 - luxcavation_functions - INFO - Navigating to Luxcavation
+2025-06-23 21:21:56,458 - luxcavation_functions - DEBUG - Luxcavation icon not found, navigating through menus
+2025-06-23 21:21:56,565 - luxcavation_functions - DEBUG - Navigation attempt 1/5
+2025-06-23 21:21:57,372 - luxcavation_functions - DEBUG - Navigation attempt 2/5
+2025-06-23 21:21:58,176 - luxcavation_functions - DEBUG - Navigation attempt 3/5
+2025-06-23 21:21:58,978 - luxcavation_functions - DEBUG - Navigation attempt 4/5
+2025-06-23 21:21:59,797 - luxcavation_functions - DEBUG - Navigation attempt 5/5
+2025-06-23 21:21:59,981 - GUI - INFO - Application closing
+2025-06-23 21:21:59,994 - GUI - INFO - Killed all processes
+2025-06-23 21:22:05,383 - GUI - INFO - GUI initialized
+2025-06-23 21:22:05,563 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:22:05,580 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 21:22:06,582 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:22:06,582 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:22:06,582 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:22:06,582 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:22:06,582 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:22:07,029 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:22:07,029 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:22:07,029 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:22:07,029 - updater - INFO - Versions equal: True
+2025-06-23 21:22:07,029 - updater - INFO - Already up to date: v18
+2025-06-23 21:22:07,068 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:22:07,069 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:22:13,553 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:22:14,738 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:22:16,293 - GUI - INFO - Application closing
+2025-06-23 21:22:16,294 - GUI - INFO - Killed all processes
+2025-06-23 21:22:17,707 - GUI - INFO - GUI initialized
+2025-06-23 21:22:17,890 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:22:17,906 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 21:22:18,694 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:22:18,694 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:22:19,904 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:22:19,905 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:22:19,905 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:22:19,905 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:22:19,905 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:22:20,073 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:22:20,073 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:22:20,073 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:22:20,073 - updater - INFO - Versions equal: True
+2025-06-23 21:22:20,073 - updater - INFO - Already up to date: v18
+2025-06-23 21:22:22,371 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:22:23,371 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:23:11,833 - GUI - INFO - GUI initialized
+2025-06-23 21:23:12,011 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:23:12,024 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-23 21:23:12,855 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:23:12,856 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:23:13,988 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:23:13,988 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:23:13,988 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:23:13,988 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:23:13,988 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:23:14,866 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:23:14,866 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:23:14,866 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:23:14,866 - updater - INFO - Versions equal: True
+2025-06-23 21:23:14,866 - updater - INFO - Already up to date: v18
+2025-06-23 21:23:17,434 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:23:17,435 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:23:19,682 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:23:19,683 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:27:35,886 - GUI - INFO - Application closing
+2025-06-23 21:27:35,886 - GUI - INFO - Killed all processes
+2025-06-23 21:27:38,499 - GUI - INFO - GUI initialized
+2025-06-23 21:27:38,679 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:27:38,692 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-23 21:27:39,694 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:27:39,694 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:27:39,694 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:27:39,694 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:27:39,694 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:27:40,123 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:27:40,123 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:27:40,123 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:27:40,123 - updater - INFO - Versions equal: True
+2025-06-23 21:27:40,123 - updater - INFO - Already up to date: v18
+2025-06-23 21:27:42,670 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:27:42,671 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:32:47,510 - GUI - INFO - Application closing
+2025-06-23 21:32:47,510 - GUI - INFO - Killed all processes
+2025-06-23 21:32:51,166 - GUI - INFO - GUI initialized
+2025-06-23 21:32:51,342 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:32:51,356 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 21:32:51,855 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:32:51,856 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:32:52,994 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:32:52,994 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:32:52,994 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:32:52,994 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:32:52,994 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:32:53,732 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:32:53,732 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:32:53,732 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:32:53,732 - updater - INFO - Versions equal: True
+2025-06-23 21:32:53,732 - updater - INFO - Already up to date: v18
+2025-06-23 21:39:14,687 - GUI - INFO - Application closing
+2025-06-23 21:39:14,687 - GUI - INFO - Killed all processes
+2025-06-23 21:39:17,175 - GUI - INFO - GUI initialized
+2025-06-23 21:39:17,350 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:39:17,363 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 21:39:17,926 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:39:17,927 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:39:19,123 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:39:19,124 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:39:19,124 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:39:19,124 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:39:19,124 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:39:19,886 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:39:19,886 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:39:19,886 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:39:19,886 - updater - INFO - Versions equal: True
+2025-06-23 21:39:19,886 - updater - INFO - Already up to date: v18
+2025-06-23 21:42:18,923 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:42:30,175 - GUI - INFO - Application closing
+2025-06-23 21:42:30,175 - GUI - INFO - Killed all processes
+2025-06-23 21:42:34,820 - GUI - INFO - GUI initialized
+2025-06-23 21:42:34,998 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:42:35,014 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 21:42:35,643 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:42:35,644 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:42:36,822 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:42:36,822 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:42:36,822 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:42:36,822 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:42:36,822 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:42:37,224 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:42:37,224 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:42:37,224 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:42:37,224 - updater - INFO - Versions equal: True
+2025-06-23 21:42:37,224 - updater - INFO - Already up to date: v18
+2025-06-23 21:42:41,479 - GUI - INFO - Application closing
+2025-06-23 21:42:41,479 - GUI - INFO - Killed all processes
+2025-06-23 21:47:36,787 - GUI - INFO - GUI initialized
+2025-06-23 21:47:36,960 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:47:36,972 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 21:47:37,913 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:47:37,913 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:47:39,073 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:47:39,073 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:47:39,073 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:47:39,073 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:47:39,073 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:47:39,857 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:47:39,857 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:47:39,857 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:47:39,857 - updater - INFO - Versions equal: True
+2025-06-23 21:47:39,857 - updater - INFO - Already up to date: v18
+2025-06-23 21:47:51,531 - GUI - DEBUG - Saved squad data to file
+2025-06-23 21:47:51,531 - GUI - DEBUG - Updated squad data for status: sinking
+2025-06-23 21:47:52,032 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:47:52,032 - GUI - DEBUG - Updated slow squad data after delay
+2025-06-23 21:48:14,383 - GUI - INFO - Application closing
+2025-06-23 21:48:14,383 - GUI - INFO - Killed all processes
+2025-06-23 21:48:21,135 - GUI - INFO - GUI initialized
+2025-06-23 21:48:21,310 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:48:21,324 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-23 21:48:22,047 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:48:22,048 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:48:23,222 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:48:23,223 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:48:23,223 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:48:23,223 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:48:23,223 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:48:23,639 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:48:23,639 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:48:23,639 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:48:23,639 - updater - INFO - Versions equal: True
+2025-06-23 21:48:23,639 - updater - INFO - Already up to date: v18
+2025-06-23 21:48:25,907 - GUI - DEBUG - Saved squad data to file
+2025-06-23 21:48:25,908 - GUI - DEBUG - Updated squad data for status: sinking
+2025-06-23 21:48:26,409 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:48:26,409 - GUI - DEBUG - Updated slow squad data after delay
+2025-06-23 21:48:30,483 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:48:30,483 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:48:34,731 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:48:52,527 - GUI - INFO - Application closing
+2025-06-23 21:48:52,527 - GUI - INFO - Killed all processes
+2025-06-23 21:48:55,198 - GUI - INFO - GUI initialized
+2025-06-23 21:48:55,371 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 21:48:55,385 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-23 21:48:55,967 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 21:48:55,967 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 21:48:57,133 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 21:48:57,133 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 21:48:57,133 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 21:48:57,133 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 21:48:57,133 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 21:48:57,548 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 21:48:57,548 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 21:48:57,548 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 21:48:57,548 - updater - INFO - Versions equal: True
+2025-06-23 21:48:57,548 - updater - INFO - Already up to date: v18
+2025-06-23 21:49:02,356 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:49:05,059 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:49:05,060 - GUI - DEBUG - Updated pack priority for floor1
+2025-06-23 21:49:06,486 - GUI - INFO - Application closing
+2025-06-23 21:49:06,487 - GUI - INFO - Killed all processes
+2025-06-23 22:01:49,875 - GUI - INFO - GUI initialized
+2025-06-23 22:01:50,091 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 22:01:50,100 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-23 22:01:50,960 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 22:01:50,960 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 22:01:52,401 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 22:01:52,401 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 22:01:52,401 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 22:01:52,401 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 22:01:52,401 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 22:01:53,197 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 22:01:53,197 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 22:01:53,197 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 22:01:53,197 - updater - INFO - Versions equal: True
+2025-06-23 22:01:53,197 - updater - INFO - Already up to date: v18
+2025-06-23 22:14:57,320 - GUI - INFO - Application closing
+2025-06-23 22:14:57,320 - GUI - INFO - Killed all processes
+2025-06-23 22:14:59,699 - GUI - INFO - GUI initialized
+2025-06-23 22:14:59,918 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-23 22:14:59,930 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-23 22:15:00,861 - GUI - DEBUG - Loaded squad data from file
+2025-06-23 22:15:00,861 - GUI - DEBUG - Saved slow squad data to file
+2025-06-23 22:15:01,713 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-23 22:15:01,713 - updater - INFO - Parent directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor
+2025-06-23 22:15:01,713 - updater - INFO - All data directory: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-23 22:15:01,713 - updater - INFO - Backup path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-23 22:15:01,713 - updater - INFO - Temp path: C:\Users\viraj\Desktop\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-23 22:15:02,425 - updater - INFO - Repository version.json content: 'v18'
+2025-06-23 22:15:02,425 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-23 22:15:02,425 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-23 22:15:02,425 - updater - INFO - Versions equal: True
+2025-06-23 22:15:02,425 - updater - INFO - Already up to date: v18
+2025-06-24 00:58:04,754 - GUI - INFO - GUI initialized
+2025-06-24 00:58:04,928 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 00:58:04,941 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-24 00:58:05,946 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 00:58:05,946 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 00:58:05,946 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 00:58:05,946 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 00:58:05,946 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 00:58:06,743 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 00:58:06,744 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 00:58:06,744 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 00:58:06,744 - updater - INFO - Versions equal: True
+2025-06-24 00:58:06,744 - updater - INFO - Already up to date: v18
+2025-06-24 00:58:06,778 - GUI - DEBUG - Loaded squad data from file
+2025-06-24 00:58:06,779 - GUI - DEBUG - Saved slow squad data to file
+2025-06-24 01:05:53,529 - GUI - INFO - GUI initialized
+2025-06-24 01:05:53,714 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 01:05:53,728 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-24 01:05:54,730 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 01:05:54,730 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 01:05:54,730 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 01:05:54,730 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 01:05:54,730 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 01:05:55,405 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 01:05:55,405 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 01:05:55,405 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 01:05:55,405 - updater - INFO - Versions equal: True
+2025-06-24 01:05:55,405 - updater - INFO - Already up to date: v18
+2025-06-24 01:05:55,438 - GUI - DEBUG - Loaded squad data from file
+2025-06-24 01:05:55,438 - GUI - DEBUG - Saved slow squad data to file
+2025-06-24 01:06:00,315 - GUI - INFO - Application closing
+2025-06-24 01:06:00,315 - GUI - INFO - Killed all processes
+2025-06-24 02:01:32,185 - GUI - INFO - Application closing
+2025-06-24 02:01:32,185 - GUI - INFO - Killed all processes
+2025-06-24 02:01:42,642 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:01:42,718 - common - INFO - Game monitor set to 1
+2025-06-24 02:01:42,718 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:01:42,718 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 02:01:42,718 - GUI - INFO - GUI initialized
+2025-06-24 02:01:42,889 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 02:01:42,902 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-24 02:01:43,665 - GUI - DEBUG - Loaded squad data from file
+2025-06-24 02:01:43,665 - GUI - DEBUG - Saved slow squad data to file
+2025-06-24 02:01:44,911 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 02:01:44,911 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 02:01:44,911 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:01:44,911 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 02:01:44,911 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 02:01:45,605 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 02:01:45,605 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 02:01:45,605 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 02:01:45,605 - updater - INFO - Versions equal: True
+2025-06-24 02:01:45,605 - updater - INFO - Already up to date: v18
+2025-06-24 02:04:02,696 - GUI - INFO - Updated Y offset to: 0
+2025-06-24 02:05:13,046 - GUI - INFO - Saved selected statuses: ['burn', 'poise']
+2025-06-24 02:05:13,065 - GUI - INFO - Started Mirror Dungeon automation (PID: 14056)
+2025-06-24 02:05:13,338 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:05:13,416 - common - INFO - Game monitor set to 1
+2025-06-24 02:05:13,416 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:05:13,417 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 02:05:13,417 - GUI - INFO - GUI initialized
+2025-06-24 02:05:13,590 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 02:05:13,593 - src.compiled_runner - INFO - compiled_runner.py main function started with 1 runs
+2025-06-24 02:05:13,593 - src.compiled_runner - DEBUG - Running as script, base path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:05:13,593 - src.compiled_runner - DEBUG - Final BASE_PATH: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:05:13,593 - src.compiled_runner - DEBUG - Adding src path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\src
+2025-06-24 02:05:13,593 - src.compiled_runner - DEBUG - Status selection path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:05:13,593 - src.compiled_runner - DEBUG - Importing modules...
+2025-06-24 02:05:13,593 - src.compiled_runner - DEBUG - Successfully imported all modules
+2025-06-24 02:05:13,593 - src.compiled_runner - INFO - Initialized with shared variables from GUI
+2025-06-24 02:05:13,593 - src.compiled_runner - DEBUG - Opening status selection file: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:05:13,598 - src.compiled_runner - DEBUG - Status list loaded: ['burn', 'poise']
+2025-06-24 02:05:13,598 - src.compiled_runner - DEBUG - Starting connection check thread
+2025-06-24 02:05:13,598 - src.compiled_runner - INFO - Starting mirror_dungeon_run with 1 runs
+2025-06-24 02:05:13,598 - src.compiled_runner - INFO - Starting Run with statuses: ['burn']
+2025-06-24 02:05:13,598 - src.compiled_runner - INFO - Run 1
+2025-06-24 02:05:13,599 - src.compiled_runner - DEBUG - Updated shared variables for run 1
+2025-06-24 02:05:13,761 - core - INFO - Converting Enkephalin to Modules
+2025-06-24 02:05:16,231 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:16,355 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:16,481 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:16,611 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:17,124 - GUI - INFO - Terminated Mirror Dungeon process (PID: 14056)
+2025-06-24 02:05:21,809 - GUI - INFO - Saved selected statuses: ['burn', 'poise']
+2025-06-24 02:05:21,813 - GUI - INFO - Started Mirror Dungeon automation (PID: 30388)
+2025-06-24 02:05:22,132 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:05:22,212 - common - INFO - Game monitor set to 1
+2025-06-24 02:05:22,212 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:05:22,212 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 02:05:22,213 - GUI - INFO - GUI initialized
+2025-06-24 02:05:22,388 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 02:05:22,391 - src.compiled_runner - INFO - compiled_runner.py main function started with 1 runs
+2025-06-24 02:05:22,391 - src.compiled_runner - DEBUG - Running as script, base path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:05:22,391 - src.compiled_runner - DEBUG - Final BASE_PATH: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:05:22,392 - src.compiled_runner - DEBUG - Adding src path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\src
+2025-06-24 02:05:22,392 - src.compiled_runner - DEBUG - Status selection path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:05:22,392 - src.compiled_runner - DEBUG - Importing modules...
+2025-06-24 02:05:22,392 - src.compiled_runner - DEBUG - Successfully imported all modules
+2025-06-24 02:05:22,393 - src.compiled_runner - INFO - Initialized with shared variables from GUI
+2025-06-24 02:05:22,393 - src.compiled_runner - DEBUG - Opening status selection file: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:05:22,394 - src.compiled_runner - DEBUG - Status list loaded: ['burn', 'poise']
+2025-06-24 02:05:22,394 - src.compiled_runner - DEBUG - Starting connection check thread
+2025-06-24 02:05:22,394 - src.compiled_runner - INFO - Starting mirror_dungeon_run with 1 runs
+2025-06-24 02:05:22,394 - src.compiled_runner - INFO - Starting Run with statuses: ['burn']
+2025-06-24 02:05:22,395 - src.compiled_runner - INFO - Run 1
+2025-06-24 02:05:22,397 - src.compiled_runner - DEBUG - Updated shared variables for run 1
+2025-06-24 02:05:22,537 - core - INFO - Converting Enkephalin to Modules
+2025-06-24 02:05:25,360 - GUI - INFO - Terminated Mirror Dungeon process (PID: 30388)
+2025-06-24 02:05:30,226 - GUI - INFO - Saved selected statuses: ['burn', 'poise']
+2025-06-24 02:05:30,230 - GUI - INFO - Started Mirror Dungeon automation (PID: 36948)
+2025-06-24 02:05:30,486 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:05:30,566 - common - INFO - Game monitor set to 1
+2025-06-24 02:05:30,566 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:05:30,566 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 02:05:30,567 - GUI - INFO - GUI initialized
+2025-06-24 02:05:30,746 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 02:05:30,748 - src.compiled_runner - INFO - compiled_runner.py main function started with 1 runs
+2025-06-24 02:05:30,748 - src.compiled_runner - DEBUG - Running as script, base path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:05:30,748 - src.compiled_runner - DEBUG - Final BASE_PATH: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:05:30,749 - src.compiled_runner - DEBUG - Adding src path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\src
+2025-06-24 02:05:30,749 - src.compiled_runner - DEBUG - Status selection path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:05:30,749 - src.compiled_runner - DEBUG - Importing modules...
+2025-06-24 02:05:30,749 - src.compiled_runner - DEBUG - Successfully imported all modules
+2025-06-24 02:05:30,749 - src.compiled_runner - INFO - Initialized with shared variables from GUI
+2025-06-24 02:05:30,749 - src.compiled_runner - DEBUG - Opening status selection file: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:05:30,750 - src.compiled_runner - DEBUG - Status list loaded: ['burn', 'poise']
+2025-06-24 02:05:30,750 - src.compiled_runner - DEBUG - Starting connection check thread
+2025-06-24 02:05:30,750 - src.compiled_runner - INFO - Starting mirror_dungeon_run with 1 runs
+2025-06-24 02:05:30,750 - src.compiled_runner - INFO - Starting Run with statuses: ['burn']
+2025-06-24 02:05:30,750 - src.compiled_runner - INFO - Run 1
+2025-06-24 02:05:30,750 - src.compiled_runner - DEBUG - Updated shared variables for run 1
+2025-06-24 02:05:30,887 - core - INFO - Converting Enkephalin to Modules
+2025-06-24 02:05:34,565 - core - INFO - Navigating to Mirror Dungeon
+2025-06-24 02:05:36,391 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:36,517 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:36,644 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:36,767 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:36,892 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:39,129 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:39,252 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:39,479 - src.compiled_runner - INFO - Current Team: burn
+2025-06-24 02:05:39,479 - src.compiled_runner - DEBUG - Creating Mirror instance with status: burn
+2025-06-24 02:05:39,480 - src.compiled_runner - DEBUG - Setting up mirror
+2025-06-24 02:05:40,131 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:40,250 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:40,373 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:40,494 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:05:41,124 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:42,505 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:42,619 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:44,045 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:44,159 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:45,536 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:45,644 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:47,062 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:47,181 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:48,549 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:48,661 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:50,054 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:50,173 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:51,635 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:51,759 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:53,320 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:53,443 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:54,885 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:55,007 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:56,405 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:56,513 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:57,922 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:58,039 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:05:59,428 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:05:59,537 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:00,969 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:01,082 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:01,360 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:01,499 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:01,641 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:01,768 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:01,895 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:02,464 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:02,586 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:04,042 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:04,163 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:05,549 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:05,660 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:07,087 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:07,207 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:08,614 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:08,726 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:09,067 - GUI - INFO - Terminated Mirror Dungeon process (PID: 36948)
+2025-06-24 02:06:09,390 - GUI - INFO - Saved selected statuses: ['burn', 'poise']
+2025-06-24 02:06:09,394 - GUI - INFO - Started Mirror Dungeon automation (PID: 35148)
+2025-06-24 02:06:09,651 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:06:09,726 - common - INFO - Game monitor set to 1
+2025-06-24 02:06:09,726 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 02:06:09,726 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 02:06:09,727 - GUI - INFO - GUI initialized
+2025-06-24 02:06:09,900 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 02:06:09,902 - src.compiled_runner - INFO - compiled_runner.py main function started with 1 runs
+2025-06-24 02:06:09,902 - src.compiled_runner - DEBUG - Running as script, base path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:06:09,902 - src.compiled_runner - DEBUG - Final BASE_PATH: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 02:06:09,902 - src.compiled_runner - DEBUG - Adding src path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\src
+2025-06-24 02:06:09,902 - src.compiled_runner - DEBUG - Status selection path: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:06:09,903 - src.compiled_runner - DEBUG - Importing modules...
+2025-06-24 02:06:09,903 - src.compiled_runner - DEBUG - Successfully imported all modules
+2025-06-24 02:06:09,903 - src.compiled_runner - INFO - Initialized with shared variables from GUI
+2025-06-24 02:06:09,903 - src.compiled_runner - DEBUG - Opening status selection file: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data\config\status_selection.txt
+2025-06-24 02:06:09,904 - src.compiled_runner - DEBUG - Status list loaded: ['burn', 'poise']
+2025-06-24 02:06:09,904 - src.compiled_runner - DEBUG - Starting connection check thread
+2025-06-24 02:06:09,904 - src.compiled_runner - INFO - Starting mirror_dungeon_run with 1 runs
+2025-06-24 02:06:09,904 - src.compiled_runner - INFO - Starting Run with statuses: ['burn']
+2025-06-24 02:06:09,904 - src.compiled_runner - INFO - Run 1
+2025-06-24 02:06:09,904 - src.compiled_runner - DEBUG - Updated shared variables for run 1
+2025-06-24 02:06:10,037 - src.compiled_runner - INFO - Current Team: burn
+2025-06-24 02:06:10,037 - src.compiled_runner - DEBUG - Creating Mirror instance with status: burn
+2025-06-24 02:06:10,054 - src.compiled_runner - DEBUG - Setting up mirror
+2025-06-24 02:06:11,934 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:12,058 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:12,179 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:12,302 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:12,998 - mirror - INFO - Starting Run
+2025-06-24 02:06:13,104 - mirror - INFO - Mirror Dungeon Squad Select
+2025-06-24 02:06:18,525 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:18,649 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:18,775 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:18,898 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:19,821 - mirror - INFO - Grace of Stars
+2025-06-24 02:06:23,278 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:23,405 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:23,531 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:23,654 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:24,550 - mirror - INFO - E.G.O Gift Selection
+2025-06-24 02:06:26,539 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:26,665 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:26,793 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:26,915 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:28,747 - core - INFO - Loading
+2025-06-24 02:06:28,844 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:29,480 - mirror - INFO - EGO GIFT Prompt
+2025-06-24 02:06:30,625 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:30,736 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:32,205 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:32,327 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:33,754 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:33,870 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:34,924 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:35,055 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:35,188 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:35,323 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:35,334 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:35,566 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:36,533 - mirror - INFO - Pack Selection
+2025-06-24 02:06:36,643 - mirror - INFO - Current Floor floor1
+2025-06-24 02:06:42,964 - mirror - DEBUG - 162.33333333333334
+2025-06-24 02:06:43,083 - mirror - INFO - Pack exclusion not detected, status detected, choosing from status
+2025-06-24 02:06:43,184 - mirror - DEBUG - [(np.int64(579), np.int64(870)), (np.int64(895), np.int64(869)), (np.int64(1211), np.int64(869)), (np.int64(1526), np.int64(869))]
+2025-06-24 02:06:44,504 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:44,558 - core - INFO - Moving to Next Floor
+2025-06-24 02:06:44,628 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:44,752 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:44,873 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:44,996 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:49,828 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:49,947 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:50,270 - mirror - INFO - Navigating
+2025-06-24 02:06:51,668 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:06:51,668 - mirror - DEBUG - [263, 689, 1115]
+2025-06-24 02:06:53,244 - mirror - DEBUG - [(np.int64(1086), np.int64(101)), (np.int64(1086), np.int64(421)), (np.int64(1086), np.int64(741)), (np.int64(1470), np.int64(741)), (np.int64(1615), np.int64(63)), (np.int64(1854), np.int64(421))]
+2025-06-24 02:06:53,245 - mirror - DEBUG - [(np.int64(1086), np.int64(101)), (np.int64(1086), np.int64(421)), (np.int64(1086), np.int64(741))]
+2025-06-24 02:06:53,245 - mirror - DEBUG - {(1080, 836), (1080, 517), (1080, 197)}
+2025-06-24 02:06:53,245 - mirror - DEBUG - []
+2025-06-24 02:06:53,245 - mirror - DEBUG - [(1080, 836), (1080, 517), (1080, 197)]
+2025-06-24 02:06:55,632 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:55,755 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:55,876 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:55,996 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:56,119 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:56,254 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:06:56,344 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:06:56,461 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:06:56,882 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:07:01,786 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:07:01,908 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:07:02,033 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:07:02,156 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:07:02,282 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:07:13,831 - core - INFO - Starting Battle
+2025-06-24 02:07:45,711 - core - WARNING - didnt see winrate for 30 seconds, clicking middle of the screen
+2025-06-24 02:08:19,046 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:19,170 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:19,301 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:19,430 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:19,562 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:21,909 - core - INFO - Loading
+2025-06-24 02:08:24,909 - core - DEBUG - finished battle
+2025-06-24 02:08:25,139 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:08:25,257 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:08:25,578 - mirror - INFO - Navigating
+2025-06-24 02:08:26,937 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:08:26,938 - mirror - DEBUG - [689]
+2025-06-24 02:08:28,523 - mirror - DEBUG - [(np.int64(703), np.int64(101)), (np.int64(1087), np.int64(421)), (np.int64(1471), np.int64(101)), (np.int64(1615), np.int64(63)), (np.int64(1854), np.int64(421))]
+2025-06-24 02:08:28,523 - mirror - DEBUG - [(np.int64(1087), np.int64(421))]
+2025-06-24 02:08:28,523 - mirror - DEBUG - {(1080, 517)}
+2025-06-24 02:08:28,523 - mirror - DEBUG - []
+2025-06-24 02:08:28,523 - mirror - DEBUG - [(1080, 517)]
+2025-06-24 02:08:30,948 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:31,068 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:31,188 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:31,311 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:31,448 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:31,534 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:08:31,577 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:31,757 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:08:32,167 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:08:32,863 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:32,987 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:33,109 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:33,234 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:08:41,170 - core - INFO - Starting Battle
+2025-06-24 02:09:25,580 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:25,706 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:25,828 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:25,954 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:26,077 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:27,703 - core - INFO - Loading
+2025-06-24 02:09:30,704 - core - DEBUG - finished battle
+2025-06-24 02:09:30,940 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:09:31,059 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:09:31,904 - mirror - INFO - Encounter Reward Selection
+2025-06-24 02:09:34,039 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:34,160 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:34,281 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:34,402 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:34,523 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:38,977 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:09:39,089 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:09:39,404 - mirror - INFO - Navigating
+2025-06-24 02:09:40,792 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:09:40,792 - mirror - DEBUG - [263]
+2025-06-24 02:09:42,380 - mirror - DEBUG - [(np.int64(319), np.int64(102)), (np.int64(319), np.int64(422)), (np.int64(1086), np.int64(102)), (np.int64(1470), np.int64(102)), (np.int64(1470), np.int64(422)), (np.int64(1615), np.int64(63))]
+2025-06-24 02:09:42,380 - mirror - DEBUG - [(np.int64(1086), np.int64(102))]
+2025-06-24 02:09:42,380 - mirror - DEBUG - {(1080, 197)}
+2025-06-24 02:09:42,380 - mirror - DEBUG - []
+2025-06-24 02:09:42,380 - mirror - DEBUG - [(1080, 197)]
+2025-06-24 02:09:44,770 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:44,890 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:45,014 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:45,137 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:45,268 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:45,355 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:09:45,399 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:45,577 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:09:46,015 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:09:46,702 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:46,829 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:46,952 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:47,074 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:09:54,982 - core - INFO - Starting Battle
+2025-06-24 02:10:23,241 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:23,363 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:23,486 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:23,609 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:23,733 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:25,228 - core - INFO - Loading
+2025-06-24 02:10:28,229 - core - DEBUG - finished battle
+2025-06-24 02:10:28,459 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:10:28,568 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:10:28,883 - mirror - INFO - Navigating
+2025-06-24 02:10:30,257 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:10:30,257 - mirror - DEBUG - [689, 1115]
+2025-06-24 02:10:31,834 - mirror - DEBUG - [(np.int64(319), np.int64(742)), (np.int64(1086), np.int64(102)), (np.int64(1086), np.int64(422)), (np.int64(1086), np.int64(742)), (np.int64(1615), np.int64(63)), (np.int64(1892), np.int64(422))]
+2025-06-24 02:10:31,834 - mirror - DEBUG - [(np.int64(1086), np.int64(102)), (np.int64(1086), np.int64(422)), (np.int64(1086), np.int64(742))]
+2025-06-24 02:10:31,834 - mirror - DEBUG - {(1080, 836), (1080, 517)}
+2025-06-24 02:10:31,834 - mirror - DEBUG - []
+2025-06-24 02:10:31,834 - mirror - DEBUG - [(1080, 836), (1080, 517)]
+2025-06-24 02:10:34,165 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:34,287 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:34,412 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:34,536 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:34,664 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:34,791 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:34,800 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:10:35,031 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:10:35,449 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:10:36,091 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:36,215 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:36,339 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:36,466 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:10:44,393 - core - INFO - Starting Battle
+2025-06-24 02:11:31,928 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:32,073 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:32,201 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:32,338 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:32,461 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:34,482 - core - INFO - Loading
+2025-06-24 02:11:37,482 - core - DEBUG - finished battle
+2025-06-24 02:11:37,716 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:11:37,833 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:11:38,168 - mirror - INFO - Navigating
+2025-06-24 02:11:39,561 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:11:39,561 - mirror - DEBUG - [263]
+2025-06-24 02:11:41,140 - mirror - DEBUG - [(np.int64(319), np.int64(102)), (np.int64(702), np.int64(102)), (np.int64(1509), np.int64(102)), (np.int64(1615), np.int64(63))]
+2025-06-24 02:11:41,140 - mirror - DEBUG - []
+2025-06-24 02:11:41,140 - mirror - DEBUG - set()
+2025-06-24 02:11:41,140 - mirror - DEBUG - [(1080, 197)]
+2025-06-24 02:11:41,140 - mirror - DEBUG - [(1080, 197)]
+2025-06-24 02:11:43,579 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:43,703 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:43,826 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:43,951 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:44,170 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:11:44,285 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:11:44,812 - mirror - INFO - Skipping restshop due to user setting
+2025-06-24 02:11:46,373 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:46,495 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:46,615 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:46,736 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:47,081 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:11:47,192 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:11:47,507 - mirror - INFO - Navigating
+2025-06-24 02:11:48,888 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:11:48,888 - mirror - DEBUG - [689]
+2025-06-24 02:11:50,469 - mirror - DEBUG - [(np.int64(319), np.int64(101)), (np.int64(319), np.int64(421)), (np.int64(319), np.int64(741)), (np.int64(1125), np.int64(421)), (np.int64(1615), np.int64(63))]
+2025-06-24 02:11:50,469 - mirror - DEBUG - [(np.int64(1125), np.int64(421))]
+2025-06-24 02:11:50,469 - mirror - DEBUG - {(1080, 517)}
+2025-06-24 02:11:50,469 - mirror - DEBUG - []
+2025-06-24 02:11:50,469 - mirror - DEBUG - [(1080, 517)]
+2025-06-24 02:11:52,804 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:52,927 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:53,046 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:53,166 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:53,291 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:53,421 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:53,434 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:11:53,657 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:11:54,067 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:11:54,725 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:54,869 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:54,990 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:11:55,112 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:12:03,059 - core - INFO - Starting Battle
+2025-06-24 02:12:34,729 - core - WARNING - didnt see winrate for 30 seconds, clicking middle of the screen
+2025-06-24 02:13:01,475 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:01,602 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:01,744 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:01,877 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:02,010 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:02,135 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:04,222 - core - INFO - Loading
+2025-06-24 02:13:07,222 - core - DEBUG - finished battle
+2025-06-24 02:13:07,455 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:07,565 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:08,445 - mirror - INFO - Encounter Reward Selection
+2025-06-24 02:13:10,593 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:10,714 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:10,836 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:10,960 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:15,470 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:15,583 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:16,337 - mirror - INFO - Reward Selection
+2025-06-24 02:13:16,440 - mirror - INFO - Reward Selection: Status found
+2025-06-24 02:13:16,937 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:17,058 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:17,178 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:17,300 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:17,426 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:17,548 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:18,200 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:18,310 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:19,310 - mirror - INFO - Pack Selection
+2025-06-24 02:13:19,509 - mirror - INFO - Current Floor floor2
+2025-06-24 02:13:21,828 - mirror - DEBUG - 162.33333333333334
+2025-06-24 02:13:21,955 - mirror - INFO - Pack exclusion not detected, status detected, choosing from status
+2025-06-24 02:13:22,052 - mirror - DEBUG - [(np.int64(579), np.int64(870)), (np.int64(895), np.int64(869)), (np.int64(1211), np.int64(869))]
+2025-06-24 02:13:22,278 - mirror - DEBUG - [(np.int64(556), np.int64(888))]
+2025-06-24 02:13:22,278 - mirror - DEBUG - {(np.int64(579), np.int64(870))}
+2025-06-24 02:13:22,278 - mirror - DEBUG - Found Owned Gifts in Pack rewards - filtering
+2025-06-24 02:13:23,506 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:23,540 - core - INFO - Moving to Next Floor
+2025-06-24 02:13:23,628 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:23,748 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:23,869 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:23,992 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:28,770 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:28,877 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:29,210 - mirror - INFO - Navigating
+2025-06-24 02:13:30,589 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:13:30,589 - mirror - DEBUG - [263, 689, 1115]
+2025-06-24 02:13:32,176 - mirror - DEBUG - [(np.int64(1086), np.int64(742)), (np.int64(1125), np.int64(102)), (np.int64(1470), np.int64(102)), (np.int64(1615), np.int64(63)), (np.int64(1854), np.int64(422)), (np.int64(1854), np.int64(742))]
+2025-06-24 02:13:32,176 - mirror - DEBUG - [(np.int64(1086), np.int64(742)), (np.int64(1125), np.int64(102))]
+2025-06-24 02:13:32,176 - mirror - DEBUG - {(1080, 836), (1080, 197)}
+2025-06-24 02:13:32,176 - mirror - DEBUG - [(1080, 517)]
+2025-06-24 02:13:32,176 - mirror - DEBUG - [(1080, 517), (1080, 836), (1080, 197)]
+2025-06-24 02:13:34,606 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:34,732 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:34,856 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:34,983 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:35,199 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:35,337 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:35,573 - mirror - INFO - Entered ? node
+2025-06-24 02:13:36,280 - mirror - INFO - Event
+2025-06-24 02:13:37,516 - mirror - INFO - Select to gain EGO Gift
+2025-06-24 02:13:38,074 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:38,196 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:38,318 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:38,440 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:38,562 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:40,765 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:40,887 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:41,012 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:41,133 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:41,257 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:42,637 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:42,750 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:43,083 - mirror - INFO - Navigating
+2025-06-24 02:13:44,494 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:13:44,494 - mirror - DEBUG - [263, 1115]
+2025-06-24 02:13:46,080 - mirror - DEBUG - [(np.int64(702), np.int64(742)), (np.int64(741), np.int64(102)), (np.int64(1086), np.int64(102)), (np.int64(1470), np.int64(422)), (np.int64(1470), np.int64(742)), (np.int64(1615), np.int64(63)), (np.int64(1854), np.int64(422)), (np.int64(1892), np.int64(101))]
+2025-06-24 02:13:46,080 - mirror - DEBUG - [(np.int64(1086), np.int64(102))]
+2025-06-24 02:13:46,080 - mirror - DEBUG - {(1080, 197)}
+2025-06-24 02:13:46,080 - mirror - DEBUG - [(1080, 836)]
+2025-06-24 02:13:46,080 - mirror - DEBUG - [(1080, 836), (1080, 197)]
+2025-06-24 02:13:48,419 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:48,543 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:48,666 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:48,789 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:49,061 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:49,180 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:49,412 - mirror - INFO - Entered ? node
+2025-06-24 02:13:50,120 - mirror - INFO - Event
+2025-06-24 02:13:51,322 - mirror - INFO - Select to gain EGO Gift
+2025-06-24 02:13:51,808 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:51,932 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:52,054 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:52,176 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:52,297 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:54,219 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:54,339 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:54,462 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:54,583 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:54,703 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:13:56,073 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:13:56,188 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:13:56,492 - mirror - INFO - Navigating
+2025-06-24 02:13:57,872 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:13:57,872 - mirror - DEBUG - [263, 689]
+2025-06-24 02:13:59,464 - mirror - DEBUG - [(np.int64(319), np.int64(422)), (np.int64(1086), np.int64(102)), (np.int64(1086), np.int64(422)), (np.int64(1470), np.int64(102)), (np.int64(1615), np.int64(63))]
+2025-06-24 02:13:59,464 - mirror - DEBUG - [(np.int64(1086), np.int64(102)), (np.int64(1086), np.int64(422))]
+2025-06-24 02:13:59,464 - mirror - DEBUG - {(1080, 517), (1080, 197)}
+2025-06-24 02:13:59,464 - mirror - DEBUG - []
+2025-06-24 02:13:59,464 - mirror - DEBUG - [(1080, 517), (1080, 197)]
+2025-06-24 02:14:01,832 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:01,956 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:02,077 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:02,199 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:02,328 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:02,460 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:02,469 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:14:02,593 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:14:03,008 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:14:03,767 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:04,010 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:04,138 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:12,050 - core - INFO - Starting Battle
+2025-06-24 02:14:37,128 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:37,250 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:37,371 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:37,493 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:37,632 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:37,762 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:39,102 - core - INFO - Loading
+2025-06-24 02:14:42,103 - core - DEBUG - finished battle
+2025-06-24 02:14:42,337 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:14:42,447 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:14:42,778 - mirror - INFO - Navigating
+2025-06-24 02:14:44,161 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:14:44,161 - mirror - DEBUG - [263]
+2025-06-24 02:14:45,744 - mirror - DEBUG - [(np.int64(703), np.int64(101)), (np.int64(1086), np.int64(101)), (np.int64(1615), np.int64(63)), (np.int64(1892), np.int64(101))]
+2025-06-24 02:14:45,744 - mirror - DEBUG - [(np.int64(1086), np.int64(101))]
+2025-06-24 02:14:45,744 - mirror - DEBUG - {(1080, 197)}
+2025-06-24 02:14:45,745 - mirror - DEBUG - []
+2025-06-24 02:14:45,745 - mirror - DEBUG - [(1080, 197)]
+2025-06-24 02:14:48,178 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:48,301 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:48,424 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:48,546 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:48,679 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:48,768 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:14:48,811 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:48,990 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:14:49,389 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:14:50,089 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:50,215 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:50,337 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:50,460 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:14:58,377 - core - INFO - Starting Battle
+2025-06-24 02:15:18,408 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:18,533 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:18,655 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:18,776 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:18,902 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:20,615 - core - INFO - Loading
+2025-06-24 02:15:23,615 - core - DEBUG - finished battle
+2025-06-24 02:15:23,845 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:15:23,954 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:15:24,261 - mirror - INFO - Navigating
+2025-06-24 02:15:25,614 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:15:25,614 - mirror - DEBUG - [689]
+2025-06-24 02:15:27,203 - mirror - DEBUG - [(np.int64(319), np.int64(421)), (np.int64(319), np.int64(741)), (np.int64(741), np.int64(101)), (np.int64(1509), np.int64(421)), (np.int64(1615), np.int64(63))]
+2025-06-24 02:15:27,203 - mirror - DEBUG - []
+2025-06-24 02:15:27,203 - mirror - DEBUG - set()
+2025-06-24 02:15:27,203 - mirror - DEBUG - [(1080, 517)]
+2025-06-24 02:15:27,203 - mirror - DEBUG - [(1080, 517)]
+2025-06-24 02:15:29,634 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:29,755 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:29,877 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:29,999 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:30,219 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:15:30,335 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:15:30,866 - mirror - INFO - Skipping restshop due to user setting
+2025-06-24 02:15:32,452 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:32,574 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:32,694 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:32,819 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:33,162 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:15:33,273 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:15:33,597 - mirror - INFO - Navigating
+2025-06-24 02:15:34,968 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:15:34,968 - mirror - DEBUG - [689]
+2025-06-24 02:15:36,537 - mirror - DEBUG - [(np.int64(319), np.int64(421)), (np.int64(357), np.int64(101)), (np.int64(1125), np.int64(421)), (np.int64(1615), np.int64(63))]
+2025-06-24 02:15:36,537 - mirror - DEBUG - [(np.int64(1125), np.int64(421))]
+2025-06-24 02:15:36,537 - mirror - DEBUG - {(1080, 517)}
+2025-06-24 02:15:36,537 - mirror - DEBUG - []
+2025-06-24 02:15:36,537 - mirror - DEBUG - [(1080, 517)]
+2025-06-24 02:15:37,234 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:37,355 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:37,480 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:37,601 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:38,877 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:39,003 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:39,127 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:39,248 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:39,373 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:39,506 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:39,526 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:15:39,754 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:15:40,167 - mirror - INFO - Selecting Squad for Battle
+2025-06-24 02:15:40,821 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:40,943 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:41,066 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:41,189 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:15:49,131 - core - INFO - Starting Battle
+2025-06-24 02:16:20,629 - core - WARNING - didnt see winrate for 30 seconds, clicking middle of the screen
+2025-06-24 02:16:56,909 - core - WARNING - didnt see winrate for 30 seconds, clicking middle of the screen
+2025-06-24 02:17:28,629 - core - WARNING - didnt see winrate for 30 seconds, clicking middle of the screen
+2025-06-24 02:18:45,369 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:45,493 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:45,616 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:45,738 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:45,867 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:47,395 - core - INFO - Loading
+2025-06-24 02:18:50,395 - core - DEBUG - finished battle
+2025-06-24 02:18:50,632 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:18:50,739 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:18:51,588 - mirror - INFO - Encounter Reward Selection
+2025-06-24 02:18:53,864 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:53,988 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:54,111 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:54,239 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:54,360 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:54,484 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:18:59,663 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:18:59,781 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:19:00,550 - mirror - INFO - Reward Selection
+2025-06-24 02:19:00,650 - mirror - INFO - Reward Selection: Status found
+2025-06-24 02:19:01,089 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:01,213 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:01,336 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:01,460 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:01,584 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:01,707 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:01,832 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:02,393 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:19:02,499 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:19:03,470 - mirror - INFO - Pack Selection
+2025-06-24 02:19:03,784 - mirror - INFO - Current Floor floor3
+2025-06-24 02:19:06,107 - mirror - DEBUG - 162.33333333333334
+2025-06-24 02:19:06,233 - mirror - INFO - Pack exclusion not detected, status detected, choosing from status
+2025-06-24 02:19:06,334 - mirror - DEBUG - [(np.int64(895), np.int64(869)), (np.int64(1211), np.int64(869))]
+2025-06-24 02:19:07,670 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:07,696 - core - INFO - Moving to Next Floor
+2025-06-24 02:19:07,796 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:07,923 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:08,049 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:08,170 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:08,292 - src.compiled_runner - DEBUG - Connection check: connection issue found
+2025-06-24 02:19:12,929 - src.compiled_runner - DEBUG - Mirror loop returned: win_flag=0, run_complete=0
+2025-06-24 02:19:13,036 - src.compiled_runner - DEBUG - Connection is set, running mirror loop
+2025-06-24 02:19:13,338 - mirror - INFO - Navigating
+2025-06-24 02:19:14,735 - mirror - DEBUG - Checking for Node Paths
+2025-06-24 02:19:14,735 - mirror - DEBUG - [263, 689, 1115]
+2025-06-24 02:19:16,311 - mirror - DEBUG - [(np.int64(1086), np.int64(741)), (np.int64(1125), np.int64(421)), (np.int64(1509), np.int64(101)), (np.int64(1509), np.int64(741)), (np.int64(1615), np.int64(63)), (np.int64(1854), np.int64(421))]
+2025-06-24 02:19:16,311 - mirror - DEBUG - [(np.int64(1086), np.int64(741)), (np.int64(1125), np.int64(421))]
+2025-06-24 02:19:16,311 - mirror - DEBUG - {(1080, 836), (1080, 517)}
+2025-06-24 02:19:16,311 - mirror - DEBUG - [(1080, 197)]
+2025-06-24 02:19:16,311 - mirror - DEBUG - [(1080, 197), (1080, 836), (1080, 517)]
+2025-06-24 02:19:17,200 - GUI - INFO - Terminated Mirror Dungeon process (PID: 35148)
+2025-06-24 03:31:10,235 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 03:31:10,314 - common - INFO - Game monitor set to 1
+2025-06-24 03:31:10,315 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 03:31:10,315 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 03:31:10,316 - GUI - INFO - GUI initialized
+2025-06-24 03:31:10,508 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 03:31:10,526 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-24 03:31:11,270 - GUI - DEBUG - Loaded squad data from file
+2025-06-24 03:31:11,271 - GUI - DEBUG - Saved slow squad data to file
+2025-06-24 03:31:12,592 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 03:31:12,592 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 03:31:12,592 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 03:31:12,592 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 03:31:12,592 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 03:31:13,317 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 03:31:13,317 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 03:31:13,317 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 03:31:13,317 - updater - INFO - Versions equal: True
+2025-06-24 03:31:13,317 - updater - INFO - Already up to date: v18
+2025-06-24 03:31:17,662 - GUI - INFO - Saved selected statuses: ['burn']
+2025-06-24 03:31:17,662 - GUI - INFO - Status toggled: poise
+2025-06-24 03:35:23,878 - GUI - INFO - Application closing
+2025-06-24 03:35:23,878 - GUI - INFO - Killed all processes
+2025-06-24 03:35:27,518 - GUI - INFO - Application closing
+2025-06-24 03:35:27,519 - GUI - INFO - Killed all processes
+2025-06-24 03:35:30,641 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 03:35:30,720 - common - INFO - Game monitor set to 1
+2025-06-24 03:35:30,720 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 03:35:30,720 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 03:35:30,721 - GUI - INFO - GUI initialized
+2025-06-24 03:35:30,925 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 03:35:30,943 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-24 03:35:31,949 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 03:35:31,949 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 03:35:31,949 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 03:35:31,949 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 03:35:31,949 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 03:35:32,367 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 03:35:32,367 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 03:35:32,367 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 03:35:32,367 - updater - INFO - Versions equal: True
+2025-06-24 03:35:32,367 - updater - INFO - Already up to date: v18
+2025-06-24 03:35:33,148 - GUI - DEBUG - Loaded squad data from file
+2025-06-24 03:35:33,148 - GUI - DEBUG - Saved slow squad data to file
+2025-06-24 03:35:38,493 - GUI - INFO - Updated Y offset to: 0
+2025-06-24 03:57:57,116 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 03:57:57,200 - common - INFO - Game monitor set to 1
+2025-06-24 03:57:57,200 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 03:57:57,200 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 03:57:57,201 - GUI - INFO - GUI initialized
+2025-06-24 03:57:57,393 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 03:57:57,410 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-24 03:57:58,210 - GUI - DEBUG - Loaded squad data from file
+2025-06-24 03:57:58,210 - GUI - DEBUG - Saved slow squad data to file
+2025-06-24 03:57:59,565 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 03:57:59,565 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 03:57:59,565 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 03:57:59,565 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 03:57:59,565 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 03:58:00,385 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 03:58:00,385 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 03:58:00,385 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 03:58:00,385 - updater - INFO - Versions equal: True
+2025-06-24 03:58:00,385 - updater - INFO - Already up to date: v18
+2025-06-24 03:58:12,992 - GUI - INFO - Application closing
+2025-06-24 03:58:12,993 - GUI - INFO - Killed all processes
+2025-06-24 03:59:34,363 - GUI - INFO - Application closing
+2025-06-24 03:59:34,363 - GUI - INFO - Killed all processes
+2025-06-24 04:00:25,089 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 04:00:25,163 - common - INFO - Game monitor set to 1
+2025-06-24 04:00:25,163 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 04:00:25,163 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 04:00:25,164 - GUI - INFO - GUI initialized
+2025-06-24 04:00:25,356 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 04:00:25,374 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['poise', 'burn']
+2025-06-24 04:00:26,391 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 04:00:26,391 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 04:00:26,391 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 04:00:26,391 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 04:00:26,391 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 04:00:26,814 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 04:00:26,815 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 04:00:26,815 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 04:00:26,815 - updater - INFO - Versions equal: True
+2025-06-24 04:00:26,815 - updater - INFO - Already up to date: v18
+2025-06-24 04:00:37,446 - GUI - INFO - Application closing
+2025-06-24 04:00:37,447 - GUI - INFO - Killed all processes
+2025-06-24 04:01:38,749 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 04:01:38,836 - common - INFO - Game monitor set to 1
+2025-06-24 04:01:38,837 - common - INFO - Detected monitor resolution: 1920x1080, aspect ratio: 1.78
+2025-06-24 04:01:38,837 - GUI - INFO - Monitor initialized to Monitor 1
+2025-06-24 04:01:38,837 - GUI - INFO - GUI initialized
+2025-06-24 04:01:39,037 - GUI - DEBUG - Registered keyboard shortcuts: ctrl+q (Mirror), ctrl+e (Exp), ctrl+r (Threads), ctrl+t (Battle), ctrl+g (Call Function), ctrl+shift+g (Terminate Functions), ctrl+b (Chain Automation)
+2025-06-24 04:01:39,053 - GUI - DEBUG - Loaded checkbox data at startup. Pre-checked: ['burn', 'poise']
+2025-06-24 04:01:40,055 - updater - INFO - Updater initialized for Kryxzort/GuiSirSquirrelAssistant
+2025-06-24 04:01:40,055 - updater - INFO - Parent directory: D:\wsl\GuiSirSquirrelAssistant multi monitor
+2025-06-24 04:01:40,055 - updater - INFO - All data directory: D:\wsl\GuiSirSquirrelAssistant multi monitor\all data
+2025-06-24 04:01:40,055 - updater - INFO - Backup path: D:\wsl\GuiSirSquirrelAssistant multi monitor\backups
+2025-06-24 04:01:40,055 - updater - INFO - Temp path: D:\wsl\GuiSirSquirrelAssistant multi monitor\_temp
+2025-06-24 04:01:40,510 - updater - INFO - Repository version.json content: 'v18'
+2025-06-24 04:01:40,511 - updater - INFO - Current version: 'v18' (length: 3)
+2025-06-24 04:01:40,511 - updater - INFO - Latest version: 'v18' (length: 3)
+2025-06-24 04:01:40,511 - updater - INFO - Versions equal: True
+2025-06-24 04:01:40,511 - updater - INFO - Already up to date: v18
+2025-06-24 04:01:46,553 - GUI - DEBUG - Loaded squad data from file
+2025-06-24 04:01:46,554 - GUI - DEBUG - Saved slow squad data to file
+2025-06-24 04:02:00,074 - GUI - INFO - Application closing
+2025-06-24 04:02:00,074 - GUI - INFO - Killed all processes

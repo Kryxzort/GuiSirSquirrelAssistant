@@ -1,6 +1,9 @@
+
 import sys
 import os
 import logging
+import json
+
 # Determine if running as executable or script
 def get_base_path():
     if getattr(sys, 'frozen', False):
@@ -27,8 +30,9 @@ logger = logging.getLogger(__name__)
 
 import common, mirror_utils
 from core import skill_check,battle_check, battle, check_loading, transition_loading,post_run_load
-import logging
 import os
+PACK_PRIORITY_JSON = os.path.join(BASE_PATH, "config", "pack_priority.json")
+PACK_EXCEPTIONS_JSON = os.path.join(BASE_PATH, "config", "pack_exceptions.json")
     
 class Mirror:
     def __init__(self, status):
@@ -44,15 +48,15 @@ class Mirror:
         """Returns what floor is currently on"""
         floor = ""
         if common.element_exist('pictures/mirror/packs/floor1.png',0.9):
-            floor = "f1"
+            floor = "floor1"
         elif common.element_exist('pictures/mirror/packs/floor2.png',0.9):
-            floor = "f2"
+            floor = "floor2"
         elif common.element_exist('pictures/mirror/packs/floor3.png',0.9):
-            floor = "f3"
+            floor = "floor3"
         elif common.element_exist('pictures/mirror/packs/floor4.png',0.9):
-            floor = "f4"
+            floor = "floor4"
         elif common.element_exist('pictures/mirror/packs/floor5.png',0.9):
-            floor = "f5"
+            floor = "floor5"
         return floor
         
     @staticmethod
@@ -263,31 +267,31 @@ class Mirror:
         status = mirror_utils.pack_choice(self.status) or "pictures/mirror/packs/status/poise_pack.png"
         floor = self.floor_id()
         self.logger.info(f"Current Floor "+ floor)
-        if floor == "f1":
+        if floor == "floor1":
             common.sleep(4)
 
-        if common.element_exist("pictures/mirror/packs/floor_hard.png"): #accounts for cost additions or hard mode swap
+        if common.element_exist("pictures/mirror/packs/floor_hard.png", 0.9): #accounts for cost additions or hard mode swap
             common.sleep(4) # the ego gift crediting blocks the refresh button
-            if common.element_exist("pictures/mirror/packs/hard_toggle.png"): #Accounting for previous hard run and toggling back.
+            if common.element_exist("pictures/mirror/packs/hard_toggle.png", 0.9): #Accounting for previous hard run and toggling back.
                 self.logger.info(f"Hard Mode was previously ran, reverting to Normal")
-                common.click_matching("pictures/mirror/packs/hard_toggle.png")
+                common.click_matching("pictures/mirror/packs/hard_toggle.png", 0.9)
                 self.logger.info(f"Toggled from Hard")
                 floor = self.floor_id()
                 self.logger.debug(f"Current Floor "+ floor)
 
         common.mouse_move(200,200)
         common.sleep(2)
-        if found := common.match_image("pictures/mirror/general/refresh.png"):
+        if found := common.match_image("pictures/mirror/general/refresh.png", 0.9):
             x,y = found[0]
         self.logger.debug(common.luminence(x,y))
         refresh_flag = common.luminence(x,y) < 70 
 
-        if floor == "f5" and common.element_exist("pictures/mirror/packs/f5/nocturnal.png"):
+        if floor == "floor5" and common.element_exist("pictures/mirror/packs/f5/nocturnal.png", 0.9):
             self.choose_pack("pictures/mirror/packs/f5/nocturnal.png")
 
         elif self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
             self.logger.info(f"Pack exclusion detected, refreshing")
-            common.click_matching("pictures/mirror/general/refresh.png")
+            common.click_matching("pictures/mirror/general/refresh.png", 0.9)
             common.mouse_move(200,200)
             return self.pack_selection()
         
@@ -296,32 +300,112 @@ class Mirror:
         #    common.click_matching("pictures/mirror/general/refresh.png")
         #    return self.pack_selection()
 
-        elif common.element_exist(status) and not self.exclusion_detection(floor) and floor != "f5": #if pack exclusion absent and status exists and not Floor 5
-            self.logger.info(f"Pack exclusion not detected, status detected, choosing from status")
-            return self.choose_pack(status)
-        
-        elif self.exclusion_detection(floor) and refresh_flag: #if pack exclusion detected and refreshed
+        elif self.exclusion_detection(floor) and refresh_flag:
             self.logger.info(f"Pack exclusion detected and refreshed, choosing from packlist")
             return self.pack_list(floor)
+        
+        elif common.PRIORITIZE_LIST_OVER_STATUS and not self.exclusion_detection(floor) and floor != "floor5":
+            self.logger.info(f"Prioritize list enabled, trying pack list first")
+            if self.pack_list_has_matches(floor):
+                return self.pack_list(floor)
+            elif common.element_exist(status, 0.9):
+                self.logger.info(f"Pack list found nothing, falling back to status")
+                return self.choose_pack(status)
+            else:
+                self.logger.info(f"No pack list matches and no status, using fallback")
+                return self.pack_list(floor)
+
+        elif common.element_exist(status, 0.9) and not self.exclusion_detection(floor) and floor != "floor5":
+            self.logger.info(f"Pack exclusion not detected, status detected, choosing from status")
+            return self.choose_pack(status)
 
         else:
             self.logger.info(f"PACKS: using pack list")
             return self.pack_list(floor)
 
-    def pack_list(self,floor, threshold=0.8):
-        with open("config/" + floor + ".txt", "r") as f:
-            packs = [i.strip() for i in f.readlines()] #uses the f1,f2,f3,f4 txts for floor order
-        for i in packs:
-            if common.element_exist(i,threshold):
-                return self.choose_pack(i, threshold)
+    def pack_list_has_matches(self, floor, threshold=0.9):
+        """Check if pack list has any matches without selecting them"""
+        try:
+            if os.path.exists(PACK_PRIORITY_JSON):
+                with open(PACK_PRIORITY_JSON, "r") as f:
+                    priority_data = json.load(f)
+                    
+                exceptions = []
+                if os.path.exists(PACK_EXCEPTIONS_JSON):
+                    with open(PACK_EXCEPTIONS_JSON, "r") as f:
+                        exceptions_data = json.load(f)
+                        exceptions = exceptions_data.get(floor, [])
+                
+                floor_priorities = priority_data.get(floor, {})
+                sorted_packs = sorted(floor_priorities.items(), key=lambda x: x[1])
+                packs = [pack for pack, _ in sorted_packs if pack not in exceptions]
+                
+                for pack in packs:
+                    floor_num = floor[-1]
+                    image_floor = f"f{floor_num}"
+                    pack_image = f"pictures/mirror/packs/{image_floor}/{pack}.png"
+                    if common.element_exist(pack_image, threshold):
+                        return True
+                        
+        except Exception as e:
+            self.logger.warning(f"Error checking pack list matches: {e}")
+        
+        return False
 
-    def choose_pack(self,pack_image, threshold=0.8):
-        found = common.match_image(pack_image,threshold)
+    def pack_list(self, floor, threshold=0.9):
+        """Select packs based on priority files"""
+        # Load from JSON files
+        try:
+            # Get priority packs from JSON
+            if os.path.exists(PACK_PRIORITY_JSON):
+                with open(PACK_PRIORITY_JSON, "r") as f:
+                    priority_data = json.load(f)
+                    
+                # Get exceptions from JSON
+                exceptions = []
+                if os.path.exists(PACK_EXCEPTIONS_JSON):
+                    with open(PACK_EXCEPTIONS_JSON, "r") as f:
+                        exceptions_data = json.load(f)
+                        exceptions = exceptions_data.get(floor, [])
+                
+                # Get priority order for this floor
+                floor_priorities = priority_data.get(floor, {})
+                
+                # Sort by priority (ascending)
+                sorted_packs = sorted(floor_priorities.items(), key=lambda x: x[1])
+                
+                # Remove exceptions
+                packs = [pack for pack, _ in sorted_packs if pack not in exceptions]
+                
+                # Try to find each pack in order
+                for pack in packs:
+                    # Convert floor name format for image path (floor1 -> f1)
+                    floor_num = floor[-1]
+                    image_floor = f"f{floor_num}"
+                    pack_image = f"pictures/mirror/packs/{image_floor}/{pack}.png"
+                    if common.element_exist(pack_image, threshold):
+                        return self.choose_pack(pack_image, threshold)
+                
+                # If no priority packs found, pick first available pack
+                self.logger.info(f"No priority packs found, picking first available")
+            
+        except Exception as e:
+            self.logger.warning(f"Error using pack priority files: {e}, picking first available")
+        
+        # If all else fails, just pick the first available pack
+        self.logger.warning(f"No packs found in priority system, picking first available")
+        for found_pack in common.match_image("pictures/mirror/general/inpack.png"):
+            x, y = found_pack
+            common.mouse_move_click(x, y)
+            return
+
+    def choose_pack(self, pack_image, threshold=0.9):
+        found = common.match_image(pack_image, threshold)
         self.logger.debug(found)
         if pack_image == "pictures/mirror/packs/status/pierce_pack.png":
             found = [x for x in found if x[1] > common.scale_y(1092)] #Removes poor detections
-        if common.element_exist("pictures/mirror/packs/status/owned.png"):
-            owned_found = common.match_image("pictures/mirror/packs/status/owned.png")
+        if common.element_exist("pictures/mirror/packs/status/owned.png", 0.9):
+            owned_found = common.match_image("pictures/mirror/packs/status/owned.png", 0.9)
             self.logger.debug(owned_found)
             owned_check = common.proximity_check(found,owned_found,50)
             self.logger.debug(owned_check)
@@ -336,23 +420,45 @@ class Mirror:
         transition_loading()
         return
 
-    def exclusion_detection(self,floor):
-        """Detects an excluded pack"""
+    def exclusion_detection(self, floor):
+        """Detects an excluded pack using exception files"""
         detected = 0
-        if floor == "f1" or floor == "f2" or floor == "f3":
-            return detected
-        if floor == "f4":
-            exclusion = ["pictures/mirror/packs/f4/wrath.png",
-                       "pictures/mirror/packs/f4/crawling.png",
-                       "pictures/mirror/packs/f4/violet.png",
-                       "pictures/mirror/packs/f4/lust.png"]
-        if floor == "f5":
-            exclusion = ["pictures/mirror/packs/f5/crawling.png",
-                         "pictures/mirror/packs/f5/wrath.png",
-                         "pictures/mirror/packs/f5/lust.png"]
-            
-        detected = any(common.element_exist(i) for i in exclusion) #use 0.75 if current has issues
-        return int(detected)
+        try:
+            # Try to load exceptions from JSON file
+            if os.path.exists(PACK_EXCEPTIONS_JSON):
+                with open(PACK_EXCEPTIONS_JSON, "r") as f:
+                    exceptions_data = json.load(f)
+                    exceptions = exceptions_data.get(floor, [])
+                
+                # Check if any exception packs are present
+                if exceptions:
+                    # Convert floor name format for image path (floor1 -> f1)
+                    floor_num = floor[-1]
+                    image_floor = f"f{floor_num}"
+                    exclusion = [f"pictures/mirror/packs/{image_floor}/{pack}.png" for pack in exceptions]
+                    detected = any(common.element_exist(i, 0.9) for i in exclusion)
+                    return int(detected)
+        except Exception as e:
+            self.logger.warning(f"Error loading pack exceptions: {e}")
+        
+        # Try the old method as fallback
+        try:
+            floor_num = floor[-1]
+            exception_path = os.path.join(BASE_PATH, "config", f"pack_exceptions_f{floor_num}.txt")
+            if os.path.exists(exception_path):
+                with open(exception_path, "r") as f:
+                    exceptions = [line.strip() for line in f.readlines() if line.strip()]
+                
+                # Check if any exception packs are present
+                if exceptions:
+                    exclusion = [f"pictures/mirror/packs/f{floor_num}/{pack}.png" for pack in exceptions]
+                    detected = any(common.element_exist(i, 0.9) for i in exclusion)
+                    return int(detected)
+        except Exception as e:
+            self.logger.warning(f"Error loading old pack exceptions: {e}")
+        
+        # Return 0 if no exceptions file or empty file
+        return 0
 
     def squad_select(self):
         """selects sinners in squad order"""
@@ -438,12 +544,6 @@ class Mirror:
         #Checks incase continuing quitted out MD
         common.click_matching("pictures/mirror/general/danteh.png")
         if common.element_exist("pictures/mirror/general/nav_enter.png"):
-            common.click_matching("pictures/mirror/general/nav_enter.png")
-            #common.key_press("enter")
-        elif common.element_exist("pictures/mirror/general/boss_node.png"):
-            common.click_matching("pictures/mirror/general/boss_node.png")
-            while (not common.element_exist("pictures/mirror/general/nav_enter.png")):
-                common.sleep(0.5)
             common.click_matching("pictures/mirror/general/nav_enter.png")
         else:
         #Find which node is the traversable one
@@ -607,17 +707,38 @@ class Mirror:
             else:
                 self.logger.info(f"FUSION: Did not find 3 Gifts to fuse")
                 break
-
-        common.click_matching("pictures/mirror/restshop/close.png")
-        self.logger.info(f"Exiting Fusion")
-
+        if common.element_exist("pictures/mirror/restshop/close.png"):
+            common.click_matching("pictures/mirror/restshop/fusion/forecasts.png")
+            common.click_matching("pictures/mirror/restshop/close.png")
+            self.logger.info(f"Exiting Fusion")
+        else:
+            self.logger.info(f"didnt find close button, retrying in 5 seconds")
+            common.sleep("5")
+            if common.element_exist("pictures/mirror/restshop/close.png"):
+                common.click_matching("pictures/mirror/restshop/close.png")
+            else:
+                self.logger.info(f"cant find close button")
+                
     def rest_shop(self):
-        #Flow should be Fuse > Heal > Enhance > Buy since cost is scarce and stronger gifts is better
+        # Check if we should skip restshop
+        if hasattr(common, 'SKIP_RESTSHOP') and common.SKIP_RESTSHOP:
+            self.logger.info(f"Skipping restshop due to user setting")
+            # LEAVING
+            common.click_matching("pictures/mirror/restshop/leave.png")
+            if not common.element_exist("pictures/general/confirm_w.png"):
+                common.mouse_move_click(50,50)
+                common.click_matching("pictures/mirror/restshop/leave.png")
+            common.click_matching("pictures/general/confirm_w.png")
+            if common.element_exist("pictures/general/confirm_b.png"):
+                common.click_matching("pictures/general/confirm_b.png")
+            return
+            
+        # Flow should be Fuse > Heal > Enhance > Buy since cost is scarce and stronger gifts is better
         self.logger.info(f"Restshop")
 
-        #FUSING
+        # FUSING
         self.fuse_gifts()
-        #Check for insufficient cost to exit
+        # Check for insufficient cost to exit
         if common.element_exist("pictures/mirror/restshop/small_not.png"):
             self.logger.info(f"Restshop: Not enough Cost, Exiting")
             common.click_matching("pictures/mirror/restshop/leave.png")
@@ -627,7 +748,8 @@ class Mirror:
             common.click_matching("pictures/general/confirm_w.png") 
             
         else:
-            #HEALING
+            common.click_matching("pictures/mirror/restshop/close.png")
+            # HEALING
             self.logger.info(f"Restshop: Check if healing is needed")
             common.click_matching("pictures/mirror/restshop/heal.png")
             common.click_matching("pictures/mirror/restshop/heal_all.png")
@@ -635,13 +757,13 @@ class Mirror:
             common.sleep(1)
             common.click_matching("pictures/mirror/restshop/return.png")
 
-            #ENHANCING
+            # ENHANCING
             status = mirror_utils.enhance_gift_choice(self.status)
             if status is None:
                 status = "pictures/mirror/restshop/enhance/poise_enhance.png"
             common.click_matching("pictures/mirror/restshop/enhance/enhance.png")
             self.logger.info(f"Restshop: Enhancing E.G.O Gifts")
-            if common.element_exist("pictures/mirror/restshop/scroll_bar.png"): #if scroll bar present scrolls to the start
+            if common.element_exist("pictures/mirror/restshop/scroll_bar.png"): # if scroll bar present scrolls to the start
                 common.click_matching("pictures/mirror/restshop/scroll_bar.png")
                 for i in range(5):
                     common.mouse_scroll(1000)
@@ -650,7 +772,7 @@ class Mirror:
                 self.logger.info(f"Restshop: Finished Enhancing Gifts")
                 common.click_matching("pictures/mirror/restshop/close.png")
 
-            #BUYING
+            # BUYING
             self.logger.info(f"Restshop: Purchasing Gifts")
             status = mirror_utils.market_choice(self.status)
             if status is None:
@@ -660,29 +782,29 @@ class Mirror:
                 if common.element_exist(status):
                     self.logger.info(f"Restshop: Found Status Gift")
                     market_gifts += common.match_image(status)
-                #keywordless gifts
+                # keywordless gifts
                 if common.element_exist("pictures/mirror/restshop/market/wordless.png"):
                     self.logger.debug(f"Restshop: Found Keywordless Gifts")
-                    #Filters in the event of the skill replacement being detected
+                    # Filters in the event of the skill replacement being detected
                     wordless_gifts = [x for x in common.match_image("pictures/mirror/restshop/market/wordless.png") if not (abs(x[0] - common.scale_x(1300)) <= 10 and abs(x[1] - common.scale_y(541)) <= 10)] 
                     market_gifts += wordless_gifts
                 self.logger.debug(market_gifts)
                 if len(market_gifts):
-                    market_gifts = [x for x in market_gifts if (x[0] > common.scale_x(1091) and x[0] < common.scale_x(2322)) and (x[1] > common.scale_y(434) and x[1] < common.scale_y(919))] #filter within purchase area
+                    market_gifts = [x for x in market_gifts if (x[0] > common.scale_x(1091) and x[0] < common.scale_x(2322)) and (x[1] > common.scale_y(434) and x[1] < common.scale_y(919))] # filter within purchase area
                     self.logger.debug(market_gifts)
                     for x,y in market_gifts:
-                        #x,y = i
+                        # x,y = i
                         self.logger.debug(common.luminence(x+common.scale_x(25),y+common.scale_y(1)))
-                        if common.luminence(x+common.scale_x(25),y+common.scale_y(1)) < 2: #this area will have a value of less than or equal to 5 if purchased
+                        if common.luminence(x+common.scale_x(25),y+common.scale_y(1)) < 2: # this area will have a value of less than or equal to 5 if purchased
                             continue
                         if common.element_exist("pictures/mirror/restshop/small_not.png"):
                             self.logger.info(f"Restshop: Not enough cost, exiting restshop")
                             break
                         common.mouse_move_click(x,y)
-                        if common.element_exist("pictures/mirror/restshop/market/replace.png"): #handle skill replacement opening
+                        if common.element_exist("pictures/mirror/restshop/market/replace.png"): # handle skill replacement opening
                             self.logger.debug(f"Restshop: Skill Replacement Page Reached")
                             common.click_matching("pictures/mirror/restshop/enhance/cancel.png")
-                        if common.element_exist("pictures/mirror/restshop/market/purchase.png"): #purchase button will appear if purchasable
+                        if common.element_exist("pictures/mirror/restshop/market/purchase.png"): # purchase button will appear if purchasable
                             self.logger.info(f"Restshop: Purchased E.G.O Gift")
                             common.click_matching("pictures/mirror/restshop/market/purchase.png")
                             common.click_matching("pictures/general/confirm_b.png")
@@ -696,7 +818,7 @@ class Mirror:
                     common.click_matching("pictures/mirror/restshop/market/refresh.png")
                     self.logger.debug(f"Restshop: Refreshing Shop")
 
-        #LEAVING
+        # LEAVING
         common.click_matching("pictures/mirror/restshop/leave.png")
         if not common.element_exist("pictures/general/confirm_w.png"):
             common.mouse_move_click(50,50)

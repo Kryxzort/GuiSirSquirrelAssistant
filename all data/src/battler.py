@@ -3,23 +3,16 @@ import logging
 import os
 import core
 
-# Determine if running as executable or script
 def get_base_path():
     if getattr(sys, 'frozen', False):
-        # Running as compiled exe
         return os.path.dirname(sys.executable)
     else:
-        # Running as script
         folder_path = os.path.dirname(os.path.abspath(__file__))
-        # Check if we're in the src folder or main folder
         if os.path.basename(folder_path) == 'src':
             return os.path.dirname(folder_path)
         return folder_path
-
-# Get base path for resource access
 BASE_PATH = get_base_path()
 
-# Setting up basic logging configuration
 LOG_FILENAME = os.path.join(BASE_PATH, "Pro_Peepol's.log")
 logging.basicConfig(
     level=logging.DEBUG,

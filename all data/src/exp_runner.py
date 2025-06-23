@@ -9,13 +9,10 @@ import time
 import logging
 import signal
 
-# Determine if running as executable or script
 def get_base_path():
     if getattr(sys, 'frozen', False):
-        # Running as compiled exe
         return os.path.dirname(sys.executable)
     else:
-        # Running as script
         return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Set up paths
@@ -41,23 +38,19 @@ def signal_handler(sig, frame):
     logger.warning(f"Termination signal received, shutting down...")
     sys.exit(0)
 
-def main():
+def main(runs, stage, x_offset_shared=None, y_offset_shared=None):
     """Main function for exp runner"""
-    # Register signal handlers for clean exit
+    # Register signal handlers
     signal.signal(signal.SIGTERM, signal_handler)
     signal.signal(signal.SIGINT, signal_handler)
    
-    if len(sys.argv) != 3:
-        logger.error(f"Invalid arguments. Usage: exp_runner.py <runs> <stage>")
-        sys.exit(1)
-   
     try:
-        runs = int(sys.argv[1])
-        stage_arg = sys.argv[2]  # Get the stage argument as string
+        # Use the parameters passed to the function
+        stage_arg = stage  # Instead of sys.argv[2]
         
         # Handle "latest" as a special case
         if stage_arg == "latest":
-            stage = "latest"  # Keep it as string
+            stage = "latest"
             logger.info(f"Starting Exp automation for {runs} runs on Stage {stage}")
         else:
             # Convert to integer for numeric stages
@@ -75,7 +68,6 @@ def main():
                 logger.error(f"Error during Exp run {i+1}: {e}")
                 # Continue with next run instead of crashing completely
            
-            # Small delay between runs
             time.sleep(2)
        
         logger.info(f"All {runs} Exp runs completed successfully")

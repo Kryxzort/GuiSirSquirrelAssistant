@@ -165,6 +165,10 @@ def battle():
 
 def ego_check():
     """Checks for hopeless/struggling clashes and uses E.G.O if possible"""
+    # Check if we should skip ego selection
+    if hasattr(common, 'SKIP_EGO_CHECK') and common.SKIP_EGO_CHECK:
+        return
+        
     bad_clashes = []
     if common.element_exist("pictures/battle/ego/hopeless.png",0.79):
         logger.debug(f"HOPELESS FOUND")

@@ -16,6 +16,16 @@ Your team section is only for mirror dungeon, for exp and threads you should cli
 assign sinner to name section:
 so here you just pick whatever sinner you want to be chosen and in which order on which team, so if you do 1: Ishmael and 2: rodion on burn and 1: rodion 2: Ishmael on rupture then it will apply Ishmael first if you chosen burn and rodion first if you chosen rupture as your team
 
+pack priority and exceptions:
+basically what packs to prioritize over which on respective floors, and what are hard exceptions, if something is in both priority and exceptions then exceptions will win/it will not be chosen.
+
+mouse offsets:
+use this if you have a weird aspect ratio monitor, tinker it by yourself so that everything is clicking at the right area.
+y = up/down, x = left/right, positive value = down/right, negative value = up/left
+
+prioritize pack list over status gifts:
+basically whatever pack priority you chose for the respective floor will be prioritized first, it will try to find from that list first and if it cant then it will use a pack with same status.
+
 number of runs:
 this just means how many times to complete, so mirror dungeon number of runs means how many times it does the 5 floors, so if you set 2 then it will complete 2 times/do 10 floors, for exp and threads it will do per run, I suggest putting this according to your enkephalin, so if you have 10 enkaphalin and you are gonna do mirror dungeon than type 2 in there. but use it however you want.
 

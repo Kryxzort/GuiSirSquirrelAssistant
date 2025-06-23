@@ -9,8 +9,25 @@ import secrets
 import sys
 from mss.tools import to_png
 import logging
+from PIL import ImageGrab
+from functools import partial
 
 pyautogui.FAILSAFE = False
+
+# Template reference resolutions - used only for template matching
+REFERENCE_WIDTH_1440P = 2560
+REFERENCE_HEIGHT_1440P = 1440
+REFERENCE_WIDTH_1080P = 1920
+REFERENCE_HEIGHT_1080P = 1080
+
+# Monitor configuration - can be adjusted by user if needed
+GAME_MONITOR_INDEX = 1  # Default to primary monitor (index 1 in mss)
+X_OFFSET = 0 # For fine-tuning mouse position if needed
+Y_OFFSET = 0 # For fine-tuning mouse position if needed
+
+# Actual monitor resolution (will be set during initialization)
+MONITOR_WIDTH = None
+MONITOR_HEIGHT = None
 
 # Determine if running as executable or script
 def get_base_path():
@@ -44,6 +61,40 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+def update_from_shared_vars(shared_vars):
+    """AUTOMATIC: Detects and updates ALL variables from SharedVars"""
+    
+    # Automatically find ALL Value objects in shared_vars
+    for attr_name in dir(shared_vars):
+        if not attr_name.startswith('_'):
+            attr_obj = getattr(shared_vars, attr_name)
+            
+            if hasattr(attr_obj, 'value'):
+                global_var_name = attr_name.upper()
+                globals()[global_var_name] = attr_obj.value
+                
+                logger.info(f"Auto-detected: {global_var_name} = {attr_obj.value}")
+
+def detect_monitor_resolution():
+    """Detect the actual resolution of the game monitor"""
+    global MONITOR_WIDTH, MONITOR_HEIGHT
+    
+    with mss() as sct:
+        monitor = sct.monitors[GAME_MONITOR_INDEX]
+        MONITOR_WIDTH = monitor['width']
+        MONITOR_HEIGHT = monitor['height']
+        
+        # Calculate aspect ratio
+        aspect_ratio = MONITOR_WIDTH / MONITOR_HEIGHT
+        
+        # Log the detected resolution
+        logger.info(f"Detected monitor resolution: {MONITOR_WIDTH}x{MONITOR_HEIGHT}, aspect ratio: {aspect_ratio:.2f}")
+        
+        return MONITOR_WIDTH, MONITOR_HEIGHT
+
+# Initialize monitor resolution at module load time
+detect_monitor_resolution()
+
 def random_choice(list):
     return secrets.choice(list)
 
@@ -54,9 +105,30 @@ def sleep(x):
 def mouse_scroll(amount):
     pyautogui.scroll(amount)
 
-def mouse_move(x,y):
-    """Moves the mouse to the X,Y coordinate specified"""
-    pyautogui.moveTo(x,y)
+def _validate_monitor_index(monitor_index, fallback=1):
+    """Validate and return a safe monitor index"""
+    with mss() as sct:
+        if monitor_index >= len(sct.monitors):
+            logger.warning(f"Monitor index {monitor_index} out of range, falling back to monitor {fallback}")
+            return fallback
+        return monitor_index
+
+def get_monitor_info(monitor_index=None):
+    """Get information about the specified monitor or the game monitor"""
+    with mss() as sct:
+        mon_idx = monitor_index if monitor_index is not None else GAME_MONITOR_INDEX
+        mon_idx = _validate_monitor_index(mon_idx)
+        return sct.monitors[mon_idx]
+
+def get_MonCords(x, y):
+    """Convert local coordinates to global monitor coordinates"""
+    mon = get_monitor_info()
+    return mon['left'] + x, mon['top'] + y
+
+def mouse_move(x, y):
+    """Moves the mouse to the X,Y coordinate specified on the game monitor"""
+    real_x, real_y = get_MonCords(x, y)
+    pyautogui.moveTo(real_x, real_y)
 
 def mouse_click():
     """Performs a left click on the current position"""
@@ -73,23 +145,28 @@ def mouse_down():
 def mouse_up():
     pyautogui.mouseUp()
 
-def mouse_move_click(x,y):
+def mouse_move_click(x, y):
     """Moves the mouse to the X,Y coordinate specified and performs a left click"""
-    pyautogui.click(x,y)
+    mouse_move(x, y)
+    mouse_click()
 
-def mouse_drag(x,y,seconds=1):
-    """Drag from coordinates to the specified coords"""
-    pyautogui.dragTo(x,y,seconds,button='left')
+def mouse_drag(x, y, seconds=1):
+    """Drag from current position to the specified coords on the game monitor"""
+    real_x, real_y = get_MonCords(x, y)
+    pyautogui.dragTo(real_x, real_y, seconds, button='left')
 
 def key_press(Key, presses=1):
     """Presses the specified key X amount of times"""
-    pyautogui.press(Key,presses)
+    pyautogui.press(Key, presses)
 
-def capture_screen():
-    """Captures the full screen using MSS and converts it to a numpy array for CV2."""
+def capture_screen(monitor_index=None):
+    """Captures the specified monitor screen using MSS and converts it to a numpy array for CV2."""
     with mss() as sct:
-        # Dynamically get the current screen resolution
-        monitor = sct.monitors[1]  # [1] is the primary monitor; adjust if using multiple monitors
+        # Use specified monitor or default game monitor
+        mon_idx = monitor_index if monitor_index is not None else GAME_MONITOR_INDEX
+        mon_idx = _validate_monitor_index(mon_idx)
+            
+        monitor = sct.monitors[mon_idx]
         
         # Capture the screen with the current resolution
         screenshot = sct.grab(monitor)
@@ -122,24 +199,59 @@ def is_custom_1080p_image(template_path):
     """Check if the image is from the CustomAdded1080p folder"""
     return "CustomAdded1080p" in template_path
 
-def match_image(template_path, threshold=0.8, area="center"):
-    """Finds the image specified and returns coordinates depending on area: center, bottom, left, right, top."""
+def get_template_reference_resolution(template_path):
+    """Determine which reference resolution to use based on the template path"""
+    if is_custom_1080p_image(template_path):
+        return REFERENCE_WIDTH_1080P, REFERENCE_HEIGHT_1080P
+    else:
+        # For non-1080p templates, use the 1440p template dimensions
+        return REFERENCE_WIDTH_1440P, REFERENCE_HEIGHT_1440P
+
+def _extract_coordinates(filtered_boxes, area="center"):
+    """Extract coordinates from filtered boxes based on area preference"""
+    found_elements = []
+    for (x1, y1, x2, y2) in filtered_boxes:
+        if area == "bottom":
+            x = (x1 + x2) // 2
+            y = y2
+        elif area == "top":
+            x = (x1 + x2) // 2
+            y = y1
+        elif area == "left":
+            x = x1
+            y = (y1 + y2) // 2
+        elif area == "right":
+            x = x2
+            y = (y1 + y2) // 2
+        else:  # center
+            x = (x1 + x2) // 2
+            y = (y1 + y2) // 2
+        found_elements.append((x, y))
+    
+    return sorted(found_elements) if found_elements else []
+
+def _base_match_template(template_path, threshold=0.8, grayscale=False, debug=False, area="center"):
+    """Internal function that handles all template matching logic"""
     # Get full path to the template image
     full_template_path = resource_path(template_path)
     
     screenshot = capture_screen()
     screenshot_height, screenshot_width = screenshot.shape[:2]
 
-    if "CustomAdded1080p" in full_template_path.replace('\\\\', '/').replace('\\\\', '/'):
-        base_width, base_height = 1920, 1080
-    else:
-        base_width, base_height = 2560, 1440
+    # Convert to grayscale if requested
+    if grayscale:
+        screenshot = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
+
+    # Determine which reference resolution to use based on the template
+    base_width, base_height = get_template_reference_resolution(full_template_path)
 
     scale_factor_x = screenshot_width / base_width
     scale_factor_y = screenshot_height / base_height
     scale_factor = min(scale_factor_x, scale_factor_y)
 
-    template = cv2.imread(full_template_path, cv2.IMREAD_COLOR)
+    # Load template
+    color_flag = cv2.IMREAD_GRAYSCALE if grayscale else cv2.IMREAD_COLOR
+    template = cv2.imread(full_template_path, color_flag)
     if template is None:
         raise FileNotFoundError(f"Template image '{full_template_path}' not found.")
 
@@ -148,6 +260,7 @@ def match_image(template_path, threshold=0.8, area="center"):
 
     result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
 
+    # Adjust threshold for lower scale factors
     if scale_factor < 0.75:
         threshold = threshold - 0.05
 
@@ -162,99 +275,34 @@ def match_image(template_path, threshold=0.8, area="center"):
     boxes = np.array(boxes)
     filtered_boxes = non_max_suppression_fast(boxes)
 
-    found_elements = []
-    for match_index, (x1, y1, x2, y2) in enumerate(filtered_boxes):
-        if area == "bottom":
-            x = (x1 + x2) // 2
-            y = y2
-        elif area == "top":
-            x = (x1 + x2) // 2
-            y = y1
-        elif area == "left":
-            x = x1
-            y = (y1 + y2) // 2
-        elif area == "right":
-            x = x2
-            y = (y1 + y2) // 2
-        else:
-            x = (x1 + x2) // 2
-            y = (y1 + y2) // 2
+    # Debug visualization if requested
+    if debug and len(filtered_boxes) > 0:
+        debug_screenshot = screenshot.copy()
+        if grayscale:
+            debug_screenshot = cv2.cvtColor(debug_screenshot, cv2.COLOR_GRAY2BGR)
+        
+        for (x1, y1, x2, y2) in filtered_boxes:
+            cv2.rectangle(debug_screenshot, (x1, y1), (x2, y2), color=(0, 255, 0), thickness=2)
 
-        found_elements.append((x, y))
+        cv2.imshow("Matches", debug_screenshot)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
-    if found_elements:
-        return sorted(found_elements)
-    return []
+    return _extract_coordinates(filtered_boxes, area)
+
+def match_image(template_path, threshold=0.8, area="center"):
+    """Finds the image specified and returns coordinates depending on area: center, bottom, left, right, top."""
+    return _base_match_template(template_path, threshold, grayscale=False, debug=False, area=area)
 
 def greyscale_match_image(template_path, threshold=0.75):
     """Finds the image specified and returns the center coordinates, regardless of screen resolution,
     and saves screenshots of each match found."""
-    
-    # Get full path to the template image
-    full_template_path = resource_path(template_path)
-    
-    # Capture current screen and get dimensions
-    screenshot = capture_screen()
-    screenshot_height, screenshot_width = screenshot.shape[:2]
-    screenshot = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
-    
-    # Determine if this is a custom 1080p image
-    is_custom_1080p = is_custom_1080p_image(full_template_path)
-    
-    # Calculate scale factor based on the appropriate base resolution
-    if is_custom_1080p:
-        # For custom 1080p images
-        scale_factor_x = screenshot_width / 1920
-        scale_factor_y = screenshot_height / 1080
-    else:
-        # For original 1440p images
-        scale_factor_x = screenshot_width / 2560
-        scale_factor_y = screenshot_height / 1440
-    
-    scale_factor = min(scale_factor_x, scale_factor_y)
-    
-    # Load and resize the template image according to the scale factor
-    template = cv2.imread(full_template_path, cv2.IMREAD_GRAYSCALE)
-    if template is None:
-        raise FileNotFoundError(f"Template image '{full_template_path}' not found.")
-    
-    template = cv2.resize(template, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_LINEAR)
-    template_height, template_width = template.shape[:2]
+    return _base_match_template(template_path, threshold, grayscale=True, debug=False, area="center")
 
-    # Perform template matching
-    result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
-
-    # Get locations where the match confidence exceeds the threshold
-    if scale_factor < 0.75:
-        threshold = threshold-0.05 #Testing for detecting on lower scales
-    locations = np.where(result >= threshold)
-    boxes = []
-
-    # Loop through all the matching locations and create bounding boxes
-    for pt in zip(*locations[::-1]):  # Switch columns and rows
-        top_left = pt
-        bottom_right = (top_left[0] + template_width, top_left[1] + template_height)
-        boxes.append([top_left[0], top_left[1], bottom_right[0], bottom_right[1]])
-
-    boxes = np.array(boxes)
-
-    # Apply non-maximum suppression to remove overlapping boxes
-    filtered_boxes = non_max_suppression_fast(boxes)
-
-    # List to hold the center coordinates of all filtered elements
-    found_elements = []
-    
-    # Save a screenshot of each matched region
-    for match_index, (x1, y1, x2, y2) in enumerate(filtered_boxes):
-        center_x = (x1 + x2) // 2
-        center_y = (y1 + y2) // 2
-        found_elements.append((center_x, center_y))
-    
-    if found_elements:
-        #save_match_screenshot(screenshot, (x1, y1), (x2, y2), template_path, match_index)
-        return sorted(found_elements)
-    # Return the list of center coordinates of all found elements or None if no elements found
-    return []
+def debug_match_image(template_path, threshold=0.8):
+    """Finds the image specified and returns the center coordinates, regardless of screen resolution,
+       and draws rectangles on each match found."""
+    return _base_match_template(template_path, threshold, grayscale=False, debug=True, area="center")
 
 def proximity_check(list1, list2, threshold):
     close_pairs = set()  # To store pairs of coordinates that are close
@@ -276,83 +324,13 @@ def proximity_check_fuse(list1, list2, x_threshold ,threshold):
                     close_pairs.add(coord1)
     return close_pairs
 
-def debug_match_image(template_path, threshold=0.8):
-    """Finds the image specified and returns the center coordinates, regardless of screen resolution,
-       and draws rectangles on each match found."""
-    
-    # Get full path to the template image
-    full_template_path = resource_path(template_path)
-    
-    # Capture current screen and get dimensions
-    screenshot = capture_screen()
-    screenshot_height, screenshot_width = screenshot.shape[:2]
-
-    # Determine if this is a custom 1080p image
-    is_custom_1080p = is_custom_1080p_image(full_template_path)
-    
-    # Calculate scale factor based on the appropriate base resolution
-    if is_custom_1080p:
-        # For custom 1080p images
-        scale_factor_x = screenshot_width / 1920
-        scale_factor_y = screenshot_height / 1080
-    else:
-        # For original 1440p images
-        scale_factor_x = screenshot_width / 2560
-        scale_factor_y = screenshot_height / 1440
-    
-    scale_factor = min(scale_factor_x, scale_factor_y)
-    
-    # Load and resize the template image according to the scale factor
-    template = cv2.imread(full_template_path, cv2.IMREAD_COLOR)
-    if template is None:
-        raise FileNotFoundError(f"Template image '{full_template_path}' not found.")
-    
-    template = cv2.resize(template, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_LINEAR)
-    template_height, template_width = template.shape[:2]
-
-    # Perform template matching
-    result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
-
-    # Get locations where the match confidence exceeds the threshold
-    locations = np.where(result >= threshold)
-    boxes = []
-
-    # Loop through all the matching locations and create bounding boxes
-    for pt in zip(*locations[::-1]):  # Switch columns and rows
-        top_left = pt
-        bottom_right = (top_left[0] + template_width, top_left[1] + template_height)
-        boxes.append([top_left[0], top_left[1], bottom_right[0], bottom_right[1]])
-
-    boxes = np.array(boxes)
-
-    # Apply non-maximum suppression to remove overlapping boxes
-    filtered_boxes = non_max_suppression_fast(boxes)
-
-    # List to hold the center coordinates of all filtered elements
-    found_elements = []
-
-    # Draw rectangles around each filtered match and calculate center coordinates
-    for (x1, y1, x2, y2) in filtered_boxes:
-        center_x = (x1 + x2) // 2
-        center_y = (y1 + y2) // 2
-        found_elements.append((center_x, center_y))
-        
-        # Draw rectangle around the match
-        cv2.rectangle(screenshot, (x1, y1), (x2, y2), color=(0, 255, 0), thickness=2)
-
-    # Show the screenshot with rectangles for immediate feedback
-    cv2.imshow("Matches", screenshot)
-    cv2.waitKey(0)  # Wait for a key press to close the window
-    cv2.destroyAllWindows()
-
-    return found_elements if found_elements else None
-
-def get_resolution():
-    """Gets the current resolution"""
-    return pyautogui.size()
+def get_resolution(monitor_index=None):
+    """Gets the resolution of the specified monitor or the game monitor"""
+    mon = get_monitor_info(monitor_index)
+    return mon['width'], mon['height']
 
 def non_max_suppression_fast(boxes, overlapThresh=0.5):
-    """Some stonks thing to remove multiple detections on the same position"""
+    """Remove multiple detections on the same position"""
     if len(boxes) == 0:
         return []
 
@@ -400,8 +378,8 @@ def non_max_suppression_fast(boxes, overlapThresh=0.5):
     # Return only the bounding boxes that were picked
     return boxes[pick].astype("int")
 
-def get_aspect_ratio():
-    width,height = pyautogui.size()
+def get_aspect_ratio(monitor_index=None):
+    width, height = get_resolution(monitor_index)
     if (width / 4) * 3 == height:
         return "4:3"
     if (width / 16) * 9 == height:
@@ -411,84 +389,93 @@ def get_aspect_ratio():
     else:
         return None
 
+# ==================== INTERNAL DRY SCALING FUNCTIONS ====================
+
+def _uniform_scale_coordinates(x, y, reference_width, reference_height, use_uniform=True):
+    """Internal function that does all coordinate scaling work"""
+    scale_factor_x = MONITOR_WIDTH / reference_width
+    scale_factor_y = MONITOR_HEIGHT / reference_height
+    
+    if use_uniform:
+        # Use minimum scale factor to maintain aspect ratio (true uniform scaling)
+        scale_factor = min(scale_factor_x, scale_factor_y)
+        scaled_x = round(x * scale_factor) + X_OFFSET
+        scaled_y = round(y * scale_factor) + Y_OFFSET
+    else:
+        # Use individual scale factors (stretches to fill screen)
+        scaled_x = round(x * scale_factor_x) + X_OFFSET
+        scaled_y = round(y * scale_factor_y) + Y_OFFSET
+    
+    return scaled_x, scaled_y
+
+def _scale_single_coordinate(coord, reference_dimension, actual_dimension, offset=0):
+    """Scale a single coordinate dimension"""
+    return round(coord * actual_dimension / reference_dimension) + offset
+
+# ==================== PUBLIC SCALING FUNCTIONS (BACKWARD COMPATIBLE) ====================
+
 def scale_x(x):
-    """Scale X coordinate based on the original 2560x1440 resolution"""
-    width,height = get_resolution()
-    scale_factor_x = width / 2560
-    return round(x * scale_factor_x)
+    """Scale X coordinate based on 1440p reference to the actual monitor width"""
+    return _scale_single_coordinate(x, REFERENCE_WIDTH_1440P, MONITOR_WIDTH, X_OFFSET)
 
 def scale_y(y):
-    """Scale Y coordinate based on the original 2560x1440 resolution"""
-    width,height = get_resolution()
-    scale_factor_y =  height / 1440
-    return round(y * scale_factor_y)
+    """Scale Y coordinate based on 1440p reference to the actual monitor height"""
+    return _scale_single_coordinate(y, REFERENCE_HEIGHT_1440P, MONITOR_HEIGHT, Y_OFFSET)
 
 def scale_x_1080p(x):
-    """Scale X coordinate based on 1920x1080 resolution"""
-    width,height = get_resolution()
-    scale_factor_x = width / 1920
-    return round(x * scale_factor_x)
+    """Scale X coordinate based on 1080p reference to the actual monitor width"""
+    return _scale_single_coordinate(x, REFERENCE_WIDTH_1080P, MONITOR_WIDTH, X_OFFSET)
 
 def scale_y_1080p(y):
-    """Scale Y coordinate based on 1920x1080 resolution"""
-    width,height = get_resolution()
-    scale_factor_y = height / 1080
-    return round(y * scale_factor_y)
+    """Scale Y coordinate based on 1080p reference to the actual monitor height"""
+    return _scale_single_coordinate(y, REFERENCE_HEIGHT_1080P, MONITOR_HEIGHT, Y_OFFSET)
 
 def uniform_scale_single(coord):
-    width,height = get_resolution()
-    scale_factor_x = width / 2560
-    scale_factor_y = height / 1440
-    scale_factor = min(scale_factor_x,scale_factor_y)
+    """Scale a single coordinate using the minimum scale factor to maintain aspect ratio"""
+    scale_factor_x = MONITOR_WIDTH / REFERENCE_WIDTH_1440P
+    scale_factor_y = MONITOR_HEIGHT / REFERENCE_HEIGHT_1440P
+    scale_factor = min(scale_factor_x, scale_factor_y)
     return round(scale_factor * coord)
 
 def uniform_scale_coordinates(x, y):
-    """Scale (x, y) coordinates from 1440P to the current screen resolution."""
-    width,height = get_resolution()
-    scale_factor_x = width / 2560
-    scale_factor_y = height / 1440
-    scale_factor = min(scale_factor_x,scale_factor_y)
-    scaled_x = round(x * scale_factor_x)
-    scaled_y = round(y * scale_factor_y)
-    return scaled_x, scaled_y
+    """Scale (x, y) coordinates from 1440p reference to the current screen resolution."""
+    return _uniform_scale_coordinates(x, y, REFERENCE_WIDTH_1440P, REFERENCE_HEIGHT_1440P, use_uniform=False)
 
 def uniform_scale_coordinates_1080p(x, y):
-    """Scale (x, y) coordinates from 1080P to the current screen resolution."""
-    width,height = get_resolution()
-    scale_factor_x = width / 1920
-    scale_factor_y = height / 1080
-    scale_factor = min(scale_factor_x,scale_factor_y)
-    scaled_x = round(x * scale_factor_x)
-    scaled_y = round(y * scale_factor_y)
-    return scaled_x, scaled_y
+    """Scale (x, y) coordinates from 1080p reference to the current screen resolution."""
+    return _uniform_scale_coordinates(x, y, REFERENCE_WIDTH_1080P, REFERENCE_HEIGHT_1080P, use_uniform=False)
+
+# ==================== GAME-SPECIFIC FUNCTIONS ====================
 
 def click_skip(times):
     """Click Skip the amount of time specified"""
-    mouse_move_click(scale_x(1193),scale_y(623))
+    scaled_x, scaled_y = _uniform_scale_coordinates(895, 465, REFERENCE_WIDTH_1080P, REFERENCE_HEIGHT_1080P, use_uniform=False)
+    mouse_move_click(scaled_x, scaled_y)
     for i in range(times):
         mouse_click()
 
-def wait_skip(img_path,threshold=0.8):
+def wait_skip(img_path, threshold=0.8):
     """Clicks on the skip button and waits for specified element to appear"""
-    mouse_move_click(scale_x(1193),scale_y(623))
-    while(not element_exist(img_path,threshold)):
+    scaled_x, scaled_y = _uniform_scale_coordinates(895, 465, REFERENCE_WIDTH_1080P, REFERENCE_HEIGHT_1080P, use_uniform=False)
+    mouse_move_click(scaled_x, scaled_y)
+    while(not element_exist(img_path, threshold)):
         mouse_click()
-    click_matching(img_path,threshold)
+    click_matching(img_path, threshold)
 
-def click_matching(image_path,threshold=0.8,area="center",mousegoto200="1"):
-    if element_exist(image_path,threshold):
-        found = match_image(image_path,threshold,area)
+def click_matching(image_path, threshold=0.8, area="center", mousegoto200="1"):
+    if element_exist(image_path, threshold):
+        found = match_image(image_path, threshold, area)
         if found:
-            x,y = found[0]
-            mouse_move_click(x,y)
+            x, y = found[0]
+            mouse_move_click(x, y)
             time.sleep(0.5)
         elif mousegoto200 == "1":
-            mouse_move(200,200)
-            click_matching(image_path,threshold,area)
+            mouse_move(200, 200)
+            click_matching(image_path, threshold, area)
         else:
-            click_matching(image_path,threshold,area,mousegoto200="0")
+            click_matching(image_path, threshold, area, mousegoto200="0")
 
-def element_exist(img_path,threshold=0.8):
+def element_exist(img_path, threshold=0.8):
     """Checks if the element exists if not returns none"""
     result = match_image(img_path, threshold)
     return result
@@ -523,7 +510,7 @@ def squad_order(status):
             if sinner_name in characters_positions:
                 position = characters_positions[sinner_name]
                 x,y = characters_positions[sinner_name]
-                sinner_order.append(uniform_scale_coordinates(x,y))  
+                sinner_order.append(_uniform_scale_coordinates(x, y, REFERENCE_WIDTH_1440P, REFERENCE_HEIGHT_1440P, use_uniform=False))  
     return sinner_order
 
 def luminence(x,y):
@@ -537,11 +524,44 @@ def error_screenshot():
     error_dir = os.path.join(BASE_PATH, "error")
     os.makedirs(error_dir, exist_ok=True)
     with mss() as sct:
-        # Dynamically get the current screen resolution
-        monitor = sct.monitors[1]  # [1] is the primary monitor; adjust if using multiple monitors
-        # Capture the screen with the current resolution
+        monitor = sct.monitors[GAME_MONITOR_INDEX]  # Use the configured game monitor
         screenshot = sct.grab(monitor)
         png = to_png(screenshot.rgb, screenshot.size)
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         with open(os.path.join(error_dir, timestamp + ".png"), "wb") as f:
             f.write(png)
+
+def set_game_monitor(monitor_index):
+    """Set which monitor the game is running on"""
+    global GAME_MONITOR_INDEX
+    with mss() as sct:
+        if monitor_index < 1 or monitor_index >= len(sct.monitors):
+            logger.warning(f"Invalid monitor index {monitor_index}, using primary monitor")
+            GAME_MONITOR_INDEX = 1
+        else:
+            GAME_MONITOR_INDEX = monitor_index
+            logger.info(f"Game monitor set to {monitor_index}")
+    
+    # Re-detect monitor resolution after changing monitor
+    detect_monitor_resolution()
+    return GAME_MONITOR_INDEX
+
+def list_available_monitors():
+    """List all available monitors and their properties"""
+    with mss() as sct:
+        monitors = []
+        for i, monitor in enumerate(sct.monitors):
+            if i == 0:  # Skip the "all monitors" entry
+                continue
+            monitors.append({
+                "index": i,
+                "left": monitor["left"],
+                "top": monitor["top"],
+                "width": monitor["width"],
+                "height": monitor["height"]
+            })
+        return monitors
+
+def get_monitor_resolution():
+    """Get the current monitor resolution"""
+    return MONITOR_WIDTH, MONITOR_HEIGHT

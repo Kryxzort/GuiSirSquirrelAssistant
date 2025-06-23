@@ -5,13 +5,10 @@ import time
 import logging
 import signal
 
-# Determine if running as executable or script
 def get_base_path():
     if getattr(sys, 'frozen', False):
-        # Running as compiled exe
         return os.path.dirname(sys.executable)
     else:
-        # Running as script
         return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Set up paths
@@ -36,20 +33,26 @@ def signal_handler(sig, frame):
     logger.warning(f"Termination signal received, shutting down...")
     sys.exit(0)
 
-def main():
+def main(runs=None, difficulty=None, x_offset_shared=None, y_offset_shared=None):
     """Main function for threads runner"""
     # Register signal handlers
     signal.signal(signal.SIGTERM, signal_handler)
     signal.signal(signal.SIGINT, signal_handler)
     
-    if len(sys.argv) != 3:
-        logger.error(f"Usage: threads_runner.py <runs> <difficulty>")
-        return 1
-        
+    # If parameters were not passed directly, try to get them from command line
+    if runs is None or difficulty is None:
+        if len(sys.argv) != 3:
+            logger.error(f"Usage: threads_runner.py <runs> <difficulty>")
+            return 1
+            
+        try:
+            runs = int(sys.argv[1])
+            difficulty = int(sys.argv[2])
+        except (ValueError, IndexError) as e:
+            logger.error(f"Invalid command line arguments: {e}")
+            return 1
+    
     try:
-        runs = int(sys.argv[1])
-        difficulty = int(sys.argv[2])
-        
         logger.info(f"Starting Threads automation with {runs} runs on difficulty {difficulty}")
         
         # Import here to ensure correct path initialization

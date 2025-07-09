@@ -904,7 +904,11 @@ class Mirror:
                 if len(wordless_gifts):
                     self.upgrade(wordless_gifts,"pictures/mirror/restshop/enhance/wordless_enhance.png",shift_x,shift_y)
 
-            if common.element_exist("pictures/mirror/restshop/scroll_bar.png") and not common.element_exist("pictures/mirror/restshop/scroll_bar_up.png") and not common.element_exist("pictures/CustomAdded1080p/mirror/general/fully_scrolled.png"):
+            # TODO
+            # original if statement was
+            # if common.element_exist("pictures/mirror/restshop/scroll_bar.png") and not common.element_exist("pictures/mirror/restshop/scroll_bar_up.png") and not common.element_exist("pictures/CustomAdded1080p/mirror/general/fully_scrolled.png"):
+            # but scroll_bar_up.png was missing and crashing, no idea what it is actually supposed to be, plz add
+            if common.element_exist("pictures/mirror/restshop/scroll_bar.png") and not common.element_exist("pictures/CustomAdded1080p/mirror/general/fully_scrolled.png"):
                 common.click_matching("pictures/mirror/restshop/scroll_bar.png")
                 for k in range(5):
                     common.mouse_scroll(-1000)

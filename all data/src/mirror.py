@@ -603,6 +603,12 @@ class Mirror:
                 threshold = 0.79
             else:
                 threshold = 0.75
+
+            # Similarly, it can mistake circular part of left side fusion UI as slash icon
+            if i == 'slash':
+                threshold = 0.79
+            else:
+                threshold = 0.75
             
             status_coords = common.ifexist_match(status, threshold)
             if status_coords:

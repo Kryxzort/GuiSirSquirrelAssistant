@@ -67,6 +67,7 @@ class SharedVars:
         self.GAME_MONITOR_INDEX = Value('i', 1)
         self.skip_restshop = Value('b', False)
         self.skip_ego_check = Value('b', False)
+        self.skip_ego_fusion = Value('b', False)
         self.prioritize_list_over_status = Value('b', False)
         self.debug_image_matches = Value('b', False)
         self.hard_mode = Value('b', False)
@@ -605,6 +606,7 @@ def load_gui_config():
         'x_offset': 0,
         'skip_restshop': False,
         'skip_ego_check': False,
+        'skip_ego_fusion': False,
         'y_offset': 0,
         'game_monitor': 1,
         'debug_image_matches': False,
@@ -738,6 +740,7 @@ def save_gui_config(config=None):
                 'y_offset': int(shared_vars.y_offset.value) if 'shared_vars' in globals() else 0,
                 'skip_restshop': bool(shared_vars.skip_restshop.value) if 'shared_vars' in globals() else False,
                 'skip_ego_check': bool(shared_vars.skip_ego_check.value) if 'shared_vars' in globals() else False,
+                'skip_ego_fusion': bool(shared_vars.skip_ego_fusion.value) if 'shared_vars' in globals() else False,
                 'prioritize_list_over_status': bool(shared_vars.prioritize_list_over_status.value) if 'shared_vars' in globals() else False,
                 'game_monitor': int(shared_vars.GAME_MONITOR_INDEX.value) if 'shared_vars' in globals() else 1,
                 'debug_image_matches': bool(shared_vars.debug_image_matches.value) if 'shared_vars' in globals() else False,
@@ -889,6 +892,7 @@ except Exception as e:
 try:
     shared_vars.skip_restshop.value = config['Settings'].get('skip_restshop', False)
     shared_vars.skip_ego_check.value = config['Settings'].get('skip_ego_check', False)
+    shared_vars.skip_ego_fusion.value = config['Settings'].get('skip_ego_fusion', False)
     shared_vars.prioritize_list_over_status.value = config['Settings'].get('prioritize_list_over_status', False)
     shared_vars.debug_image_matches.value = config['Settings'].get('debug_image_matches', False)
     shared_vars.hard_mode.value = config['Settings'].get('hard_mode', False)
@@ -2580,6 +2584,18 @@ def load_settings_tab():
         command=update_prioritize_list
     )
     prioritize_list_cb.pack(anchor="w", padx=10, pady=5)
+
+    skip_ego_fusion_var = ctk.BooleanVar(value=shared_vars.skip_ego_fusion.value)
+    def update_skip_ego_fusion():
+        shared_vars.skip_ego_fusion.value = skip_ego_fusion_var.get()
+        save_gui_config()
+    skip_ego_fusion_cb = ctk.CTkCheckBox(
+        automation_frame,
+        text="Skip EGO gift fusion",
+        variable=skip_ego_fusion_var,
+        command=update_skip_ego_fusion
+    )
+    skip_ego_fusion_cb.pack(anchor="w", padx=10, pady=5)
 
     # Keyboard shortcut configuration section
     ctk.CTkLabel(settings_scroll, text="Keyboard Shortcuts", font=ctk.CTkFont(size=16, weight="bold")).pack(pady=(8, 0))

@@ -694,6 +694,10 @@ class Mirror:
                 if common.element_exist("pictures/mirror/restshop/close.png"):
                     common.click_matching("pictures/mirror/restshop/close.png")
 
+        # Check if we should fuse EGO gifts
+        if shared_vars.skip_ego_fusion:
+            return
+
         statuses = ["burn","bleed","tremor","rupture","sinking","poise","charge","slash","pierce","blunt"] #List of status to use
         statuses.remove(self.status)
         common.click_matching("pictures/mirror/restshop/fusion/fuse.png")

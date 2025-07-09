@@ -599,13 +599,8 @@ class Mirror:
             status = mirror_utils.get_status_gift_template(i)
             
             # Use higher threshold for pierce since somehow the ++ icons on upgraded gifts were detected as pierce?!?!?
-            if i == 'pierce':
-                threshold = 0.79
-            else:
-                threshold = 0.75
-
             # Similarly, it can mistake circular part of left side fusion UI as slash icon
-            if i == 'slash':
+            if i == 'pierce' or i == 'slash':
                 threshold = 0.79
             else:
                 threshold = 0.75

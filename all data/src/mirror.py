@@ -999,6 +999,7 @@ class Mirror:
         common.click_matching("pictures/general/beeg_confirm.png")
         common.mouse_move(200,200)
         common.click_matching("pictures/general/claim_rewards.png")
+        common.sleep(1)
         common.click_matching("pictures/general/md_claim.png")
         common.sleep(0.5)
         if common.element_exist("pictures/general/confirm_w.png"):
@@ -1023,6 +1024,7 @@ class Mirror:
         common.click_matching("pictures/general/beeg_confirm.png")
         common.mouse_move(200,200)
         common.click_matching("pictures/general/claim_rewards.png")
+        common.sleep(1)
         common.click_matching("pictures/general/give_up.png")
         common.click_matching("pictures/general/confirm_w.png")
         post_run_load()

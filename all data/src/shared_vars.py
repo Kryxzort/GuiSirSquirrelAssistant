@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 def _load_shared_vars():
     """Load shared variables from gui_config.json automatically"""
-    global skip_ego_check, skip_restshop, hard_mode, x_offset, y_offset
+    global skip_ego_check, skip_restshop, skip_ego_fusion, hard_mode, x_offset, y_offset
     global debug_image_matches, convert_images_to_grayscale, reconnection_delay
     global reconnect_when_internet_reachable, prioritize_list_over_status
     
@@ -32,6 +32,7 @@ def _load_shared_vars():
     default_values = {
         'skip_ego_check': False,
         'skip_restshop': False,
+        'skip_ego_fusion': False,
         'hard_mode': False,
         'x_offset': 0,
         'y_offset': 0,
@@ -84,7 +85,7 @@ _load_shared_vars()
 
 # Export all shared variables for easy access
 __all__ = [
-    'skip_ego_check', 'skip_restshop', 'hard_mode', 'x_offset', 'y_offset',
+    'skip_ego_check', 'skip_restshop', 'skip_ego_fusion', 'hard_mode', 'x_offset', 'y_offset',
     'debug_image_matches', 'convert_images_to_grayscale', 'reconnection_delay',
     'reconnect_when_internet_reachable', 'prioritize_list_over_status',
     'reload_shared_vars'

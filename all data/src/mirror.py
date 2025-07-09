@@ -599,7 +599,8 @@ class Mirror:
             status = mirror_utils.get_status_gift_template(i)
             
             # Use higher threshold for pierce since somehow the ++ icons on upgraded gifts were detected as pierce?!?!?
-            if i == 'pierce':
+            # Similarly, it can mistake circular part of left side fusion UI as slash icon
+            if i == 'pierce' or i == 'slash':
                 threshold = 0.79
             else:
                 threshold = 0.75
@@ -687,6 +688,10 @@ class Mirror:
                 common.sleep(5)
                 if common.element_exist("pictures/mirror/restshop/close.png"):
                     common.click_matching("pictures/mirror/restshop/close.png")
+
+        # Check if we should fuse EGO gifts
+        if shared_vars.skip_ego_fusion:
+            return
 
         statuses = ["burn","bleed","tremor","rupture","sinking","poise","charge","slash","pierce","blunt"] #List of status to use
         statuses.remove(self.status)
@@ -894,7 +899,11 @@ class Mirror:
                 if len(wordless_gifts):
                     self.upgrade(wordless_gifts,"pictures/mirror/restshop/enhance/wordless_enhance.png",shift_x,shift_y)
 
-            if common.element_exist("pictures/mirror/restshop/scroll_bar.png") and not common.element_exist("pictures/mirror/restshop/scroll_bar_up.png") and not common.element_exist("pictures/CustomAdded1080p/mirror/general/fully_scrolled.png"):
+            # TODO
+            # original if statement was
+            # if common.element_exist("pictures/mirror/restshop/scroll_bar.png") and not common.element_exist("pictures/mirror/restshop/scroll_bar_up.png") and not common.element_exist("pictures/CustomAdded1080p/mirror/general/fully_scrolled.png"):
+            # but scroll_bar_up.png was missing and crashing, no idea what it is actually supposed to be, plz add
+            if common.element_exist("pictures/mirror/restshop/scroll_bar.png") and not common.element_exist("pictures/CustomAdded1080p/mirror/general/fully_scrolled.png"):
                 common.click_matching("pictures/mirror/restshop/scroll_bar.png")
                 for k in range(5):
                     common.mouse_scroll(-1000)
@@ -993,6 +1002,7 @@ class Mirror:
         common.click_matching("pictures/general/beeg_confirm.png")
         common.mouse_move(200,200)
         common.click_matching("pictures/general/claim_rewards.png")
+        common.sleep(1)
         common.click_matching("pictures/general/md_claim.png")
         common.sleep(0.5)
         if common.element_exist("pictures/general/confirm_w.png"):
@@ -1017,6 +1027,7 @@ class Mirror:
         common.click_matching("pictures/general/beeg_confirm.png")
         common.mouse_move(200,200)
         common.click_matching("pictures/general/claim_rewards.png")
+        common.sleep(1)
         common.click_matching("pictures/general/give_up.png")
         common.click_matching("pictures/general/confirm_w.png")
         post_run_load()

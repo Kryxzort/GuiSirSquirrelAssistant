@@ -886,16 +886,16 @@ except Exception as e:
     shared_vars.GAME_MONITOR_INDEX.value = 1
     common.set_game_monitor(1)
 
-    try:
-        shared_vars.skip_restshop.value = config['Settings'].get('skip_restshop', False)
-        shared_vars.skip_ego_check.value = config['Settings'].get('skip_ego_check', False)
-        shared_vars.prioritize_list_over_status.value = config['Settings'].get('prioritize_list_over_status', False)
-        shared_vars.debug_image_matches.value = config['Settings'].get('debug_image_matches', False)
-        shared_vars.hard_mode.value = config['Settings'].get('hard_mode', False)
-        shared_vars.convert_images_to_grayscale.value = config['Settings'].get('convert_images_to_grayscale', True)
-        shared_vars.reconnection_delay.value = config['Settings'].get('reconnection_delay', 6)
-    except Exception as e:
-        error(f"Error loading automation settings: {e}")
+try:
+    shared_vars.skip_restshop.value = config['Settings'].get('skip_restshop', False)
+    shared_vars.skip_ego_check.value = config['Settings'].get('skip_ego_check', False)
+    shared_vars.prioritize_list_over_status.value = config['Settings'].get('prioritize_list_over_status', False)
+    shared_vars.debug_image_matches.value = config['Settings'].get('debug_image_matches', False)
+    shared_vars.hard_mode.value = config['Settings'].get('hard_mode', False)
+    shared_vars.convert_images_to_grayscale.value = config['Settings'].get('convert_images_to_grayscale', True)
+    shared_vars.reconnection_delay.value = config['Settings'].get('reconnection_delay', 6)
+except Exception as e:
+    error(f"Error loading automation settings: {e}")
 
 # Create log filter UI variables from config
 log_filters = {

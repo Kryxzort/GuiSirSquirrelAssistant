@@ -176,6 +176,9 @@ def mirror_dungeon_run(num_runs, status_list_file, connection_manager, shared_va
         
         logger.info(f'Completed all runs. Won: {win_count}, Lost: {lose_count}')
         
+        import battlepass_runner
+        battlepass_runner.main()
+        
     except Exception as e:
         logger.exception(f"Critical error in mirror_dungeon_run: {e}")
         from common import error_screenshot

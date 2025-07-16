@@ -35,7 +35,7 @@
     "convert_images_to_grayscale": true,
     "reconnection_delay": 6,
     "reconnect_when_internet_reachable": false,
-    "good_pc_mode": true,
+    "good_pc_mode": true
   },
   "LogFilters": {
     "debug": true,

@@ -1007,6 +1007,7 @@ try:
     shared_vars.convert_images_to_grayscale.value = config['Settings'].get('convert_images_to_grayscale', True)
     shared_vars.reconnection_delay.value = config['Settings'].get('reconnection_delay', 6)
     shared_vars.good_pc_mode.value = config['Settings'].get('good_pc_mode', True)
+    shared_vars.click_delay.value = config['Settings'].get('click_delay', 0.5)
 except Exception as e:
     error(f"Error loading automation settings: {e}")
 

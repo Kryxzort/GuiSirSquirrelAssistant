@@ -297,25 +297,33 @@ class Mirror:
             x,y = found[0]
         refresh_flag = common.luminence(x,y) < 70 
 
-        if self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
+        # check prioritized packs first
+        if shared_vars.prioritize_list_over_status and self.pack_list_has_matches(floor):
+            return self.pack_list(floor)
+        
+        #if pack exclusion detected and refresh used
+        # TODO: implement select with exclusion packs not selecting them, this approach is far from ideal
+        elif self.exclusion_detection(floor):
+            if not refresh_flag:
+                # Refresh available --> click it to avoid exclusion packs
+                common.click_matching("pictures/mirror/general/refresh.png", 0.9)
+                common.mouse_move(*common.scale_coordinates_1080p(200, 200))
+                return self.pack_selection()
+            elif refresh_flag:
+                return self.pack_list(floor)
+            
+        # Is prioritized and refresh not used --> try refresh to get desired packs
+        elif shared_vars.prioritize_list_over_status and not refresh_flag:
             common.click_matching("pictures/mirror/general/refresh.png", 0.9)
             common.mouse_move(*common.scale_coordinates_1080p(200, 200))
             return self.pack_selection()
 
-        elif self.exclusion_detection(floor) and refresh_flag:
-            return self.pack_list(floor)
-        
-        elif shared_vars.prioritize_list_over_status and not self.exclusion_detection(floor) and floor != "floor5":
-            if self.pack_list_has_matches(floor):
-                return self.pack_list(floor)
-            elif common.element_exist(status, 0.9):
-                return self.choose_pack(status)
-            else:
-                return self.pack_list(floor)
-
-        elif common.element_exist(status, 0.9) and not self.exclusion_detection(floor) and floor != "floor5":
+        # Only floor < 5 can have status packs
+        # TODO: add check and prioritize pack containing status gift not acquired
+        elif floor != "floor5" and common.element_exist(status, 0.9):
             return self.choose_pack(status)
 
+        # Default random pack selection
         else:
             return self.pack_list(floor)
 

@@ -449,6 +449,7 @@ def _base_match_template(template_path, threshold=0.8, grayscale=False,no_graysc
     
     if not quiet_failure:
         caller_info = _get_caller_info()
+        highest_match_rate = result.max() if result.size > 0 else 0.0
         if len(filtered_boxes) > 0:
             # Get center coordinates of matches for logging (adjusted for crop offset)
             locations = []
@@ -457,9 +458,9 @@ def _base_match_template(template_path, threshold=0.8, grayscale=False,no_graysc
                 center_y = int((box[1] + box[3]) / 2) + crop_offset_y
                 locations.append(f"({center_x},{center_y})")
             locations_str = ", ".join(locations)
-            logger.debug(f"Match found: {template_path} at {locations_str} - found {len(filtered_boxes)} matches - {caller_info}. Highest match rate: {result.max()}", dirty=True)
+            logger.debug(f"Match found: {template_path} at {locations_str} - found {len(filtered_boxes)} matches - {caller_info}. Highest match rate: {highest_match_rate}", dirty=True)
         else:
-            logger.debug(f"Match not found: {template_path} - {caller_info}. Highest match rate: {result.max()}", dirty=True)
+            logger.debug(f"Match not found: {template_path} - {caller_info}. Highest match rate: {highest_match_rate}", dirty=True)
     
     if (debug or shared_vars.debug_image_matches) and len(filtered_boxes) > 0:
         

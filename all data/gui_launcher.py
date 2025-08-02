@@ -2482,8 +2482,8 @@ def load_mirror_settings():
         "floor1": ["erosion", "factory", "forgotten", "gamblers", "nagel", "nest", "outcast", "unloving"],
         "floor2": ["cleaved", "crushed", "erosion", "factory", "gamblers", "hell", "lake", "nest", "pierced", "SEA", "unloving"],
         "floor3": ["cleaved", "craving", "crushed", "dregs", "flood", "flowers", "indolence", "judgment", "pierced", "repression", "seduction", "subservience", "unconfronting"],
-        "floor4": ["crawling", "envy", "fullstop", "gloom", "gluttony", "lust", "miracle", "noon", "pride", "sloth", "tearful", "time", "violet", "warp", "world", "wrath", "yield"],
-        "floor5": ["crawling", "crushers", "envy", "gloom", "gluttony", "lcb_check", "lust", "nocturnal", "piercers", "pride", "slicers", "sloth", "tearful", "time", "warp", "world", "wrath", "yield"]
+        "floor4": ["crawling", "envy", "fullstop", "gloom", "gluttony", "lust", "miracle", "noon", "pride", "sloth", "tearful", "time", "time_bokgak", "violet", "warp", "world", "wrath", "yield"],
+        "floor5": ["crawling", "crushers", "envy", "gloom", "gluttony", "lcb_check", "lust", "nocturnal", "piercers", "pride", "slicers", "sloth", "tearful", "time", "time_bokgak", "warp", "world", "wrath", "yield"]
     }
 
     pack_container = ctk.CTkFrame(master_expand_frame)

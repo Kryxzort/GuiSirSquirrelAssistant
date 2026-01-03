@@ -192,3 +192,22 @@ class AsyncDirtyLogger(logging.Logger):
     def critical(self, msg, *args, dirty=False, **kwargs):
         """Log critical message"""
         self._log_async_or_sync(logging.CRITICAL, msg, args, dirty)
+    
+    def exception(self, msg, *args, dirty=False, **kwargs):
+        """Log exception message with full traceback"""
+        # For exceptions, we MUST use synchronous logging to preserve traceback
+        if self.isEnabledFor(logging.ERROR):
+            import inspect
+            frame = inspect.currentframe().f_back
+            funcName = frame.f_code.co_name
+            lineno = frame.f_lineno
+            
+            # Format message
+            if args:
+                msg = msg % args
+            
+            # Use synchronous logging with exc_info=True to capture traceback
+            import sys
+            record = self.makeRecord(self.name, logging.ERROR, '', lineno, msg, (), sys.exc_info(), funcName)
+            record.dirty = dirty
+            self.handle(record)

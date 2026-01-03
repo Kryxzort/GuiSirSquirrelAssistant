@@ -66,7 +66,18 @@ class NoMillisecondsFormatter(logging.Formatter):
     
     def format(self, record):
         # Add dirty flag to the end of the message if present
-        formatted = super().format(record)
+        try:
+            formatted = super().format(record)
+        except Exception as e:
+            # Fallback formatting if there's an issue with exception info
+            formatted = f"{record.levelname} | {record.name} | {record.getMessage()}"
+            if hasattr(record, 'exc_info') and record.exc_info:
+                try:
+                    import traceback
+                    formatted += f"\n{traceback.format_exception(*record.exc_info)}"
+                except:
+                    formatted += f"\n(Exception formatting failed: {e})"
+        
         if hasattr(record, 'dirty') and record.dirty:
             formatted += " | DIRTY"
         return formatted
@@ -359,12 +370,21 @@ def _get_caller_info():
         pass
     return "unknown"
 
+
 def _base_match_template(template_path, threshold=0.8, grayscale=False,no_grayscale=False, debug=False, area="center", quiet_failure=False, x1=None, y1=None, x2=None, y2=None):
     """Internal function that handles all template matching logic"""
+    
+    # Skip logging for connection.png to reduce noise
+    skip_logging = "connection.png" in template_path
+    
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Starting template match for: {template_path} with threshold: {threshold}")
     
     full_template_path = resource_path(template_path)
         
     screenshot = capture_screen()
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Screenshot captured, shape: {screenshot.shape}")
     original_screenshot_height, original_screenshot_width = screenshot.shape[:2]
     
     # Handle region cropping
@@ -388,55 +408,100 @@ def _base_match_template(template_path, threshold=0.8, grayscale=False,no_graysc
     # no_grayscale=True should completely prevent grayscale conversion
     if not no_grayscale and (grayscale or shared_vars.convert_images_to_grayscale):
         screenshot = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
+        if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+            logger.debug(f"Screenshot converted to grayscale")
     
     base_width, base_height = get_template_reference_resolution(full_template_path)
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Template reference resolution: {base_width}x{base_height}")
     
     scale_factor_x = screenshot_width / base_width
     scale_factor_y = screenshot_height / base_height
     scale_factor = min(scale_factor_x, scale_factor_y)
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Scale factors - x: {scale_factor_x:.3f}, y: {scale_factor_y:.3f}, final: {scale_factor:.3f}")
     
     # no_grayscale=True should completely prevent grayscale conversion
     if no_grayscale:
         color_flag = cv2.IMREAD_COLOR
     else:
         color_flag = cv2.IMREAD_GRAYSCALE if (grayscale or shared_vars.convert_images_to_grayscale) else cv2.IMREAD_COLOR
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Loading template with color_flag: {color_flag}")
     template = cv2.imread(full_template_path, color_flag)
     if template is None:
+        if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+            logger.debug(f"Template image not found: {full_template_path}")
         raise FileNotFoundError(f"Template image '{full_template_path}' not found.")
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Template loaded, shape: {template.shape}")
     
     # Skip scaling for CustomFuse images - use them at their original resolution
     if is_custom_fuse_image(full_template_path):
+        if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+            logger.debug(f"CustomFuse image detected - skipping scaling")
         pass
     else:
+        if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+            logger.debug(f"Scaling template with factor: {scale_factor:.3f}")
         template = cv2.resize(template, None, fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_LINEAR)
+        if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+            logger.debug(f"Template scaled to shape: {template.shape}")
     
     template_height, template_width = template.shape[:2]
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Template dimensions: {template_width}x{template_height}")
     
     # Ensure both screenshot and template have matching color formats
     if no_grayscale:
         # Force color mode - ensure both are BGR
         if len(screenshot.shape) == 2:
             screenshot = cv2.cvtColor(screenshot, cv2.COLOR_GRAY2BGR)
+            if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+                logger.debug(f"Screenshot converted from grayscale to BGR")
         if len(template.shape) == 2:
             template = cv2.cvtColor(template, cv2.COLOR_GRAY2BGR)
+            if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+                logger.debug(f"Template converted from grayscale to BGR")
     else:
         # Allow grayscale mode - ensure both are grayscale if conversion is enabled
         if (grayscale or shared_vars.convert_images_to_grayscale):
             if len(screenshot.shape) == 3:
                 screenshot = cv2.cvtColor(screenshot, cv2.COLOR_BGR2GRAY)
+                if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+                    logger.debug(f"Screenshot converted from BGR to grayscale")
             if len(template.shape) == 3:
                 template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+                if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+                    logger.debug(f"Template converted from BGR to grayscale")
     
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Starting cv2.matchTemplate with shapes - screenshot: {screenshot.shape}, template: {template.shape}")
     result = cv2.matchTemplate(screenshot, template, cv2.TM_CCOEFF_NORMED)
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"matchTemplate completed, result shape: {result.shape}")
     
+    original_threshold = threshold
     if scale_factor < 0.75:
         threshold = threshold - 0.05
+        if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+            logger.debug(f"Scale factor adjustment: {original_threshold} -> {threshold}")
     
     # Apply threshold adjustment from user configuration
     total_adjustment = get_total_threshold_adjustment(template_path)
     threshold = threshold + total_adjustment
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Final threshold after adjustments: {threshold}")
     
     locations = np.where(result >= threshold)
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        # Show confidence score statistics
+        max_confidence = np.max(result)
+        min_confidence = np.min(result)
+        matches_above_threshold = len(locations[0])
+        logger.debug(f"Template matching results - Max confidence: {max_confidence:.4f}, Min confidence: {min_confidence:.4f}")
+        logger.debug(f"Found {matches_above_threshold} matches above threshold {threshold:.4f}")
+    
     boxes = []
     
     for pt in zip(*locations[::-1]):
@@ -444,8 +509,13 @@ def _base_match_template(template_path, threshold=0.8, grayscale=False,no_graysc
         bottom_right = (top_left[0] + template_width, top_left[1] + template_height)
         boxes.append([top_left[0], top_left[1], bottom_right[0], bottom_right[1]])
     
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"Created {len(boxes)} bounding boxes")
+    
     boxes = np.array(boxes)
     filtered_boxes = non_max_suppression_fast(boxes)
+    if (debug or shared_vars.base_match_template_logging) and not skip_logging:
+        logger.debug(f"After non-max suppression: {len(filtered_boxes)} boxes remain")
     
     if not quiet_failure:
         caller_info = _get_caller_info()
@@ -461,7 +531,7 @@ def _base_match_template(template_path, threshold=0.8, grayscale=False,no_graysc
         else:
             logger.debug(f"Match not found: {template_path} - {caller_info}", dirty=True)
     
-    if (debug or shared_vars.debug_image_matches) and len(filtered_boxes) > 0:
+    if shared_vars.debug_image_matches and len(filtered_boxes) > 0:
         
         def draw_debug_rectangle(x, y, width, height, duration=1.0):
             """Draw rectangle directly on desktop using orange color rgb(254, 176, 5)"""
@@ -474,9 +544,10 @@ def _base_match_template(template_path, threshold=0.8, grayscale=False,no_graysc
                     user32 = ctypes.windll.user32
                     gdi32 = ctypes.windll.gdi32
                     
-                    mon = get_monitor_info()
-                    x_int = int(mon['left'] + x)
-                    y_int = int(mon['top'] + y)
+                    # Convert local coordinates to global coordinates using existing function
+                    x_int, y_int = get_MonCords(x, y)
+                    x_int = int(x_int)  # Force native Python int
+                    y_int = int(y_int)  # Force native Python int
                     w_int = int(width)
                     h_int = int(height)
                     
@@ -551,6 +622,9 @@ def get_path_specific_adjustment(template_path):
     image_adjustments = config.get("image_adjustments", {})
     return image_adjustments.get(template_path, 0.0)
 
+def mouse_move_to_empty_area():
+    mouse_move(*scale_coordinates_1080p(200, 200))
+
 def match_image(template_path, threshold=0.8, area="center",mousegoto200=False, grayscale=False, no_grayscale=False, debug=False, quiet_failure=False, x1=None, y1=None, x2=None, y2=None):
     """Finds the image specified and returns coordinates depending on area: center, bottom, left, right, top.
     
@@ -558,7 +632,7 @@ def match_image(template_path, threshold=0.8, area="center",mousegoto200=False, 
         x1, y1, x2, y2: Optional region coordinates to limit search area. If provided, only searches within this rectangle.
     """
     if mousegoto200:
-        mouse_move(*scale_coordinates_1080p(200, 200))
+        mouse_move_to_empty_area()
     return _base_match_template(template_path, threshold, grayscale, no_grayscale, debug, area, quiet_failure, x1, y1, x2, y2)
 
 def greyscale_match_image(template_path, threshold=0.75, area="center", no_grayscale=False, debug=False, quiet_failure=False, x1=None, y1=None, x2=None, y2=None):
@@ -926,6 +1000,48 @@ def error_screenshot():
         with open(os.path.join(error_dir, timestamp + ".png"), "wb") as f:
             f.write(png)
 
+def unrecognized_object_screenshot():
+    """Take a screenshot when objects like packs or events aren't individually detected"""
+    # Check if development support is disabled
+    if shared_vars.dont_support_development:
+        return
+    
+    error_dir = os.path.join(os.path.dirname(BASE_PATH), "Unrecognized_Objects")
+    os.makedirs(error_dir, exist_ok=True)
+    with mss() as sct:
+        monitor = sct.monitors[shared_vars.game_monitor]  # Use the configured game monitor
+        screenshot = sct.grab(monitor)
+        png = to_png(screenshot.rgb, screenshot.size)
+        timestamp = time.strftime("%H%M%S")
+        filename = f"{MONITOR_WIDTH}x{MONITOR_HEIGHT}P_{timestamp}.png"
+        with open(os.path.join(error_dir, filename), "wb") as f:
+            f.write(png)
+    
+    # Clean up old images if we exceed the maximum
+    try:
+        max_images = shared_vars.max_unrecognized_images
+        image_files = []
+        
+        # Get all image files in the directory
+        for file in os.listdir(error_dir):
+            if file.lower().endswith(('.png', '.jpg', '.jpeg')):
+                filepath = os.path.join(error_dir, file)
+                image_files.append((filepath, os.path.getmtime(filepath)))
+        
+        # Sort by modification time (newest first)
+        image_files.sort(key=lambda x: x[1], reverse=True)
+        
+        # Remove old files if we have too many
+        if len(image_files) > max_images:
+            for filepath, _ in image_files[max_images:]:
+                try:
+                    os.remove(filepath)
+                except Exception:
+                    pass  # Ignore errors removing individual files
+                    
+    except Exception:
+        pass  # Ignore cleanup errors, screenshot was still saved
+
 def set_game_monitor(monitor_index):
     """Set which monitor the game is running on"""
     with mss() as sct:
@@ -971,20 +1087,26 @@ def check_internet_connection(timeout=5):
         return False
 
 def draw_debug_rect(x, y, width, height, duration=2):
-    """Draw a rectangle on screen for debugging"""
+    """Draw a rectangle on screen for debugging on the configured game monitor"""
+    if platform.system() != 'Windows':
+        return
+        
     user32 = ctypes.windll.user32
     gdi32 = ctypes.windll.gdi32
+    
+    # Convert local coordinates to global coordinates using existing function
+    adjusted_x, adjusted_y = get_MonCords(x, y)
     
     desktop_dc = user32.GetDC(0)
     pen = gdi32.CreatePen(0, 4, 0x05B0FE)
     old_pen = gdi32.SelectObject(desktop_dc, pen)
     old_brush = gdi32.SelectObject(desktop_dc, gdi32.GetStockObject(5))
     
-    gdi32.Rectangle(desktop_dc, int(x), int(y), int(x + width), int(y + height))
+    gdi32.Rectangle(desktop_dc, adjusted_x, adjusted_y, adjusted_x + int(width), adjusted_y + int(height))
     
     time.sleep(duration)
     
-    rect = wintypes.RECT(int(x) - 5, int(y) - 5, int(x + width) + 5, int(y + height) + 5)
+    rect = wintypes.RECT(adjusted_x - 5, adjusted_y - 5, adjusted_x + int(width) + 5, adjusted_y + int(height) + 5)
     user32.InvalidateRect(0, ctypes.byref(rect), 1)
     
     gdi32.SelectObject(desktop_dc, old_pen)

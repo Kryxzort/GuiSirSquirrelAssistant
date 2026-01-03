@@ -45,12 +45,9 @@ class ConfigCache:
             if os.path.exists(config_path):
                 with open(config_path, 'r') as f:
                     _config_cache[config_name] = json.load(f)
-                logger.debug(f"Loaded config {config_name} into cache")
             else:
                 _config_cache[config_name] = {}
-                logger.debug(f"Config {config_name} not found, using empty dict")
         except Exception as e:
-            logger.error(f"Error loading config {config_name}: {e}")
             _config_cache[config_name] = {}
     
     @staticmethod
@@ -84,7 +81,6 @@ class ConfigCache:
             for config_name in config_files:
                 if config_name not in _config_cache:
                     ConfigCache._load_config(config_name)
-        logger.info(f"Preloaded {len(config_files)} config files")
         
         # Load image threshold configuration
         ConfigCache._load_config("image_thresholds")
@@ -120,7 +116,6 @@ class ScaledCoordinates:
             for name, (x, y) in base_coords.items():
                 scaled_coords[name] = common.scale_coordinates_1080p(x, y)
             _scaled_coords_cache[coord_set_name] = scaled_coords
-            logger.debug(f"Calculated scaled coordinates for {coord_set_name}")
         
         elif coord_set_name == "character_positions":
             base_coords = {
@@ -142,7 +137,6 @@ class ScaledCoordinates:
                 # Use 1440p scaling for character positions as per original code
                 scaled_coords[name] = common._uniform_scale_coordinates(x, y, common.REFERENCE_WIDTH_1440P, common.REFERENCE_HEIGHT_1440P, use_uniform=False)
             _scaled_coords_cache[coord_set_name] = scaled_coords
-            logger.debug(f"Calculated scaled character positions for {coord_set_name}")
         
         elif coord_set_name == "battle_buttons":
             base_coords = {
@@ -152,7 +146,6 @@ class ScaledCoordinates:
             for name, (x, y) in base_coords.items():
                 scaled_coords[name] = common.scale_coordinates_1080p(x, y)
             _scaled_coords_cache[coord_set_name] = scaled_coords
-            logger.debug(f"Calculated scaled battle button coordinates for {coord_set_name}")
         
         elif coord_set_name == "luxcavation_coords":
             base_coords = {
@@ -175,7 +168,6 @@ class ScaledCoordinates:
                     scaled_y = common.scale_y_1080p(y)
                     scaled_coords[name] = (scaled_x, scaled_y)
             _scaled_coords_cache[coord_set_name] = scaled_coords
-            logger.debug(f"Calculated scaled luxcavation coordinates for {coord_set_name}")
     
     @staticmethod
     def preload_all_coordinates():
@@ -183,7 +175,6 @@ class ScaledCoordinates:
         coord_sets = ["grace_of_stars", "character_positions", "battle_buttons", "luxcavation_coords"]
         for coord_set in coord_sets:
             ScaledCoordinates.get_scaled_coords(coord_set)
-        logger.info(f"Preloaded {len(coord_sets)} coordinate sets")
 
 def _get_gui_values():
     """Extract current variable values from GUI module"""
@@ -212,20 +203,18 @@ def _get_gui_values():
                         if hasattr(attr_value, 'value'):
                             current_values[attr_name] = attr_value.value
                 
-                logger.info(f"Got {len(current_values)} variables from GUI SharedVars")
                 return current_values
                 
             finally:
                 sys.path[:] = old_path
                 
     except Exception as e:
-        logger.warning(f"Could not get GUI SharedVars values: {e}")
+        pass
     
     return {}
 
 def _load_shared_vars():
     """Load shared variables from config file and GUI defaults"""
-    logger.info("Loading shared variables from configuration")
     
     # Get current values from GUI
     gui_values = _get_gui_values()
@@ -234,7 +223,6 @@ def _load_shared_vars():
         config_path = os.path.join(BASE_PATH, "config", "gui_config.json")
         
         if os.path.exists(config_path):
-            logger.debug(f"Loading configuration file: {config_path}")
             with open(config_path, 'r') as f:
                 config = json.load(f)
             
@@ -251,16 +239,13 @@ def _load_shared_vars():
                 value = shared_vars_data.get(var_name, gui_value)
                 globals()[var_name] = value
             
-            logger.info("Configuration loaded successfully")
                 
         else:
-            logger.warning(f"GUI config file not found at {config_path}, using GUI values")
             # Set GUI values directly
             for var_name, gui_value in gui_values.items():
                 globals()[var_name] = gui_value
                 
     except Exception as e:
-        logger.error(f"Error loading shared variables from config: {e}")
         # Set GUI values on error
         for var_name, gui_value in gui_values.items():
             globals()[var_name] = gui_value
@@ -277,17 +262,40 @@ def reload_shared_vars():
     """Reload shared variables from config"""
     _load_shared_vars()
 
-# Auto-load shared variables when module is imported
-_load_shared_vars()
-_update_all_exports()
+# Set default for comprehensive_logging if not loaded from GUI
+if 'comprehensive_logging' not in globals():
+    comprehensive_logging = False
 
-# Preload all configs and coordinates for performance
-ConfigCache.preload_all_configs()
-try:
-    ScaledCoordinates.preload_all_coordinates()
-except (ImportError, AttributeError):
-    # common module might not be available during early import, will load on first use
-    logger.debug("Deferred coordinate preloading - common module not yet available")
+# Set default for base_match_template_logging if not loaded from GUI
+if 'base_match_template_logging' not in globals():
+    base_match_template_logging = False
 
-# Load image threshold configuration
-image_threshold_config = ConfigCache.get_config("image_thresholds")
+# Initialization guard to prevent double loading
+_initialized = False
+
+def _initialize_module():
+    """Initialize module only once"""
+    global _initialized
+    if _initialized:
+        return
+    
+    # Auto-load shared variables when module is imported
+    _load_shared_vars()
+    _update_all_exports()
+
+    # Preload all configs and coordinates for performance
+    ConfigCache.preload_all_configs()
+    try:
+        ScaledCoordinates.preload_all_coordinates()
+    except (ImportError, AttributeError):
+        # common module might not be available during early import, will load on first use
+        pass
+
+    # Load image threshold configuration
+    global image_threshold_config
+    image_threshold_config = ConfigCache.get_config("image_thresholds")
+    
+    _initialized = True
+
+# Initialize the module
+_initialize_module()

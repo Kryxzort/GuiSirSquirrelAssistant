@@ -57,7 +57,7 @@ def get_mirror_instance(config_type="status_selection"):
         logger.info(f"Initialized Mirror with {config_type} status: {status}")
         return mirror_instance
     except Exception as e:
-        logger.error(f"Error initializing Mirror with {config_type}: {e}")
+        logger.exception(f"Error initializing Mirror with {config_type}: {e}")
         return mirror.Mirror("poise")  # Default fallback
 
 # Create default mirror instance for backwards compatibility (mirror dungeon)
@@ -84,7 +84,7 @@ def click_matching_EXP(image_path, threshold=0.8, area="center",
             else:
                 return False
         except Exception as e:
-            logger.error(f"Exception during element verification: {e}")
+            logger.exception(f"Exception during element verification: {e}")
             return False
     
     def try_click_element(image_path, threshold, area, attempt_name):
@@ -98,7 +98,7 @@ def click_matching_EXP(image_path, threshold=0.8, area="center",
             else:
                 return False
         except Exception as e:
-            logger.error(f"Exception during click attempt ({attempt_name}): {e}")
+            logger.exception(f"Exception during click attempt ({attempt_name}): {e}")
             return False
     
     # Attempt 1: Direct check and click
@@ -116,7 +116,7 @@ def click_matching_EXP(image_path, threshold=0.8, area="center",
             if try_click_element(image_path, threshold, area, "first drag"):
                 return True
     except Exception as e:
-        logger.error(f"Exception during first drag attempt: {e}")
+        logger.exception(f"Exception during first drag attempt: {e}")
     
     # Attempt 3: Second drag
     try:
@@ -128,7 +128,7 @@ def click_matching_EXP(image_path, threshold=0.8, area="center",
             if try_click_element(image_path, threshold, area, "second drag"):
                 return True
     except Exception as e:
-        logger.error(f"Exception during second drag attempt: {e}")
+        logger.exception(f"Exception during second drag attempt: {e}")
     
     logger.warning(f"All attempts to find {os.path.basename(image_path)} failed")
     return False
@@ -143,7 +143,7 @@ def click_continue():
         
         if common.click_matching("pictures/CustomAdded1080p/luxcavation/thread/confirminverted.png", recursive=False):
             logger.info(f"Confirmation dialog found, clicked it")
-            common.mouse_move(*common.scale_coordinates_1080p(200, 200))
+            common.mouse_move_to_empty_area()
             logger.info(f"clicked comfirm")
             continue_clicked = True
         elif common.click_matching("pictures/general/confirm_w.png", recursive=False):
@@ -201,7 +201,7 @@ def squad_select_lux(mirror_instance, SelectTeam=False):
         
     logger.info(f"Battle screen detected, entering battle")
     core.battle()
-    common.mouse_move(*common.scale_coordinates_1080p(200, 200))
+    common.mouse_move_to_empty_area()
     logger.info(f"Battle completed, checking for confirmation dialog")
     core.check_loading()
     click_continue()

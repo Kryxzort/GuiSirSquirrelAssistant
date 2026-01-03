@@ -90,7 +90,7 @@ def parse_function_call(function_string):
             try:
                 args = [eval(arg.strip()) for arg in args_str.split(',') if arg.strip()]
             except Exception as e:
-                    logger.error(f"Failed to parse arguments: {e}")
+                    logger.exception(f"Failed to parse arguments: {e}")
     
     return module_name, function_name, args
 
@@ -141,7 +141,7 @@ def call_function(function_string):
                         else:
                             raise AttributeError(f"Method {function_name} not found in Mirror class")
                     except Exception as e:
-                        logger.error(f"Mirror class error: {e}")
+                        logger.exception(f"Mirror class error: {e}")
                         return False
                 else:
                     raise  # Re-raise for non-mirror modules
@@ -155,14 +155,14 @@ def call_function(function_string):
             return True
             
         except ImportError:
-            logger.error(f"Module {module_name} not found")
+            logger.exception(f"Module {module_name} not found")
             return False
         except AttributeError:
-            logger.error(f"Function {function_name} not found in module {module_name}")
+            logger.exception(f"Function {function_name} not found in module {module_name}")
             return False
         
     except Exception as e:
-        logger.error(f"Error calling function {function_string}: {e}")
+        logger.exception(f"Error calling function {function_string}: {e}")
         logger.error(traceback.format_exc())
         return False
     finally:
@@ -195,7 +195,7 @@ def main():
     except KeyboardInterrupt:
         running = False
     except Exception as e:
-        logger.error(f"Unexpected error in main loop: {e}")
+        logger.exception(f"Unexpected error in main loop: {e}")
         running = False
     finally:
         sys.exit(0)

@@ -54,7 +54,7 @@ class ConnectionManager:
                 else:
                     self.connection_event.set()
             except Exception as e:
-                logger.error(f"Error in connection check: {e}")
+                logger.exception(f"Error in connection check: {e}")
     
     def _connection_check_polling(self):
         """Simplified connection check without threading"""
@@ -66,7 +66,7 @@ class ConnectionManager:
             else:
                 self.connection_event.set()
         except Exception as e:
-            logger.error(f"Error in connection check: {e}")
+            logger.exception(f"Error in connection check: {e}")
     
     def handle_reconnection(self):
         """Handle reconnection when needed"""
@@ -89,7 +89,7 @@ class ConnectionManager:
             
             self.connection_event.set()
         except Exception as e:
-            logger.error(f"Error in reconnection: {e}")
+            logger.exception(f"Error in reconnection: {e}")
 
 # Signal handler for clean shutdown
 def signal_handler(sig, frame):
@@ -113,7 +113,7 @@ def main(runs=None, difficulty=None, shared_vars=None):
             runs = int(sys.argv[1])
             difficulty_arg = sys.argv[2]
         except (ValueError, IndexError) as e:
-            logger.error(f"Invalid command line arguments: {e}")
+            logger.exception(f"Invalid command line arguments: {e}")
             return 1
     else:
         difficulty_arg = difficulty
@@ -160,17 +160,17 @@ def main(runs=None, difficulty=None, shared_vars=None):
                         # Handle case where common module isn't available
                         pass
                     except Exception as e:
-                                logger.error(f"Error checking for server error: {e}")
+                                logger.exception(f"Error checking for server error: {e}")
                         
             except Exception as e:
-                logger.error(f"Error during Threads run {i+1}: {e}")
+                logger.exception(f"Error during Threads run {i+1}: {e}")
             
             # Short delay between runs
             time.sleep(2)
         
         return 0
     except Exception as e:
-        logger.critical(f"Critical error in Threads runner: {e}")
+        logger.exception(f"Critical error in Threads runner: {e}")
         return 1
 
 if __name__ == "__main__":
@@ -187,5 +187,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         sys.exit(0)
     except Exception as e:
-        logger.critical(f"Critical error in threads_runner main: {e}")
+        logger.exception(f"Critical error in threads_runner main: {e}")
         sys.exit(1)

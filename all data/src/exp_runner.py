@@ -52,7 +52,7 @@ class ConnectionManager:
                 else:
                     self.connection_event.set()
             except Exception as e:
-                logger.error(f"Error in connection check: {e}")
+                logger.exception(f"Error in connection check: {e}")
     
     def handle_reconnection(self):
         """Handle reconnection when needed"""
@@ -68,7 +68,7 @@ class ConnectionManager:
             
             self.connection_event.set()
         except Exception as e:
-            logger.error(f"Error in reconnection: {e}")
+            logger.exception(f"Error in reconnection: {e}")
 
 def signal_handler(sig, frame):
     """Handle termination signals"""
@@ -121,17 +121,17 @@ def main(runs, stage, shared_vars=None):
                         # Handle case where common module isn't available
                         pass
                     except Exception as e:
-                                logger.error(f"Error checking for server error: {e}")
+                                logger.exception(f"Error checking for server error: {e}")
                         
             except Exception as e:
-                logger.error(f"Error during Exp run {i+1}: {e}")
+                logger.exception(f"Error during Exp run {i+1}: {e}")
                 # Continue with next run instead of crashing completely
            
             time.sleep(2)
        
         
     except Exception as e:
-        logger.critical(f"Critical error in Exp runner: {e}")
+        logger.exception(f"Critical error in Exp runner: {e}")
         return 1
    
     return 0
@@ -150,5 +150,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         sys.exit(0)
     except Exception as e:
-        logger.critical(f"Critical error in exp_runner main: {e}")
+        logger.exception(f"Critical error in exp_runner main: {e}")
         sys.exit(1)

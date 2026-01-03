@@ -33,12 +33,12 @@ def main():
             core.battle()
             
         except AttributeError:
-            logger.error("Function 'battle' not found in module 'core'")
+            logger.exception("Function 'battle' not found in module 'core'")
         except Exception as e:
-            logger.error(f"Error running battle function: {e}")
+            logger.exception(f"Error running battle function: {e}")
             
     except Exception as e:
-        logger.error(f"Unexpected error in battler.py: {e}")
+        logger.exception(f"Unexpected error in battler.py: {e}")
     finally:
         sys.exit(0)
 

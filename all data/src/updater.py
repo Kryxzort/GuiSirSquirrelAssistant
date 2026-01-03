@@ -106,7 +106,7 @@ class Updater:
             except (OSError, IOError, PermissionError) as e:
                 error_type = type(e).__name__
                 if attempt == max_retries - 1:
-                    logger.error(f"RETRY FAILED: Unable to {operation_desc} after {max_retries} attempts. Final error: {error_type}: {e}")
+                    logger.exception(f"RETRY FAILED: Unable to {operation_desc} after {max_retries} attempts. Final error: {error_type}: {e}")
                     raise
                 else:
                     wait_time = delay * (2 ** attempt)  # Exponential backoff
@@ -123,7 +123,7 @@ class Updater:
                     return version if version else 'v0'
             return 'v0'  # Default version if file doesn't exist
         except Exception as e:
-            logger.error(f"Error reading version file: {e}")
+            logger.exception(f"Error reading version file: {e}")
             return 'v0'
             
     def get_latest_version(self):
@@ -166,7 +166,7 @@ class Updater:
                 return f"commit-{commit_date}", download_url
                 
         except Exception as e:
-            logger.error(f"Error checking for updates: {e}")
+            logger.exception(f"Error checking for updates: {e}")
             return None, None
     
     def check_for_updates(self):
@@ -246,7 +246,7 @@ class Updater:
             logger.info(f"Download completed: {zip_path}")
             return zip_path
         except Exception as e:
-            logger.error(f"Error downloading update: {e}")
+            logger.exception(f"Error downloading update: {e}")
             return None
     
     def modify_backup_config(self, backup_dir):
@@ -309,7 +309,7 @@ class Updater:
             return True
             
         except Exception as e:
-            logger.error(f"[ERROR] Error modifying backup config: {e}")
+            logger.exception(f"[ERROR] Error modifying backup config: {e}")
             logger.info("Backup creation will continue, but update loop prevention failed")
             return False
     
@@ -327,7 +327,7 @@ class Updater:
                 os.makedirs(self.backup_path, exist_ok=True)
                 os.makedirs(backup_dir, exist_ok=True)
             except Exception as e:
-                logger.error(f"Failed to create backup directory at {backup_dir}: {e}")
+                logger.exception(f"Failed to create backup directory at {backup_dir}: {e}")
                 return None
             
             # We want to back up the parent directory that contains 'all data'
@@ -373,7 +373,7 @@ class Updater:
                         file_count += 1
                         logger.info(f"Backed up file: {item}")
                 except Exception as e:
-                    logger.error(f"Failed to backup {item}: {e}")
+                    logger.exception(f"Failed to backup {item}: {e}")
                     # Continue with other files instead of failing completely
             
             logger.info(f"Backup completed successfully: {file_count} files and {dir_count} directories")
@@ -385,7 +385,7 @@ class Updater:
             
             return backup_dir
         except Exception as e:
-            logger.error(f"Error creating backup: {e}")
+            logger.exception(f"Error creating backup: {e}")
             return None
     
     def apply_update(self, zip_path):
@@ -437,7 +437,7 @@ class Updater:
             logger.info("Update applied successfully")
             return True
         except Exception as e:
-            logger.error(f"Error applying update: {e}")
+            logger.exception(f"Error applying update: {e}")
             return False
     
     def _copy_directory_with_exclusions(self, src_dir, dest_dir):
@@ -497,7 +497,7 @@ class Updater:
                     file_count += 1
                     logger.debug(f"Updated file: {file_rel_path}")
                 except Exception as e:
-                    logger.error(f"Failed to update file {file_rel_path}: {e}")
+                    logger.exception(f"Failed to update file {file_rel_path}: {e}")
         
         logger.info(f"Update copied {file_count} files")
     
@@ -572,7 +572,7 @@ class Updater:
                 deleted_count += 1
                 logger.info(f"Removed deleted file: {file_path}")
             except Exception as e:
-                logger.error(f"Failed to remove deleted file {file_path}: {e}")
+                logger.exception(f"Failed to remove deleted file {file_path}: {e}")
         
         logger.info(f"Removed {deleted_count} deleted files")
         
@@ -634,7 +634,7 @@ class Updater:
             return temp_config_backup
             
         except Exception as e:
-            logger.error(f"Error during config backup: {e}")
+            logger.exception(f"Error during config backup: {e}")
             return None
     
     def merge_configs_from_temp(self, temp_config_backup):
@@ -664,7 +664,7 @@ class Updater:
             logger.info("Config merging completed, temp files cleaned up")
             
         except Exception as e:
-            logger.error(f"Error during config merging: {e}")
+            logger.exception(f"Error during config merging: {e}")
     
     def _merge_single_config(self, user_config_path, new_config_path):
         """
@@ -723,7 +723,7 @@ class Updater:
             logger.info(f"Version file updated to {version}")
             return True
         except Exception as e:
-            logger.error(f"Error updating version file: {e}")
+            logger.exception(f"Error updating version file: {e}")
             return False
     
     def clean_temp_files(self):
@@ -738,7 +738,7 @@ class Updater:
                         os.remove(item_path)
                 logger.info("Temporary files cleaned up")
             except Exception as e:
-                logger.error(f"Error cleaning up temporary files: {e}")
+                logger.exception(f"Error cleaning up temporary files: {e}")
     
     def restart_application(self):
         try:
@@ -801,7 +801,7 @@ except Exception as e:
             sys.exit(0)
             
         except Exception as e:
-            logger.error(f"Error restarting application: {e}")
+            logger.exception(f"Error restarting application: {e}")
             return False
     
     def cleanup_old_backups(self, keep_count=3):
@@ -826,13 +826,13 @@ except Exception as e:
                     shutil.rmtree(old_backup)
                     logger.info(f"Removed old backup: {os.path.basename(old_backup)}")
                 except Exception as e:
-                    logger.warning(f"Failed to remove old backup {old_backup}: {e}")
+                    logger.exception(f"Failed to remove old backup {old_backup}: {e}")
             
             if len(backup_dirs) > keep_count:
                 logger.info(f"Cleaned up {len(backup_dirs) - keep_count} old backups, kept {keep_count} most recent")
                 
         except Exception as e:
-            logger.error(f"Error cleaning up old backups: {e}")
+            logger.exception(f"Error cleaning up old backups: {e}")
     
     def perform_update(self, create_backup=True, auto_restart=True, preserve_only_last_3=True):
         # SAFETY: Always create backup regardless of parameter (for safety)
@@ -943,7 +943,7 @@ except Exception as e:
             sys.exit(0)
             
         except Exception as e:
-            logger.error(f"Error staging self-update: {e}")
+            logger.exception(f"Error staging self-update: {e}")
             return False
 
     def _perform_staged_update(self):
@@ -987,13 +987,13 @@ except Exception as e:
                     self._retry_file_operation(lambda: shutil.rmtree(temp_cleanup_dir), f"remove temp directory {temp_cleanup_dir}")
                     logger.info(f"Cleaned up temp directory: {temp_cleanup_dir}")
                 except Exception as e:
-                    logger.warning(f"Could not clean up temp directory: {e}")
+                    logger.exception(f"Could not clean up temp directory: {e}")
             
             logger.info("Staged self-update completed successfully!")
             return True
             
         except Exception as e:
-            logger.error(f"Error performing staged update: {e}")
+            logger.exception(f"Error performing staged update: {e}")
             return False
 
 # Helper function to run the updater
@@ -1015,7 +1015,7 @@ def check_for_updates(repo_owner, repo_name, callback=None):
                 callback(True, message, False)
             return False
     except Exception as e:
-        logger.error(f"Error checking for updates: {e}")
+        logger.exception(f"Error checking for updates: {e}")
         if callback:
             callback(False, f"Error: {e}", False)
         return False
@@ -1025,7 +1025,7 @@ def auto_update(repo_owner, repo_name, create_backup=True, preserve_only_last_3=
         updater = Updater(repo_owner, repo_name)
         return updater.check_and_update_async(callback, create_backup, preserve_only_last_3=preserve_only_last_3)
     except Exception as e:
-        logger.error(f"Error starting auto-update: {e}")
+        logger.exception(f"Error starting auto-update: {e}")
         if callback:
             callback(False, f"Error: {e}")
         return None

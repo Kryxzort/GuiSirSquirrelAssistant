@@ -99,7 +99,7 @@ class ConnectionManager:
                 else:
                     self.connection_event.set()
             except Exception as e:
-                logger.error(f"Error in connection check: {e}")
+                logger.exception(f"Error in connection check: {e}")
     
     def handle_reconnection(self):
         """Handle reconnection when needed"""
@@ -116,7 +116,7 @@ class ConnectionManager:
             
             self.connection_event.set()
         except Exception as e:
-            logger.error(f"Error in reconnection: {e}")
+            logger.exception(f"Error in reconnection: {e}")
 
 def mirror_dungeon_run(num_runs, status_list_file, connection_manager, shared_vars):
     """Main mirror dungeon run logic"""
@@ -145,13 +145,33 @@ def mirror_dungeon_run(num_runs, status_list_file, connection_manager, shared_va
                 run_complete = 0
                 MD = mirror.Mirror(status_list[i])
                 logger.info(f"Current Team: " + status_list[i])
+                
+                logger.debug(f"Starting pre_md_setup() for run {run_count + 1}")
                 if pre_md_setup():
-                    
+                    logger.debug(f"pre_md_setup() successful, calling MD.setup_mirror()")
                     MD.setup_mirror()
+                    logger.debug(f"MD.setup_mirror() completed")
+                else:
+                    logger.warning(f"pre_md_setup() failed for run {run_count + 1}, skipping run")
+                    run_count += 1
+                    continue
                 
                 while run_complete != 1:
                     if connection_manager.connection_event.is_set():
-                        win_flag, run_complete = MD.mirror_loop()
+                        try:
+                            logger.debug(f"Calling mirror_loop() for run {run_count + 1}")
+                            win_flag, run_complete = MD.mirror_loop()
+                            logger.debug(f"Mirror loop returned: win_flag={win_flag}, run_complete={run_complete}")
+                            
+                            # Check for unexpected early exit
+                            if run_complete == 1 and win_flag is None:
+                                logger.warning(f"Mirror loop ended unexpectedly with run_complete=1 but win_flag=None")
+                        except Exception as e:
+                            logger.exception(f"Exception in mirror_loop() during run {run_count + 1}: {e}")
+                            error_screenshot()
+                            # Force completion to avoid infinite loop
+                            run_complete = 1
+                            win_flag = 0
                     else:
                         # Connection lost, wait for it to be restored
                         connection_manager.connection_event.wait()
@@ -201,7 +221,7 @@ def main(num_runs, shared_vars):
         logger.info(f"mirror_dungeon_run completed successfully")
         
     except Exception as e:
-        logger.critical(f"Unhandled exception in compiled_runner main: {e}")
+        logger.exception(f"Unhandled exception in compiled_runner main: {e}")
         try:
             from common import error_screenshot
             error_screenshot()
@@ -266,7 +286,7 @@ if __name__ == "__main__":
         logger.info(f"mirror_dungeon_run completed successfully")
         
     except Exception as e:
-        logger.critical(f"Unhandled exception in compiled_runner main: {e}")
+        logger.exception(f"Unhandled exception in compiled_runner main: {e}")
         try:
             from common import error_screenshot
             error_screenshot()

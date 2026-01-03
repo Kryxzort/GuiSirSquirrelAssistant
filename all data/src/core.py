@@ -249,7 +249,6 @@ def ego_check():
     return
     
 def battle_check():
-
     """Handle special battle events and skill checks"""
     if common.click_matching("pictures/battle/investigate.png", recursive=False):
         common.wait_skip("pictures/events/continue.png")
@@ -318,11 +317,11 @@ def battle_check():
 def skill_check():
     """Handle skill check events by selecting appropriate difficulty level"""
     check_images = [
-        "pictures/events/very_high.png",
-        "pictures/events/high.png",
-        "pictures/events/normal.png",
-        "pictures/events/low.png",
-        "pictures/events/very_low.png"
+        "pictures/CustomAdded1080p/events/Very_High.png",
+        "pictures/CustomAdded1080p/events/High.png",
+        "pictures/CustomAdded1080p/events/Normal.png",
+        "pictures/CustomAdded1080p/events/Low.png",
+        "pictures/CustomAdded1080p/events/Very_Low.png"
         ]
     
     common.wait_skip("pictures/events/skill_check.png")

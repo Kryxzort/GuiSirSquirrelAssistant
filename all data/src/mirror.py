@@ -129,52 +129,84 @@ class Mirror:
 
     def mirror_loop(self):
         """Handles all the mirror dungeon logic in this"""
-        if common.element_exist("pictures/general/maint.png"): #maintainance prompt
-            common.click_matching("pictures/general/close.png", recursive=False)
-            common.sleep(0.5)
-            common.click_matching("pictures/general/no_op.png")
-            common.click_matching("pictures/general/close.png")
-            self.logger.critical("Server under maintenance")
-            sys.exit(0)
+        try:
+            self.logger.debug("Starting mirror_loop iteration")
+            
+            if common.element_exist("pictures/general/maint.png"): #maintainance prompt
+                self.logger.warning("Server maintenance detected")
+                common.click_matching("pictures/general/close.png", recursive=False)
+                common.sleep(0.5)
+                common.click_matching("pictures/general/no_op.png")
+                common.click_matching("pictures/general/close.png")
+                self.logger.critical("Server under maintenance")
+                sys.exit(0)
 
-        if common.element_exist("pictures/events/skip.png"): #if hitting the events click skip to determine which is it
-            common.mouse_move(*common.scale_coordinates_1080p(200, 200))
-            common.click_skip(4)
-            self.event_choice()
+            if common.element_exist("pictures/events/skip.png"): #if hitting the events click skip to determine which is it
+                self.logger.debug("Handling event choice")
+                try:
+                    common.mouse_move_to_empty_area()
+                    common.click_skip(4)
+                    self.logger.debug("About to call event_choice()")
+                    self.event_choice()
+                    self.logger.debug("event_choice() completed successfully")
+                except Exception as e:
+                    self.logger.exception(f"Exception in event choice handling: {e}")
+                    common.error_screenshot()
+                    raise  # Re-raise to be caught by main exception handler
 
-        elif common.element_exist("pictures/mirror/general/danteh.png"): #checks if currently navigating
-            self.navigation()
+            elif common.element_exist("pictures/mirror/general/danteh.png"): #checks if currently navigating
+                self.logger.debug("Handling navigation")
+                self.navigation()
 
-        elif common.element_exist("pictures/CustomAdded1080p/general/squads/clear_selection.png"): #checks if in squad select and then proceeds with battle
-            self.squad_select()
+            elif common.element_exist("pictures/CustomAdded1080p/general/squads/clear_selection.png"): #checks if in squad select and then proceeds with battle
+                self.logger.debug("Handling squad select")
+                self.squad_select()
 
-        elif common.element_exist("pictures/mirror/restshop/shop.png"): #new combined shop and rest stop
-            self.rest_shop()
+            elif common.element_exist("pictures/mirror/restshop/shop.png"): #new combined shop and rest stop
+                self.logger.debug("Handling rest shop")
+                self.rest_shop()
 
-        elif common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
-            common.click_matching("pictures/general/confirm_b.png") #might replace with enter
+            elif common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
+                self.logger.debug("Handling ego gift get")
+                common.click_matching("pictures/general/confirm_b.png") #might replace with enter
 
-        elif common.element_exist("pictures/mirror/general/reward_select.png"): #checks if in reward select
-            self.reward_select()
+            elif common.element_exist("pictures/mirror/general/reward_select.png"): #checks if in reward select
+                self.logger.debug("Handling reward select")
+                self.reward_select()
 
-        elif common.element_exist("pictures/mirror/general/encounter_reward.png"): #checks if in encounter rewards
-            self.encounter_reward_select()            
+            elif common.element_exist("pictures/mirror/general/encounter_reward.png"): #checks if in encounter rewards
+                self.logger.debug("Handling encounter reward select")
+                self.encounter_reward_select()            
 
-        elif common.element_exist("pictures/CustomAdded1080p/mirror/packs/inpack.png"): #checks if in pack select
-            self.pack_selection()
+            elif common.element_exist("pictures/CustomAdded1080p/mirror/packs/inpack.png"): #checks if in pack select
+                self.logger.debug("Handling pack selection")
+                self.pack_selection()
 
-        elif common.element_exist("pictures/battle/winrate.png"):
-            battle()
-            check_loading()
+            elif common.element_exist("pictures/battle/winrate.png"):
+                self.logger.debug("Handling battle")
+                battle()
+                check_loading()
 
-        elif common.element_exist("pictures/mirror/general/event_effect.png"):
-            found = common.match_image("pictures/mirror/general/event_select.png")
-            x,y = common.random_choice(found)
-            common.mouse_move_click(x, y)
-            common.sleep(1)
-            common.click_matching("pictures/general/confirm_b.png")
+            elif common.element_exist("pictures/mirror/general/event_effect.png"):
+                self.logger.debug("Handling event effect")
+                found = common.match_image("pictures/mirror/general/event_select.png")
+                x,y = common.random_choice(found)
+                common.mouse_move_click(x, y)
+                common.sleep(1)
+                common.click_matching("pictures/general/confirm_b.png")
+            else:
+                self.logger.debug("No matching screen state found, proceeding to check_run")
 
-        return self.check_run()
+            self.logger.debug("Calling check_run()")
+            result = self.check_run()
+            self.logger.debug(f"check_run() returned: {result}")
+            return result
+            
+        except Exception as e:
+            self.logger.exception(f"Unhandled exception in mirror_loop(): {e}")
+            common.error_screenshot()
+            # Return failure state to end the run gracefully
+            return (0, 1)  # win_flag=0 (loss), run_complete=1 (end run)
 
     def grace_of_stars(self):
         """Selects grace of stars blessings for the runs in the specified order"""
@@ -275,6 +307,7 @@ class Mirror:
 
     def pack_selection(self):
         """Prioritises the status gifts for packs if not follows a list"""
+        common.mouse_move_to_empty_area()
         status = mirror_utils.pack_choice(self.status) or "pictures/mirror/packs/status/poise_pack.png"
         floor = self.floor_id()
         if floor == "floor1":
@@ -299,7 +332,7 @@ class Mirror:
 
         if self.exclusion_detection(floor) and not refresh_flag: #if pack exclusion detected and not refreshed
             common.click_matching("pictures/mirror/general/refresh.png", 0.9)
-            common.mouse_move(*common.scale_coordinates_1080p(200, 200))
+            common.mouse_move_to_empty_area()
             return self.pack_selection()
 
         elif self.exclusion_detection(floor) and refresh_flag:
@@ -313,7 +346,7 @@ class Mirror:
             else:
                 return self.pack_list(floor)
 
-        elif common.element_exist(status, 0.9) and not self.exclusion_detection(floor) and floor != "floor5":
+        elif common.element_exist(status, 0.9, grayscale=False) and not self.exclusion_detection(floor) and floor != "floor5":
             return self.choose_pack(status)
 
         else:
@@ -339,7 +372,7 @@ class Mirror:
                     return True
                     
         except Exception as e:
-            self.logger.warning(f"Error checking pack list matches: {e}")
+            self.logger.exception(f"Error checking pack list matches: {e}")
         
         return False
 
@@ -349,29 +382,27 @@ class Mirror:
         try:
             priority_data = shared_vars.ConfigCache.get_config("pack_priority")
             exceptions_data = shared_vars.ConfigCache.get_config("pack_exceptions")
-            
             exceptions = exceptions_data.get(floor, [])
             floor_priorities = priority_data.get(floor, {})
-            
             # Sort by priority (ascending)
             sorted_packs = sorted(floor_priorities.items(), key=lambda x: x[1])
             
             # Remove exceptions
             packs = [pack for pack, _ in sorted_packs if pack not in exceptions]
-            
             # Try to find each pack in order
             for pack in packs:
                 # Convert floor name format for image path (floor1 -> f1)
                 floor_num = floor[-1]
                 image_floor = f"f{floor_num}"
                 pack_image = f"pictures/mirror/packs/{image_floor}/{pack}.png"
-                if common.element_exist(pack_image, threshold):
+                if common.element_exist(pack_image, threshold, debug=True):
                     return self.choose_pack(pack_image, threshold)
             
         except Exception as e:
-            self.logger.warning(f"Error using pack priority files: {e}, picking first available")
-        
-        self.logger.warning(f"No packs found in priority system, picking first available")
+            self.logger.exception(f"Error using pack priority files: {e}, picking first available")
+
+        common.unrecognized_object_screenshot()
+        self.logger.warning(f"No packs from the priority system were found, picking first available, picking first available pack, please report this in discord in the unrecognized-objects channel, attach the image which are in unrecognized_objects folder")
         found_packs = common.match_image("pictures/CustomAdded1080p/mirror/packs/inpack.png")
         min_y_scaled = common.scale_y_1080p(260)
         max_y_scaled = common.scale_y_1080p(800)
@@ -387,9 +418,9 @@ class Mirror:
             common.mouse_drag(*common.scale_coordinates_1080p(x, y2))
             return
 
-    def choose_pack(self, pack_image, threshold=0.8):
+    def choose_pack(self, pack_image, threshold=0.9):
         """Select and drag a specific pack"""
-        found = common.match_image(pack_image, threshold)
+        found = common.match_image(pack_image, threshold, grayscale=False)
         min_y_scaled = common.scale_y_1080p(260)
         max_y_scaled = common.scale_y_1080p(800)
         min_x_scaled = common.scale_x_1080p(315)
@@ -405,15 +436,17 @@ class Mirror:
                     for i in owned_check:
                         found.remove(i)
         if found:
+            # changed to values harry said, will be punished with a lashing if it freaks out or sm
             x,y = common.random_choice(found)
-            _, offset_y = common.scale_coordinates_1440p(0, -350)
+            _, offset_y = common.scale_coordinates_1440p(0, -200)
             common.mouse_move(x, y + offset_y)
-            common.mouse_drag(x,y)
+            common.mouse_drag(x,y + common.scale_x_1080p(200))
             transition_loading()
             return
         else:
-            # Fallback: pick first available pack (same as line 375 approach)
-            self.logger.warning(f"No {pack_image.split('/')[-1]} packs found, picking first available pack")
+            # Fallback: pick first available pack
+            common.unrecognized_object_screenshot()
+            self.logger.warning(f"No packs detected, picking first available pack, please report this in discord in the unrecognized-objects channel, attach the image which are in unrecognized_objects folder")
             found_packs = common.match_image("pictures/CustomAdded1080p/mirror/packs/inpack.png")
             min_y_scaled = common.scale_y_1080p(260)
             max_y_scaled = common.scale_y_1080p(800)
@@ -448,7 +481,7 @@ class Mirror:
                     detected = any(common.element_exist(i, 0.9) for i in exclusion)
                     return int(detected)
         except Exception as e:
-            self.logger.warning(f"Error loading pack exceptions: {e}")
+            self.logger.exception(f"Error loading pack exceptions: {e}")
         
         # Try the old method as fallback
         try:
@@ -464,7 +497,7 @@ class Mirror:
                     detected = any(common.element_exist(i, 0.9) for i in exclusion)
                     return int(detected)
         except Exception as e:
-            self.logger.warning(f"Error loading old pack exceptions: {e}")
+            self.logger.exception(f"Error loading old pack exceptions: {e}")
         
         # Return 0 if no exceptions file or empty file
         return 0
@@ -596,7 +629,7 @@ class Mirror:
                     node_location.append(common.scale_coordinates_1440p(1440, y))
 #           
             if drag_danteh and self.aspect_ratio == "16:9": #Drag because 16:9 blocks the top view of the cost
-                common.mouse_move(*common.scale_coordinates_1080p(200, 200))
+                common.mouse_move_to_empty_area()
                 if found := common.match_image("pictures/mirror/general/danteh.png"):
                     x,y = found[0]
                     common.mouse_move(x,y)
@@ -751,7 +784,7 @@ class Mirror:
                     self.logger.warning(f"FUSION: Expected list format, got {type(exceptions_data)}. Use format: [\"gift_name1\", \"gift_name2\"]")
                         
         except Exception as e:
-            self.logger.warning(f"Error loading fusion exceptions: {e}")
+            self.logger.exception(f"Error loading fusion exceptions: {e}")
         
         if exception_gifts:
             pass
@@ -777,7 +810,7 @@ class Mirror:
         duration = 1.5
         end_time = time.time() + duration
         while not common.element_exist("pictures/mirror/restshop/fusion/fuse_menu.png"):
-            if time.time > end_time:
+            if time.time() > end_time:
                 return
         status_picture = mirror_utils.get_fusion_target_button(self.status)
         common.mouse_move_click(*common.scale_coordinates_1440p(730, 700))
@@ -857,6 +890,11 @@ class Mirror:
                 common.click_matching("pictures/mirror/restshop/leave.png")
             common.click_matching("pictures/general/confirm_w.png")
             common.click_matching("pictures/general/confirm_b.png", recursive=False)
+
+        # check if there's a ego gift to claim
+        while common.click_matching("pictures/CustomAdded1080p/general/confirminverted.png", recursive=False):
+            time.sleep(0.5)
+
         # Check if we should skip restshop
         if shared_vars.skip_restshop:
             leave_restshop()
@@ -999,77 +1037,87 @@ class Mirror:
     def event_choice(self):
         """Handle different event types and make appropriate choices"""
         common.sleep(1)
-        if common.click_matching("pictures/events/level_up.png", recursive=False):
-            common.wait_skip("pictures/events/proceed.png")
-            skill_check()
+        Event_choice_exists = common.element_exist("pictures/CustomAdded1080p/events/Event_Exists.png")
+        if Event_choice_exists:
+            x, y = min(Event_choice_exists, key=lambda coord: coord[1])
 
-        elif common.click_matching("pictures/events/select_gain.png", recursive=False): #Select to gain EGO Gift
-            common.mouse_move_click(*common.scale_coordinates_1440p(1193, 623))
-            while(True):
-                common.mouse_click()
-                if common.click_matching("pictures/events/proceed.png", recursive=False):
-                    break
-                if common.click_matching("pictures/events/continue.png", recursive=False):
-                    break
-            common.sleep(1)
-            if common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
-                #common.click_matching("pictures/general/confirm_b.png")
-                common.key_press("enter")
+            if common.click_matching("pictures/events/level_up.png", recursive=False):
+                common.wait_skip("pictures/events/proceed.png")
+                skill_check()
 
-        elif common.click_matching("pictures/events/gain_check.png", recursive=False): #Pass to gain an EGO Gift
-            common.wait_skip("pictures/events/proceed.png")
-            skill_check()
+            elif common.click_matching("pictures/events/select_gain.png", recursive=False): #Select to gain EGO Gift
+                common.mouse_move_click(*common.scale_coordinates_1440p(1193, 623))
+                while(True):
+                    common.mouse_click()
+                    if common.click_matching("pictures/events/proceed.png", recursive=False):
+                        break
+                    if common.click_matching("pictures/events/continue.png", recursive=False):
+                        break
+                common.sleep(1)
+                if common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
+                    #common.click_matching("pictures/general/confirm_b.png")
+                    common.key_press("enter")
 
-        elif common.click_matching("pictures/events/gain_check_o.png", recursive=False): #Pass to gain an EGO Gift
-            common.wait_skip("pictures/events/proceed.png")
-            skill_check()
+            elif common.click_matching("pictures/events/gain_check.png", recursive=False): #Pass to gain an EGO Gift
+                common.wait_skip("pictures/events/proceed.png")
+                skill_check()
 
-        elif common.click_matching("pictures/events/gain_gift.png", recursive=False): #Proceed to gain
-            common.wait_skip("pictures/events/proceed.png")
-            if common.element_exist("pictures/events/skip.png"):
-                common.click_skip(4)
-                self.event_choice()
+            elif common.click_matching("pictures/events/gain_check_o.png", recursive=False): #Pass to gain an EGO Gift
+                common.wait_skip("pictures/events/proceed.png")
+                skill_check()
 
-        elif common.element_exist("pictures/events/select_right.png"): #select the right answer
-            if common.click_matching("pictures/events/helterfly.png", recursive=False):
+            elif common.click_matching("pictures/events/gain_gift.png", recursive=False): #Proceed to gain
+                common.wait_skip("pictures/events/proceed.png")
+                if common.element_exist("pictures/events/skip.png"):
+                    common.click_skip(4)
+                    self.event_choice()
+
+            elif common.element_exist("pictures/events/select_right.png"): #select the right answer
+                if common.click_matching("pictures/events/helterfly.png", recursive=False):
+                    pass
+                elif common.click_matching("pictures/events/midwinter.png", recursive=False):
+                    pass
+                common.mouse_move_click(*common.scale_coordinates_1440p(1193, 623))
+                while(True):
+                    common.mouse_click()
+                    if common.click_matching("pictures/events/proceed.png", recursive=False):
+                        break
+                    if common.click_matching("pictures/events/continue.png", recursive=False):
+                        break
+                common.sleep(1)
+                if common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
+                    #common.click_matching("pictures/general/confirm_b.png")
+                    common.key_press("enter")
+
+            elif common.click_matching("pictures/events/win_battle.png", recursive=False): #Win battle to gain
+                common.wait_skip("pictures/events/commence_battle.png")
+            
+            elif common.element_exist("pictures/events/skill_check.png"): #Skill Check
+                skill_check()
+
+            elif common.click_matching("pictures/mirror/events/kqe.png", recursive=False): #KQE Event
+                common.wait_skip("pictures/events/continue.png")
+                if common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
+                    common.click_matching("pictures/general/confirm_b.png")
+            
+            elif common.click_matching("pictures/CustomAdded1080p/mirror/events/slot_machine.png", recursive=False): #Slot machine event
                 pass
-            elif common.click_matching("pictures/events/midwinter.png", recursive=False):
+
+            elif common.click_matching("pictures/events/proceed.png", recursive=False):# in the event of it getting stuck
                 pass
-            common.mouse_move_click(*common.scale_coordinates_1440p(1193, 623))
-            while(True):
-                common.mouse_click()
-                if common.click_matching("pictures/events/proceed.png", recursive=False):
-                    break
-                if common.click_matching("pictures/events/continue.png", recursive=False):
-                    break
-            common.sleep(1)
-            if common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
-                #common.click_matching("pictures/general/confirm_b.png")
-                common.key_press("enter")
 
-        elif common.click_matching("pictures/events/win_battle.png", recursive=False): #Win battle to gain
-            common.wait_skip("pictures/events/commence_battle.png")
-        
-        elif common.element_exist("pictures/events/skill_check.png"): #Skill Check
-            skill_check()
+            elif common.click_matching("pictures/events/continue.png", recursive=False):
+                pass
+            
+            elif not common.element_exist("pictures/CustomAdded1080p/mirror/general/in_some_MD_UI.png"):
+                if not battle_check():
+                    battle()
+                    check_loading()
 
-        elif common.click_matching("pictures/mirror/events/kqe.png", recursive=False): #KQE Event
-            common.wait_skip("pictures/events/continue.png")
-            if common.element_exist("pictures/mirror/general/ego_gift_get.png"): #handles the ego gift get
-                common.click_matching("pictures/general/confirm_b.png")
-        
-        elif common.click_matching("pictures/CustomAdded1080p/mirror/events/slot_machine.png", recursive=False): #Slot machine event
-            pass
-
-        elif common.click_matching("pictures/events/proceed.png", recursive=False):# in the event of it getting stuck
-            pass
-
-        elif common.click_matching("pictures/events/continue.png", recursive=False):
-            pass
-
-        elif not battle_check():
-            battle()
-            check_loading()
+            else:
+                common.unrecognized_object_screenshot()
+                self.logger.warning(f"could not detect any specific event, picking randomly, please report this in discord in the unrecognized-objects channel, attach the image which are in unrecognized_objects folder")
+                common.mouse_move_click(x,y)
 
     def victory(self):
         """Handle victory screen and claim rewards"""

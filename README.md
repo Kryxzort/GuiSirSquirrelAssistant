@@ -1,3 +1,5 @@
+# ARCHIVED
+# Not maintaining anymore due to recent anti-macro precautions by project moon.
 this is a fork of sirsquirrelassistant's macro but now with a gui + threads and exp automation + config + settings + a whole lotta shit!! (took deadass prob like 60 hours in total till now) clap plz, ~~this will probably be updatedtime to time~~ sorry gng im too busy, no updates :< for now.....
 
 [Join my Discord fr](https://discord.gg/vccsv4Q4ta)
